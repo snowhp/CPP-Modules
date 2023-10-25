@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:51:20 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/10/25 12:42:48 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:51:24 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 int	main()
 {
-	Contact contact;
-
 	std::cout << "Welcome to your phonebook!\n";
 	//sleep(2);
 	std::system("clear");
 	std::cout << "Loading...\n";
 	//sleep(1);
 	std::system("clear");
+	PhoneBook book;
+
 	while(1)
 	{
 		std::cout << "Please input...\n";
@@ -31,6 +31,8 @@ int	main()
 		std::system("clear");
 		if (input == "ADD")
 		{
+			Contact contact;
+
 			std::string First;
 			std::string Last;
 			std::string Nick;

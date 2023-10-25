@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:45:20 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/10/25 12:35:11 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:49:38 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ class PhoneBook
 	private:
 		Contact contacts[8];
 	public:
+		void SetContactId(int id, std::string First, std::string Last, std::string Nick, std::string Phone, std::string Secret)
+		{
+			contacts[id].SetContact(First, Last, Nick, Phone, Secret);
+		}
 
 };
 
