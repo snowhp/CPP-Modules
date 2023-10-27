@@ -6,6 +6,10 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
 
+ifdef DEBUG
+	CXXFLAGS += -g -fsanitize=address
+endif
+
 all: $(NAME)
 
 $(NAME): $(OBJS)

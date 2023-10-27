@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:51:20 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/10/25 12:51:24 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/10/27 12:21:32 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,28 @@ int	main()
 	std::cout << "Loading...\n";
 	//sleep(1);
 	std::system("clear");
-	PhoneBook book;
+	PhoneBook Book;
+	static int id = 0;
 
 	while(1)
 	{
-		std::cout << "Please input...\n";
+		//std::cout << "Please input...\n";
 		std::string input;
 		std::cin >> input;
-		std::system("clear");
+		//std::system("clear");
 		if (input == "ADD")
 		{
-			Contact contact;
+
+			while (Book.isContactUsed(id))
+			{
+				id++;
+				if (id == 8)
+				{
+					id = 0;
+				}
+			}
+
+			Contact Contact;
 
 			std::string First;
 			std::string Last;
@@ -40,7 +51,6 @@ int	main()
 			std::string Secret;
 
 			std::system("clear");
-
 			std::cout << "First Name: ";
 			std::cin >> First;
 			if (First.empty())
@@ -66,13 +76,14 @@ int	main()
 			if (Secret.empty())
 				std::cout << "You can't have empty fields. Try again...\n";
 
-			contact.SetContact(First, Last, Nick, Phone, Secret);
+			Book.SetContactId(id, First, Last, Nick, Phone, Secret);
 			std::cout << "\nPrinting info: ";
-			contact.PrintContact();
+			Book.IdPrintContact(id);
 		}
-		else if (input == "SEARCH")
+		else if (input == "S")
 		{
-
+			std::system("clear");
+			Book.ListPhoneBook();
 		}
 		else if (input == "EXIT")
 		{
