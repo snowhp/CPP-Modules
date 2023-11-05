@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:51:20 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/10/27 12:21:32 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:15:26 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main()
 			while (Book.isContactUsed(id))
 			{
 				id++;
-				if (id == 8)
+				if (id == MaxId)
 				{
 					id = 0;
 				}
