@@ -15,6 +15,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
+debug:
+	$(CXX) -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address  -o $(NAME) $(SRCS)
+
 %.o: %.c
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
