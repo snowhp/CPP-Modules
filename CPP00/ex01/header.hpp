@@ -125,8 +125,8 @@ private:
     void PrintMiddle() {
 	    for (
 			int id = 0;
-			id <= MaxId; id++) {
-		    if (Contacts[id].GetFirstName().empty())
+			id < MaxId; id++) {
+		    if (!Contacts[id].ContactExists())
 			    break;
 		    PrintListForm(id);
 	    }
@@ -143,6 +143,7 @@ private:
     std::string GetNickname(int id) {
 	    return (Contacts[id].GetNickname());
     }
+
 
 public:
     void
@@ -165,18 +166,6 @@ public:
 	    }
 	    PrintHeader();
 	    PrintMiddle();
-	    std::cout << "\nType id for full informations: ";
-	    std::string input;
-	    std::cin >> input;
-	    const char *input2 = input.c_str();
-	    char *input3;
-	    int id = atoi(input2);
-	    strtol(input2, &input3, 10);
-	    if (*input3 == 0 || id < 0 || id > 10 || !Contacts[id].ContactExists()) {
-		    std::cout << "Invalid ID";
-		    return;
-	    }
-	    std::cout << "ID is:" << id;
     }
 };
 
