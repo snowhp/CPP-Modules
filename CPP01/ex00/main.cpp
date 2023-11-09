@@ -6,5 +6,7 @@
 
 int	main()
 {
-
+	Zombie Zombie1("Manuel");
+	Zombie1.announce();
+	randomChump("me mario");
 }

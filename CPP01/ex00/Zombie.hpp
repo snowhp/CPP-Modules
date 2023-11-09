@@ -7,8 +7,13 @@ private:
     std::string name;
 public:
     void announce(void);
-    Zombie(std::string Name);
+    Zombie(const std::string& inputname);
+    ~Zombie();
+
 };
+
+void randomChump( std::string name );
+Zombie* newZombie( std::string name );
 
 
 #endif //EX00_ZOMBIE_HPP
