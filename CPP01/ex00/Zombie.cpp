@@ -12,5 +12,5 @@ Zombie::Zombie(const std::string& inputname)
 
 Zombie::~Zombie()
 {
-	std::cout << name;
+	std::cout << name << '\n';
 }
