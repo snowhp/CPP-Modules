@@ -1,5 +1,13 @@
-//
-// Created by user on 10-11-2023.
-//
-
 #include "Weapon.hpp"
+
+Weapon::Weapon(const std::string &typeName) {
+	type = typeName;
+}
+
+std::string Weapon::getType() {
+	return type;
+}
+
+void Weapon::setType(const std::string &typeName) {
+	type = typeName;
+}

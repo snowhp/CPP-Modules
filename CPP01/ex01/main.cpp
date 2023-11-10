@@ -6,7 +6,7 @@
 
 int	main()
 {
-	Zombie* Zombie1 = zombieHorde(5, "Manuel");
+	Zombie* Zombie1 = zombieHorde(5, "Zombiee");
 	Zombie1[0].announce();
 	Zombie1[1].announce();
 	Zombie1[2].announce();
