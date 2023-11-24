@@ -1,3 +1,5 @@
+// Created by tde-sous for 42 porto
+
 #include "Contact.hpp"
 
 
