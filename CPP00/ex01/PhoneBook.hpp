@@ -12,15 +12,6 @@ class PhoneBook {
 private:
     Contact Contacts[MaxId];
 
-    void PrintHeader();
-
-    void PrintListForm(int id);
-
-    void PrintBottom();
-
-    void PrintMiddle();
-
-
     std::string GetFirstName(int id);
 
     std::string GetLastName(int id);

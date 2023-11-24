@@ -1,71 +1,5 @@
 #include "PhoneBook.hpp"
 
-void PhoneBook::PrintHeader() {
-	for (int i = 0; i < (MaxLength * 4 + 5); i++)
-		std::cout << "_";
-	std::cout << "\n";
-	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
-}
-
-void PhoneBook::PrintListForm(int id) {
-	std::cout << "|";
-	std::stringstream ss;
-	ss << id;
-	std::string IdText = ss.str();
-
-	for (int i = (MaxLength - IdText.size()); i > 0; i--)
-		std::cout << ' ';
-	std::cout << id;
-	std::cout << "|";
-	std::string FirstName = Contacts[id].GetFirstName();
-	if (FirstName.size() > MaxLength) {
-		FirstName.resize(MaxLength);
-		FirstName[MaxLength - 1] = '.';
-	} else {
-		for (int i = (MaxLength - FirstName.size()); i > 0; i--)
-			std::cout << ' ';
-	}
-	std::cout << FirstName;
-	std::cout << "|";
-
-	std::string LastName = Contacts[id].GetLastName();
-	if (LastName.size() > MaxLength) {
-		LastName.resize(MaxLength);
-		LastName[MaxLength - 1] = '.';
-	} else {
-		for (int i = (MaxLength - LastName.size()); i > 0; i--)
-			std::cout << ' ';
-	}
-	std::cout << LastName;
-	std::cout << "|";
-
-	std::string Nickname = Contacts[id].GetNickname();
-	if (Nickname.size() > MaxLength) {
-		Nickname.resize(MaxLength);
-		Nickname[MaxLength - 1] = '.';
-	} else {
-		for (int i = (MaxLength - Nickname.size()); i > 0; i--)
-			std::cout << ' ';
-	}
-	std::cout << Nickname;
-	std::cout << "|\n";
-}
-
-void PhoneBook::PrintBottom() {
-	for (int i = 0; i < 45; i++)
-		std::cout << "";
-}
-
-void PhoneBook::PrintMiddle() {
-	for (
-		  int id = 0;
-		  id < MaxId; id++) {
-		if (!Contacts[id].ContactExists())
-			break;
-		PrintListForm(id);
-	}
-}
-
 std::string PhoneBook::GetFirstName(int id) {
 	return (Contacts[id].GetFirstName());
 }
@@ -92,11 +26,34 @@ int PhoneBook::isContactUsed(int id) {
 	return (Contacts[id].ContactExists());
 }
 
-void PhoneBook::ListPhoneBook() {
-	if (!Contacts[0].ContactExists()) {
-		std::cout << "No contacts on the list";
-		return;
+void TruncateAndReplace(std::string &str) {
+	if (str.length() > MaxLength) {
+		str.resize(MaxLength - 1);
+		str += ".";
 	}
-	PrintHeader();
-	PrintMiddle();
+}
+
+void PhoneBook::ListPhoneBook() {
+	std::string separator = "+----------+----------+----------+----------+\n";
+	std::cout << separator
+		    << std::right
+		    << "|" << std::setw(10) << "Index"
+		    << "|" << std::setw(10) << "First Name"
+		    << "|" << std::setw(10) << "Last Name"
+		    << "|" << std::setw(10) << "Nick Name"
+		    << "|\n" << separator;
+	for (int id = 0; Contacts[id].ContactExists(); id++) {
+		std::string firstname = GetFirstName(id);
+		TruncateAndReplace(firstname);
+		std::string lastname = GetLastName(id);
+		TruncateAndReplace(lastname);
+		std::string nickname = GetNickname(id);
+		TruncateAndReplace(nickname);
+		std::cout << "|" << std::setw(10) << id
+			    << "|" << std::setw(10) << firstname
+			    << "|" << std::setw(10) << lastname
+			    << "|" << std::setw(10) << nickname
+			    << "|" << std::endl;
+	}
+	std::cout << separator;
 }
