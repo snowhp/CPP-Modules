@@ -66,7 +66,7 @@ int main() {
 				continue;
 			}
 			Book.SetContactId(id, First, Last, Nick, Phone, Secret);
-		} else if (input == "S") {
+		} else if (input == "SEARCH") {
 			std::system("clear");
 			Book.ListPhoneBook();
 			std::cout << "\nType id for full informations: ";
