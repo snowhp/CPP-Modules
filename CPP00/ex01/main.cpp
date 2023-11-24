@@ -35,35 +35,46 @@ int main() {
 
 			std::system("clear");
 			std::cout << "First Name: ";
-			std::cin >> First;
-			if (First.empty()) {
-				std::cout << "You can't have empty fields. Try again...\n";
-				continue;
+			std::cin.ignore();
+			while (First.empty()) {
+				std::getline(std::cin, First);
+				if (First.empty()) {
+					std::cout << "You can't have an empty first name. Try again...\n";
+					std::cout << "Please input your first name: ";
+				}
 			}
 			std::cout << "\nLast Name: ";
-			std::cin >> Last;
-			if (Last.empty()) {
-				std::cout << "You can't have empty fields. Try again...\n";
-				continue;
+			while (Last.empty()) {
+				std::getline(std::cin, Last);
+				if (Last.empty()) {
+					std::cout << "You can't have an empty last name. Try again...\n";
+					std::cout << "Please input your last name: ";
+				}
 			}
 			std::cout << "\nNick Name: ";
-			std::cin >> Nick;
-			if (Nick.empty()) {
-				std::cout << "You can't have empty fields. Try again...\n";
-				continue;
+			while (Nick.empty()) {
+				std::getline(std::cin, Nick);
+				if (Nick.empty()) {
+					std::cout << "You can't have an empty nick name. Try again...\n";
+					std::cout << "Please input your nick name: ";
+				}
 			}
 			std::cout << "\nPhone Number: ";
-			std::cin >> Phone;
-			if (Phone.empty()) {
-				std::cout << "You can't have empty fields. Try again...\n";
-				continue;
+			while (Phone.empty()) {
+				std::getline(std::cin, Phone);
+				if (Phone.empty()) {
+					std::cout << "You can't have an empty phone number. Try again...\n";
+					std::cout << "Please input your phone number: ";
+				}
 			}
 
 			std::cout << "\nDarkest Secret: ";
-			std::cin >> Secret;
-			if (Secret.empty()) {
-				std::cout << "You can't have empty fields. Try again...\n";
-				continue;
+			while (Secret.empty()) {
+				std::getline(std::cin, Secret);
+				if (Secret.empty()) {
+					std::cout << "You can't have an empty darkest secret. Try again...\n";
+					std::cout << "Please input your darkest secret: ";
+				}
 			}
 			Book.SetContactId(id, First, Last, Nick, Phone, Secret);
 		} else if (input == "SEARCH") {
