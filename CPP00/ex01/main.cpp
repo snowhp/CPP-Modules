@@ -9,7 +9,6 @@ int main() {
 	sleep(1);
 	std::system("clear");
 	PhoneBook Book;
-	Contact Contact;
 	int id = 0;
 
 	while (1) {
