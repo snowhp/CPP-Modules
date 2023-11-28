@@ -1,7 +1,7 @@
 SRCS = main.cpp Harl.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = replace
+NAME = harlFilter
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
