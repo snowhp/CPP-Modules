@@ -4,11 +4,9 @@
 
 #include "Harl.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-    Harl testclass;
-    testclass.complain("0");
-    testclass.complain("1");
-    testclass.complain("2");
-    testclass.complain("3");
+  Harl test;
+  (void) argc;
+  test.complain(argv[1]);
 }

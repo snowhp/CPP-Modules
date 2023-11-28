@@ -16,7 +16,7 @@ private:
     void warning( void );
     void error( void );
 public:
-    void complain( std::string level );
+    void complain(char *str);
 };
 
 

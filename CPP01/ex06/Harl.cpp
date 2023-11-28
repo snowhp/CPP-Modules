@@ -27,9 +27,29 @@ void Harl::error() {
   std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
-void Harl::complain(std::string level) {
+void Harl::complain(char *str) {
   void (Harl::*func_ptr[4])() = {&Harl::debug, &Harl::info, &Harl::warning,
                                  &Harl::error};
-  int levelInt = atoi(level.c_str());
-  (this->*func_ptr[levelInt])();
+  std::string level(str);
+  std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+  int i;
+
+  for (i = 0; i <= 3; i++)
+    if (level == levels[i])
+      break;
+
+  switch (i) {
+  default:
+    break;
+  case 0:
+    (this->*func_ptr[0])();
+  case 1:
+    (this->*func_ptr[1])();
+  case 2:
+    (this->*func_ptr[2])();
+  case 3:
+    (this->*func_ptr[3])();
+    break;
+
+  }
 }
