@@ -4,8 +4,7 @@
 
 #include "Harl.hpp"
 
-int main()
-{
+int main() {
     Harl testclass;
     testclass.complain("0");
     testclass.complain("1");

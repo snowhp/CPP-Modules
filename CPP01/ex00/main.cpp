@@ -4,10 +4,9 @@
 
 #include "Zombie.hpp"
 
-int	main()
-{
-	Zombie* Zombie1 = newZombie("Zombienn");
-	Zombie1->announce();
-	randomChump("me mario");
-	delete Zombie1;
+int main() {
+    Zombie *Zombie1 = newZombie("Zombienn");
+    Zombie1->announce();
+    randomChump("me mario");
+    delete Zombie1;
 }

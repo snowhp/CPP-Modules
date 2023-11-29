@@ -6,7 +6,7 @@
 #include <fstream>
 #include <string>
 
-std::string replaceAll(const std::string& str, const std::string& from, const std::string& to) {
+std::string replaceAll(const std::string &str, const std::string &from, const std::string &to) {
     std::string result;
     size_t startPos = 0;
     size_t foundPos;
@@ -21,10 +21,9 @@ std::string replaceAll(const std::string& str, const std::string& from, const st
     return result;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     if (argc != 4)
-        return(std::cout << "Not enough arguments" << std::endl, 1);
+        return (std::cout << "Not enough arguments" << std::endl, 1);
     std::fstream file;
     file.open(argv[1], std::ios::in);
     if (file.fail())
@@ -35,9 +34,8 @@ int main(int argc, char **argv)
         file_replace_name += ".replace";
         file_replace.open(file_replace_name.c_str(), std::ios::out);
         std::string line;
-        if (file.is_open())
-        {
-            while(getline(file, line))
+        if (file.is_open()) {
+            while (getline(file, line))
                 file_replace << replaceAll(line, argv[2], argv[3]) << std::endl;
         }
         file_replace.close();

@@ -9,7 +9,7 @@
 
 class HumanA {
 private:
-    Weapon& _weapon;
+    Weapon &_weapon;
     std::string _name;
 
 public:

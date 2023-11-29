@@ -12,7 +12,9 @@ private:
     std::string _name;
 public:
     explicit HumanB(std::string TypeName);
+
     void setWeapon(Weapon &TypeClub);
+
     void attack();
 };
 
