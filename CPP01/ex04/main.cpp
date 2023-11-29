@@ -30,7 +30,6 @@ int main(int argc, char **argv)
     if (file.fail())
         return (std::cout << "File can't be opened!" << std::endl, 1);
     else {
-        std::cout << "File opened!" << std::endl;
         std::fstream file_replace;
         std::string file_replace_name = argv[1];
         file_replace_name += ".replace";
