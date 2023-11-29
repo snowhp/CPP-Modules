@@ -6,25 +6,25 @@
 #include <string>
 
 void Harl::debug() {
-  std::cout << "I love having extra bacon for my "
+  std::cout << "[ DEBUG ]\n" << "I love having extra bacon for my "
                "7XL-double-cheese-triple-pickle-special-ketchup burger. I "
-               "really do!\n";
+               "really do!\n\n";
 }
 
 void Harl::info() {
-  std::cout << "I cannot believe adding extra bacon costs more money. You "
+  std::cout << "[ INFO ]\n" << "I cannot believe adding extra bacon costs more money. You "
                "didn’t put enough bacon in my burger! If you did, I wouldn’t "
-               "be asking for more!\n";
+               "be asking for more!\n\n";
 }
 
 void Harl::warning() {
-  std::cout << "I think I deserve to have some extra bacon for free. I’ve been "
+  std::cout << "[ WARNING ]\n" << "I think I deserve to have some extra bacon for free. I’ve been "
                "coming for years whereas you started working here since last "
-               "month.\n";
+               "month.\n\n";
 }
 
 void Harl::error() {
-  std::cout << "This is unacceptable! I want to speak to the manager now.\n";
+  std::cout << "[ ERROR ]\n" << "This is unacceptable! I want to speak to the manager now.\n\n";
 }
 
 void Harl::complain(char *str) {
@@ -35,11 +35,19 @@ void Harl::complain(char *str) {
   int i;
 
   for (i = 0; i <= 3; i++)
+  {
+    if (i == 3 && level != levels[i])
+    { 
+      i = -1;
+      break;
+    }
     if (level == levels[i])
       break;
+  }
 
   switch (i) {
   default:
+    std::cout << "[ Probably complaining about insignificant problems ]\n";
     break;
   case 0:
     (this->*func_ptr[0])();
