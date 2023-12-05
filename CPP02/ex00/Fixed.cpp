@@ -19,3 +19,11 @@ Fixed &Fixed::operator=(const Fixed &other) {
 Fixed::~Fixed() {
     // Destructor implementation
 }
+
+int Fixed::getRawBits(void) const {
+    return (fpn);
+}
+
+void Fixed::setRawBits(const int raw) {
+    fpn = raw;
+}
