@@ -3,10 +3,10 @@
 #include "Fixed.hpp"
 
 
-Fixed::Fixed() : fpn(0){
+Fixed::Fixed() : fpn(0) {
 }
 
-Fixed::Fixed(const Fixed &other) : fpn(other.fpn){
+Fixed::Fixed(const Fixed &other) : fpn(other.fpn) {
     // Copy constructor implementation
 }
 
