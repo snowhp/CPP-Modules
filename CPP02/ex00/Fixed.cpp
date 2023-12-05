@@ -12,7 +12,7 @@ Fixed::Fixed(const Fixed &other) : fpn(other.fpn){
 
 Fixed &Fixed::operator=(const Fixed &other) {
     // Copy assignment operator implementation
-    fpn = this->fpn;
+    fpn = other.fpn;
     return *this;
 }
 

@@ -7,7 +7,7 @@
 class Fixed {
 private:
     int fpn;
-    static const integer fractional = 8;
+    static const int fractional = 8;
 public:
     Fixed(); // Default Constructor
     Fixed(const Fixed &other); // Copy Constructor
