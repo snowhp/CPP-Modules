@@ -13,8 +13,9 @@ public:
     Fixed(const Fixed &other); // Copy Constructor
     Fixed &operator=(const Fixed &other); // Copy Assignment Operator
     ~Fixed(); // Destructor
-    int getRawBits( void ) const;
-    void setRawBits( int const raw );
+    int getRawBits(void) const;
+
+    void setRawBits(int const raw);
 };
 
 

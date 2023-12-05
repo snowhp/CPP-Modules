@@ -1,5 +1,6 @@
 // Created by tde-sous on 11/29/23.
 #include <iostream>
+#include "Fixed.hpp"
 
 int main(void) {
     Fixed a;
