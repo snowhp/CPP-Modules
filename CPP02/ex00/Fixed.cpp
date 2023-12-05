@@ -3,16 +3,16 @@
 #include "Fixed.hpp"
 
 
-Fixed::Fixed() {
-    // Default constructor implementation
+Fixed::Fixed() : fpn(0){
 }
 
-Fixed::Fixed(const Fixed &other) {
+Fixed::Fixed(const Fixed &other) : fpn(other.fpn){
     // Copy constructor implementation
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
     // Copy assignment operator implementation
+    fpn = this->fpn;
     return *this;
 }
 
