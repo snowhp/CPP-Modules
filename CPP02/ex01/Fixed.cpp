@@ -3,6 +3,14 @@
 #include "Fixed.hpp"
 #include <iostream>
 
+Fixed::Fixed(float nb_float) : fpn(nb_float * (1 << fractional)) {
+    std::cout << "Default constructor called\n";
+}
+
+Fixed::Fixed(int nb_integer) : fpn(nb_integer * (1 << Fixed::fractional)) {
+    std::cout << "Default constructor called\n";
+}
+
 Fixed::Fixed() : fpn(0) {
     std::cout << "Default constructor called\n";
 }
@@ -31,4 +39,12 @@ int Fixed::getRawBits(void) const {
 
 void Fixed::setRawBits(const int raw) {
     fpn = raw;
+}
+
+float Fixed::toFloat(void) const {
+    return ((float) fpn * (1 << fractional));
+}
+
+int Fixed::toInt(void) const {
+    return ((int) fpn * (1 << fractional));
 }
