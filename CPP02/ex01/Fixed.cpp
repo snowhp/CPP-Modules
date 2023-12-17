@@ -42,9 +42,9 @@ void Fixed::setRawBits(const int raw) {
 }
 
 float Fixed::toFloat(void) const {
-    return ((float) fpn * (1 << fractional));
+    return (float(fpn) / float(1 << fractional));
 }
 
 int Fixed::toInt(void) const {
-    return ((int) fpn * (1 << fractional));
+    return (int(fpn) / int(1 << fractional));
 }
