@@ -45,6 +45,30 @@ float Fixed::toFloat(void) const {
 
 int Fixed::toInt(void) const { return (int(fpn) / int(1 << fractional)); }
 
+bool Fixed::operator>(const Fixed &other) {
+  return (this->toFloat() > other.toFloat());
+}
+
+bool Fixed::operator<(const Fixed &other) {
+  return (this->toFloat() < other.toFloat());
+}
+
+bool Fixed::operator>=(const Fixed &other) {
+  return (this->toFloat() >= other.toFloat());
+}
+
+bool Fixed::operator<=(const Fixed &other) {
+  return (this->toFloat() <= other.toFloat());
+}
+
+bool Fixed::operator==(const Fixed &other) {
+  return (this->toFloat() == other.toFloat());
+}
+
+bool Fixed::operator!=(const Fixed &other) {
+  return (this->toFloat() != other.toFloat());
+}
+
 std::ostream &operator<<(std::ostream &out, const Fixed &right) {
   out << right.toFloat();
   return (out);
