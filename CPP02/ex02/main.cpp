@@ -16,7 +16,10 @@ int main(void) {
     Fixed sum = a + b;
     std::cout << "A + B is equal to " << sum.toFloat() << std::endl;
 
-    Fixed subtraction = a - b;
-    std::cout << "A - B is minus to " << subtraction.toFloat() << std::endl;
+    Fixed sub = a - b;
+    std::cout << "A - B is equal to " << sub.toFloat() << std::endl;
+
+    Fixed mul = a * b;
+    std::cout << "A * B is equal to " << mul.toFloat() << std::endl;
     return 0;
 }
