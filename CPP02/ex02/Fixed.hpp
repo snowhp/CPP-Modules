@@ -54,6 +54,10 @@ public:
     Fixed &operator--();
 
     Fixed operator--(int);
+
+    static Fixed min(Fixed &Fixed1, Fixed &Fixed2);
+
+    static Fixed min(const Fixed &Fixed1, const Fixed &Fixed2);
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &right);

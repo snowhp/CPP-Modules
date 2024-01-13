@@ -40,5 +40,8 @@ int main(void) {
     std::cout << "Old value of A is " << a << ". A on increment is " << a--
               << " A post increment is "
               << a << std::endl;
+
+    std::cout << "The min between A and B is " << Fixed::min(a, b) << std::endl;
+
     return 0;
 }
