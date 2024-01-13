@@ -55,13 +55,13 @@ public:
 
     Fixed operator--(int);
 
-    static Fixed min(Fixed &Fixed1, Fixed &Fixed2);
+    static Fixed &min(Fixed &Fixed1, Fixed &Fixed2);
 
-    static Fixed min(const Fixed &Fixed1, const Fixed &Fixed2);
+    static const Fixed &min(const Fixed &Fixed1, const Fixed &Fixed2);
 
-    static Fixed max(Fixed &Fixed1, Fixed &Fixed2);
+    static Fixed &max(Fixed &Fixed1, Fixed &Fixed2);
 
-    static Fixed max(const Fixed &Fixed1, const Fixed &Fixed2);
+    static const Fixed &max(const Fixed &Fixed1, const Fixed &Fixed2);
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &right);

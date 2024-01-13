@@ -43,6 +43,6 @@ int main(void) {
 
     std::cout << "The min between A and B is " << Fixed::min(a, b) << std::endl;
 
-    std::cout << "The min between A and B is " << Fixed::max(a, b) << std::endl;
+    std::cout << "The max between A and B is " << Fixed::max(a, b) << std::endl;
     return 0;
 }
