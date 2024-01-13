@@ -44,6 +44,8 @@ public:
     Fixed operator-(const Fixed &other) const;
 
     Fixed operator*(const Fixed &other) const;
+
+    Fixed operator/(const Fixed &other) const;
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &right);

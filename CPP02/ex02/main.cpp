@@ -21,5 +21,8 @@ int main(void) {
 
     Fixed mul = a * b;
     std::cout << "A * B is equal to " << mul.toFloat() << std::endl;
+
+    Fixed div = a / b;
+    std::cout << "A / B is equal to " << div.toFloat() << std::endl;
     return 0;
 }

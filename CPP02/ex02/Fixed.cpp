@@ -81,6 +81,10 @@ Fixed Fixed::operator*(const Fixed &other) const {
     return this->toFloat() * other.toFloat();
 }
 
+Fixed Fixed::operator/(const Fixed &other) const {
+    return this->toFloat() / other.toFloat();
+}
+
 std::ostream &operator<<(std::ostream &out, const Fixed &right) {
     out << right.toFloat();
     return (out);
