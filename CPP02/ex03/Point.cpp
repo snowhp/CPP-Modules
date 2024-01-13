@@ -2,8 +2,11 @@
 #include "Point.hpp"
 
 
-Point::Point() {
+Point::Point() : x(Fixed(0)), y(Fixed(0)){
     // Default constructor implementation
+}
+
+Point::Point(Fixed x, Fixed y) : x(x), y(y) {
 }
 
 Point::Point(const Point &other) {
