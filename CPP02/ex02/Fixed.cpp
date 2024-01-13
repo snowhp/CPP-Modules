@@ -91,7 +91,7 @@ Fixed &Fixed::operator++() {
 }
 
 Fixed Fixed::operator++(int) {
-    Fixed duplicated(this->toFloat());
+    Fixed duplicated(*this);
     operator++();
     return duplicated;
 }
@@ -102,7 +102,7 @@ Fixed &Fixed::operator--() {
 }
 
 Fixed Fixed::operator--(int) {
-    Fixed duplicated(this->toFloat());
+    Fixed duplicated(*this);
     operator--();
     return duplicated;
 }
