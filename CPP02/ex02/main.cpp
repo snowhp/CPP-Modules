@@ -2,23 +2,21 @@
 #include "Fixed.hpp"
 
 int main(void) {
-  Fixed a(3);
-  Fixed const b(2);
-  std::cout << "A(" << a.toFloat() << ") is greater than B(" << b.toFloat() << "): " << (a > b) << std::endl;
-  std::cout << "A(" << a.toFloat() << ") is less than B(" << b.toFloat() << "): " << (a < b) << std::endl;
-  std::cout << "A(" << a.toFloat() << ") is greater or equal than B(" << b.toFloat() << "): " << (a >= b) << std::endl;
-  std::cout << "A(" << a.toFloat() << ") is less than or equal to B(" << b.toFloat() << "): " << (a <= b) << std::endl;
-  std::cout << "A(" << a.toFloat() << ") is equal to B(" << b.toFloat() << "): " << (a == b) << std::endl;
-  std::cout << "A(" << a.toFloat() << ") is different than B(" << b.toFloat() << "): " << (a != b) << std::endl;
+    Fixed a(3);
+    Fixed const b(2);
+    std::cout << "A(" << a.toFloat() << ") is greater than B(" << b.toFloat() << "): " << (a > b) << std::endl;
+    std::cout << "A(" << a.toFloat() << ") is less than B(" << b.toFloat() << "): " << (a < b) << std::endl;
+    std::cout << "A(" << a.toFloat() << ") is greater or equal than B(" << b.toFloat() << "): " << (a >= b)
+              << std::endl;
+    std::cout << "A(" << a.toFloat() << ") is less than or equal to B(" << b.toFloat() << "): " << (a <= b)
+              << std::endl;
+    std::cout << "A(" << a.toFloat() << ") is equal to B(" << b.toFloat() << "): " << (a == b) << std::endl;
+    std::cout << "A(" << a.toFloat() << ") is different than B(" << b.toFloat() << "): " << (a != b) << std::endl;
 
-  Fixed sum = a + b;
-  std::cout << sum.toFloat() << std::endl;
-  /*std::cout << a << std::endl;
-  std::cout << ++a << std::endl;
-  std::cout << a << std::endl;
-  std::cout << a++ << std::endl;
-  std::cout << a << std::endl;
-  std::cout << b << std::endl;
-  std::cout << Fixed::max(a, b) << std::endl;*/
-  return 0;
+    Fixed sum = a + b;
+    std::cout << "A + B is equal to " << sum.toFloat() << std::endl;
+
+    Fixed subtraction = a - b;
+    std::cout << "A - B is minus to " << subtraction.toFloat() << std::endl;
+    return 0;
 }
