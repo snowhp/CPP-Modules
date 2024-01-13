@@ -25,11 +25,19 @@ int main(void) {
     Fixed div = a / b;
     std::cout << "A / B is equal to " << div.toFloat() << std::endl;
 
+    std::cout << "Old value of A is " << a << ". A on increment is " << ++a
+              << " A post increment is "
+              << a << std::endl;
+
     std::cout << "Old value of A is " << a << ". A on increment is " << a++
               << " A post increment is "
               << a << std::endl;
 
-    std::cout << "Old value of A is " << a << ". A on increment is " << ++a
+    std::cout << "Old value of A is " << a << ". A on increment is " << --a
+              << " A post increment is "
+              << a << std::endl;
+
+    std::cout << "Old value of A is " << a << ". A on increment is " << a--
               << " A post increment is "
               << a << std::endl;
     return 0;
