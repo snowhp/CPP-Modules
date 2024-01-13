@@ -24,5 +24,10 @@ int main(void) {
 
     Fixed div = a / b;
     std::cout << "A / B is equal to " << div.toFloat() << std::endl;
+
+    std::cout << "Old value of A is " << a.toFloat() << ". A on increment is " << a++.toFloat()
+              << " A post increment is "
+              << a.toFloat() << std::endl;
+
     return 0;
 }

@@ -39,11 +39,11 @@ int Fixed::getRawBits(void) const {
 
 void Fixed::setRawBits(const int raw) { fpn = raw; }
 
-float Fixed::toFloat(void) const {
+float Fixed::toFloat() const {
     return (float(fpn) / float(1 << fractional));
 }
 
-int Fixed::toInt(void) const { return (int(fpn) / int(1 << fractional)); }
+int Fixed::toInt() const { return (int(fpn) / int(1 << fractional)); }
 
 bool Fixed::operator>(const Fixed &other) const {
     return (this->toFloat() > other.toFloat());
@@ -83,6 +83,12 @@ Fixed Fixed::operator*(const Fixed &other) const {
 
 Fixed Fixed::operator/(const Fixed &other) const {
     return this->toFloat() / other.toFloat();
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed duplicated(this->toFloat());
+    this->fpn += 1;
+    return duplicated;
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &right) {
