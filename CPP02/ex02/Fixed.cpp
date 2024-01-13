@@ -85,9 +85,14 @@ Fixed Fixed::operator/(const Fixed &other) const {
     return this->toFloat() / other.toFloat();
 }
 
+Fixed & Fixed::operator++() {
+    this->fpn++;
+    return *this;
+}
+
 Fixed Fixed::operator++(int) {
     Fixed duplicated(this->toFloat());
-    this->fpn += 1;
+    operator++();
     return duplicated;
 }
 
