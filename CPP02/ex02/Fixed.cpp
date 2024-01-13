@@ -4,72 +4,76 @@
 #include <iostream>
 
 Fixed::Fixed(float nb_float)
-    : fpn(nb_float * float(1 << fractional) + (nb_float >= 0 ? 0.5 : -0.5)) {
-  std::cout << "Float constructor called\n";
+        : fpn(nb_float * float(1 << fractional) + (nb_float >= 0 ? 0.5 : -0.5)) {
+    std::cout << "Float constructor called\n";
 }
 
 Fixed::Fixed(int nb_integer)
-    : fpn(nb_integer * int(1 << fractional) + (nb_integer >= 0 ? 0.5 : -0.5)) {
-  std::cout << "Int constructor called\n";
+        : fpn(nb_integer * int(1 << fractional) + (nb_integer >= 0 ? 0.5 : -0.5)) {
+    std::cout << "Int constructor called\n";
 }
 
 Fixed::Fixed() : fpn(0) { std::cout << "Default constructor called\n"; }
 
 Fixed::Fixed(const Fixed &other) : fpn(other.fpn) {
-  // Copy constructor implementation
-  std::cout << "Copy constructor called\n";
+    // Copy constructor implementation
+    std::cout << "Copy constructor called\n";
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
-  // Copy assignment operator implementation
-  fpn = other.fpn;
-  std::cout << "Copy assignment operator called\n";
-  return *this;
+    // Copy assignment operator implementation
+    fpn = other.fpn;
+    std::cout << "Copy assignment operator called\n";
+    return *this;
 }
 
 Fixed::~Fixed() {
-  std::cout << "Destructor called\n";
-  // Destructor implementation
+    std::cout << "Destructor called\n";
+    // Destructor implementation
 }
 
 int Fixed::getRawBits(void) const {
-  std::cout << "getRawBits member function called\n";
-  return (fpn);
+    std::cout << "getRawBits member function called\n";
+    return (fpn);
 }
 
 void Fixed::setRawBits(const int raw) { fpn = raw; }
 
 float Fixed::toFloat(void) const {
-  return (float(fpn) / float(1 << fractional));
+    return (float(fpn) / float(1 << fractional));
 }
 
 int Fixed::toInt(void) const { return (int(fpn) / int(1 << fractional)); }
 
-bool Fixed::operator>(const Fixed &other) {
-  return (this->toFloat() > other.toFloat());
+bool Fixed::operator>(const Fixed &other) const {
+    return (this->toFloat() > other.toFloat());
 }
 
-bool Fixed::operator<(const Fixed &other) {
-  return (this->toFloat() < other.toFloat());
+bool Fixed::operator<(const Fixed &other) const {
+    return (this->toFloat() < other.toFloat());
 }
 
-bool Fixed::operator>=(const Fixed &other) {
-  return (this->toFloat() >= other.toFloat());
+bool Fixed::operator>=(const Fixed &other) const {
+    return (this->toFloat() >= other.toFloat());
 }
 
-bool Fixed::operator<=(const Fixed &other) {
-  return (this->toFloat() <= other.toFloat());
+bool Fixed::operator<=(const Fixed &other) const {
+    return (this->toFloat() <= other.toFloat());
 }
 
-bool Fixed::operator==(const Fixed &other) {
-  return (this->toFloat() == other.toFloat());
+bool Fixed::operator==(const Fixed &other) const {
+    return (this->toFloat() == other.toFloat());
 }
 
-bool Fixed::operator!=(const Fixed &other) {
-  return (this->toFloat() != other.toFloat());
+bool Fixed::operator!=(const Fixed &other) const {
+    return (this->toFloat() != other.toFloat());
+}
+
+Fixed Fixed::operator+(const Fixed &other) const {
+    return this->toFloat() + other.toFloat();
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &right) {
-  out << right.toFloat();
-  return (out);
+    out << right.toFloat();
+    return (out);
 }

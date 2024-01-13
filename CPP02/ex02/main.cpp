@@ -11,6 +11,8 @@ int main(void) {
   std::cout << "A(" << a.toFloat() << ") is equal to B(" << b.toFloat() << "): " << (a == b) << std::endl;
   std::cout << "A(" << a.toFloat() << ") is different than B(" << b.toFloat() << "): " << (a != b) << std::endl;
 
+  Fixed sum = a + b;
+  std::cout << sum.toFloat() << std::endl;
   /*std::cout << a << std::endl;
   std::cout << ++a << std::endl;
   std::cout << a << std::endl;
