@@ -14,8 +14,10 @@ Fixed::Fixed(const Fixed &other) : fpn(other.fpn) {
 
 Fixed &Fixed::operator=(const Fixed &other) {
     // Copy assignment operator implementation
-    fpn = other.fpn;
     std::cout << "Copy assignment operator called\n";
+    if (this == &other)
+        return *this;
+    this->setRawBits(other.getRawBits());
     return *this;
 }
 
