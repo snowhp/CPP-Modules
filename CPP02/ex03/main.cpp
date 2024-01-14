@@ -13,8 +13,16 @@ void is_point_inside(Point A, Point B, Point C, Point Point) {
 int main(void) {
     Point A(3, 4);
     Point B(8, 4);
-    Point C(3, 0);
-    Point Point(float(4), float(3));
-    is_point_inside(A, B, C, Point);
+    Point C(2, -2);
+    Point D(float(4), float(3)); // Point inside the triangle
+    Point F(float(4), float(4)); // Point in the border of the triangle
+    Point E(float(4.0183), float(3.9)); // Point inside the triangle close to the border
+    Point G(float(4.00389), float(4.4035)); // Point outside the triangle close to the border
+    Point H(float(-4.00389), float(-4.4035)); // Point outside the triangle
+    is_point_inside(A, B, C, D); //Point inside a triangle
+    is_point_inside(A, B, C, F); //Point in the border of a triangle
+    is_point_inside(A, B, C, E); //Point inside the triangle close to the border
+    is_point_inside(A, B, C, G); // Point outside the triangle close to the border
+    is_point_inside(A, B, C, H); // Point outside the triangle
     return 0;
 }
