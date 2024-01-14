@@ -13,8 +13,10 @@ public:
     Point(Fixed x,Fixed y);
 
     Point(const Point &other); // Copy Constructor
-    Point &operator=(const Point &other); // Copy Assignment Operator
+    Point &operator=(Point other); // Copy Assignment Operator
     ~Point(); // Destructor
+    Fixed getX();
+    Fixed getY();
 };
 
 
