@@ -11,8 +11,8 @@ private:
   static const int fractional = 8;
 
 public:
-  Fixed(int nb_integer);
-  Fixed(float nb_float);
+  Fixed(const int nb_integer);
+  Fixed(const float nb_float);
   Fixed();                              // Default Constructor
   Fixed(const Fixed &other);            // Copy Constructor
   Fixed &operator=(const Fixed &other); // Copy Assignment Operator
