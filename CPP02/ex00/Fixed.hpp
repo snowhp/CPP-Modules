@@ -3,20 +3,19 @@
 #ifndef EX00_FIXED_HPP
 #define EX00_FIXED_HPP
 
-
 class Fixed {
 private:
-    int fpn;
-    static const int fractional = 8;
-public:
-    Fixed(); // Default Constructor
-    Fixed(const Fixed &other); // Copy Constructor
-    Fixed &operator=(const Fixed &other); // Copy Assignment Operator
-    ~Fixed(); // Destructor
-    int getRawBits(void) const;
+  int fpn;
+  static const int fractional = 8;
 
-    void setRawBits(int const raw);
+public:
+  Fixed();                              // Default Constructor
+  Fixed(const Fixed &other);            // Copy Constructor
+  Fixed &operator=(const Fixed &other); // Copy Assignment Operator
+  ~Fixed();                             // Destructor
+  int getRawBits(void) const;
+
+  void setRawBits(int const raw);
 };
 
-
-#endif //EX00_FIXED_HPP
+#endif // EX00_FIXED_HPP
