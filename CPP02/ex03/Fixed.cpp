@@ -3,12 +3,12 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-Fixed::Fixed(float nb_float)
+Fixed::Fixed(const float nb_float)
         : fpn(nb_float * float(1 << fractional) + (nb_float >= 0 ? 0.5 : -0.5)) {
     std::cout << "Float constructor called\n";
 }
 
-Fixed::Fixed(int nb_integer)
+Fixed::Fixed(const int nb_integer)
         : fpn(nb_integer * int(1 << fractional) + (nb_integer >= 0 ? 0.5 : -0.5)) {
     std::cout << "Int constructor called\n";
 }
