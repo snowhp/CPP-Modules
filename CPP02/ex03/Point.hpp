@@ -3,6 +3,8 @@
 #define EX03_POINT_HPP
 
 #include "Fixed.hpp"
+#include <cstdlib>
+#include <cmath>
 
 class Point {
 private:
@@ -10,14 +12,16 @@ private:
     Fixed const y;
 public:
     Point(); // Default Constructor
-    Point(Fixed x,Fixed y);
+    Point(Fixed x, Fixed y);
 
     Point(const Point &other); // Copy Constructor
     Point &operator=(Point other); // Copy Assignment Operator
     ~Point(); // Destructor
     Fixed getX();
+
     Fixed getY();
 };
 
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif //EX03_POINT_HPP

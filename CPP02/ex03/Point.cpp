@@ -2,7 +2,7 @@
 #include "Point.hpp"
 
 
-Point::Point() : x(Fixed(0)), y(Fixed(0)){
+Point::Point() : x(Fixed(0)), y(Fixed(0)) {
     std::cout << "Default constructor called\n";
 }
 
@@ -17,8 +17,8 @@ Point::Point(const Point &other) : x(other.x), y(other.y) {
 Point &Point::operator=(Point other) {
     if (this == &other)
         return *this;
-    (Fixed)this->y = other.getY();
-    (Fixed)this->x = other.getX();
+    (Fixed) this->y = other.getY();
+    (Fixed) this->x = other.getX();
     std::cout << "Copy assignment operator called\n";
     return *this;
 }
