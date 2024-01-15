@@ -1,7 +1,7 @@
 // Created by tde-sous on 11/29/23.
 
-#ifndef EX00_FIXED_HPP
-#define EX00_FIXED_HPP
+#ifndef EX01_FIXED_HPP
+#define EX01_FIXED_HPP
 
 #include <iostream>
 
