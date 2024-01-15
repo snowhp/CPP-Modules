@@ -12,7 +12,7 @@ private:
   int _EnergyPoints; // Energy Points
   int _AttackDamage; // Attack Damage
 public:
-  ClapTrap(std::string Name);                 // Default Constructor
+  explicit ClapTrap(std::string Name);                 // Default Constructor
   ClapTrap(const ClapTrap &other);            // Copy Constructor
   ClapTrap &operator=(const ClapTrap &other); // Copy Assignment Operator
   ~ClapTrap();                                // Destructor
@@ -23,6 +23,9 @@ public:
   void attack(const std::string &target);
   void takeDamage(unsigned int amount);
   void beRepaired(unsigned int amount);
+  bool isFunctional() const; // True if have energy point and hit points else false
+  void addHitPoints(int amount);
+  void addEnergyPoints(int amount);
 };
 
 #endif // EX00_CLAPTRAP_HPP

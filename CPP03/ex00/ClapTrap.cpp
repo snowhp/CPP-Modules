@@ -36,3 +36,40 @@ int ClapTrap::getHitPoints() const { return (this->_HitPoints); }
 
 int ClapTrap::getEnergyPoints() const { return (this->_EnergyPoints); }
 int ClapTrap::getAttackDamage() const { return (this->_AttackDamage); }
+
+void ClapTrap::attack(const std::string &target) {
+  if (!this->isFunctional()) {
+    std::cout << this->getName() << " can't attack." << std::endl;
+    return;
+  }
+  std::cout << "ClapTrap " << this->getName() << " attacks " << target
+            << ", causing " << this->getAttackDamage() << " points of damage !"
+            << std::endl;
+  addEnergyPoints(-1);
+}
+
+void ClapTrap::takeDamage(unsigned int amount) {
+  addHitPoints(-(int(amount)));
+  std::cout << "OUCH!!! I got a " << amount << " HitDamage." << std::endl;
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+  if (!this->isFunctional()) {
+    std::cout << this->getName() << " can't be repaired." << std::endl;
+    return;
+  }
+  addHitPoints(int(amount));
+  addEnergyPoints(-1);
+  std::cout << this->getName() << " himself repaired for " << amount
+            << " of HitPoints" << std::endl;
+}
+
+bool ClapTrap::isFunctional() const {
+  if (getEnergyPoints() && getHitPoints())
+    return true;
+  return false;
+}
+
+void ClapTrap::addEnergyPoints(int amount) { this->_EnergyPoints += amount; }
+
+void ClapTrap::addHitPoints(int amount) { this->_HitPoints += amount; }
