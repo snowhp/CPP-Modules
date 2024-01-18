@@ -1,21 +1,22 @@
 // Created by tde-sous on 14-01-2024.
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(const std::string& Name) {
-  std::cout << "Default Constructor called\n";
+ClapTrap::ClapTrap(const std::string &Name) {
+  std::cout << "[ClapTrap] Default Constructor called\n";
   this->Name_ = Name;
   this->HitPoints_ = 10;
   this->EnergyPoints_ = 10;
   this->AttackDamage_ = 0;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other) : HitPoints_(), EnergyPoints_(), AttackDamage_() {
-  std::cout << "Copy constructor called\n";
+ClapTrap::ClapTrap(const ClapTrap &other)
+    : HitPoints_(), EnergyPoints_(), AttackDamage_() {
+  std::cout << "[ClapTrap] Copy constructor called\n";
   *this = other;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
-  std::cout << "Copy assignment operator called\n";
+  std::cout << "[ClapTrap] Copy assignment operator called\n";
   if (this == &other)
     return *this;
   this->Name_ = other.getName();
@@ -26,7 +27,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 }
 
 ClapTrap::~ClapTrap() {
-  std::cout << "Destructor called\n";
+  std::cout << "[ClapTrap] Destructor called\n";
   // Destructor implementation
 }
 

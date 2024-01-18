@@ -11,7 +11,7 @@
  * @brief This class represents a ClapTrap.
  */
 class ClapTrap {
-private:
+protected:
   std::string Name_; /**< Name of the ClapTrap */
   int HitPoints_;    /**< Represent the health of the ClapTrap */
   int EnergyPoints_; /**< Energy Points */
@@ -22,7 +22,7 @@ public:
    * @brief Default constructor.
    * @param Name The name of the ClapTrap.
    */
-  explicit ClapTrap(const std::string& Name);
+  explicit ClapTrap(const std::string &Name);
 
   /**
    * @brief Copy constructor.
@@ -42,7 +42,7 @@ public:
    */
   ~ClapTrap();
 
-    /**
+  /**
    * @brief Get the name of the ClapTrap.
    * @return The name of the ClapTrap.
    */
@@ -86,7 +86,8 @@ public:
 
   /**
    * @brief Checks if the ClapTrap is functional.
-   * @return True if the ClapTrap has energy points and hit points, false otherwise.
+   * @return True if the ClapTrap has energy points and hit points, false
+   * otherwise.
    */
   bool isFunctional() const;
 
