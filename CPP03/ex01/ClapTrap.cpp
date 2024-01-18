@@ -28,7 +28,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 
 ClapTrap::~ClapTrap() {
   std::cout << "[ClapTrap] Destructor called\n";
-  // Destructor implementation
 }
 
 std::string ClapTrap::getName() const { return (this->Name_); }
