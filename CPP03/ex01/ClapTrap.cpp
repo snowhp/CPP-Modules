@@ -1,15 +1,15 @@
-// Created by tde-sous on 16-01-2024.
+// Created by tde-sous on 14-01-2024.
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string Name) {
+ClapTrap::ClapTrap(const std::string& Name) {
   std::cout << "Default Constructor called\n";
-  this->_Name = Name;
-  this->_HitPoints = 10;
-  this->_EnergyPoints = 10;
-  this->_AttackDamage = 0;
+  this->Name_ = Name;
+  this->HitPoints_ = 10;
+  this->EnergyPoints_ = 10;
+  this->AttackDamage_ = 0;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other) {
+ClapTrap::ClapTrap(const ClapTrap &other) : HitPoints_(), EnergyPoints_(), AttackDamage_() {
   std::cout << "Copy constructor called\n";
   *this = other;
 }
@@ -18,10 +18,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
   std::cout << "Copy assignment operator called\n";
   if (this == &other)
     return *this;
-  this->_Name = other.getName();
-  this->_HitPoints = other.getHitPoints();
-  this->_EnergyPoints = other.getEnergyPoints();
-  this->_AttackDamage = other.getAttackDamage();
+  this->Name_ = other.getName();
+  this->HitPoints_ = other.getHitPoints();
+  this->EnergyPoints_ = other.getEnergyPoints();
+  this->AttackDamage_ = other.getAttackDamage();
   return *this;
 }
 
@@ -30,12 +30,12 @@ ClapTrap::~ClapTrap() {
   // Destructor implementation
 }
 
-std::string ClapTrap::getName() const { return (this->_Name); }
+std::string ClapTrap::getName() const { return (this->Name_); }
 
-int ClapTrap::getHitPoints() const { return (this->_HitPoints); }
+int ClapTrap::getHitPoints() const { return (this->HitPoints_); }
 
-int ClapTrap::getEnergyPoints() const { return (this->_EnergyPoints); }
-int ClapTrap::getAttackDamage() const { return (this->_AttackDamage); }
+int ClapTrap::getEnergyPoints() const { return (this->EnergyPoints_); }
+int ClapTrap::getAttackDamage() const { return (this->AttackDamage_); }
 
 void ClapTrap::attack(const std::string &target) {
   if (!this->isFunctional()) {
@@ -70,6 +70,6 @@ bool ClapTrap::isFunctional() const {
   return false;
 }
 
-void ClapTrap::addEnergyPoints(int amount) { this->_EnergyPoints += amount; }
+void ClapTrap::addEnergyPoints(int amount) { this->EnergyPoints_ += amount; }
 
-void ClapTrap::addHitPoints(int amount) { this->_HitPoints += amount; }
+void ClapTrap::addHitPoints(int amount) { this->HitPoints_ += amount; }
