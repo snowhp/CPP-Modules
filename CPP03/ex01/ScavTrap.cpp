@@ -24,3 +24,5 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 }
 
 ScavTrap::~ScavTrap() { std::cout << "[ScavTrap] Destructor called\n"; }
+
+void ScavTrap::guardGate() { std::cout << "[ScavTrap] " << getName() << " is now on Gate keeper mode."; }

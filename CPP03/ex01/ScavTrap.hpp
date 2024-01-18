@@ -6,14 +6,15 @@
 
 /**
  * @class ScavTrap
- * @brief This derived class represents a ScavTrap that inherits from base class ClavTrap .
+ * @brief This derived class represents a ScavTrap that inherits from base class
+ * ClavTrap .
  */
 class ScavTrap : public ClapTrap {
 public:
   /**
    * @brief Default constructor.
    */
-  ScavTrap(const std::string& Name);
+  ScavTrap(const std::string &Name);
   /**
    * @brief Copy constructor.
    * @param other The other ScavTrap to copy.
@@ -29,6 +30,11 @@ public:
    * @brief Destructor.
    */
   ~ScavTrap();
+  /**
+   * @brief Member function that prints a message informing that
+   * ScavTrap is now in Gate keeper mode.
+   */
+  void guardGate();
 };
 
 #endif // EX01_SCAVTRAP_HPP
