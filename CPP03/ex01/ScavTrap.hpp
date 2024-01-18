@@ -35,6 +35,11 @@ public:
    * ScavTrap is now in Gate keeper mode.
    */
   void guardGate();
+  /**
+   * @brief Makes the ClapTrap attack a target.
+   * @param target The name of the target to attack.
+   */
+  void attack(const std::string &target);
 };
 
 #endif // EX01_SCAVTRAP_HPP

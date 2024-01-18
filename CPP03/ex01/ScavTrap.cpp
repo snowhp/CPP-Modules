@@ -25,4 +25,17 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 
 ScavTrap::~ScavTrap() { std::cout << "[ScavTrap] Destructor called\n"; }
 
-void ScavTrap::guardGate() { std::cout << "[ScavTrap] " << getName() << " is now on Gate keeper mode."; }
+void ScavTrap::guardGate() {
+  std::cout << "[ScavTrap] " << getName() << " is now on Gate keeper mode." << std::endl;
+}
+
+void ScavTrap::attack(const std::string &target) {
+  if (!this->isFunctional()) {
+    std::cout << "[ScavTrap]" << this->getName() << " can't attack." << std::endl;
+    return;
+  }
+  std::cout << "ScavTrap " << this->getName() << " attacks " << target
+            << ", causing " << this->getAttackDamage() << " points of damage !"
+            << std::endl;
+  addEnergyPoints(-1);
+}
