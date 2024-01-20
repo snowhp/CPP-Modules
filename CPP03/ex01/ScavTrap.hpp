@@ -14,7 +14,7 @@ public:
   /**
    * @brief Default constructor.
    */
-  ScavTrap(const std::string &Name);
+  explicit ScavTrap(const std::string &Name);
   /**
    * @brief Copy constructor.
    * @param other The other ScavTrap to copy.
