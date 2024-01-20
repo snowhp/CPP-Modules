@@ -9,7 +9,7 @@ public:
   /**
    * @brief Default constructor.
    */
-  FragTrap(const std::string &Name);
+  explicit FragTrap(const std::string &Name);
   /**
    * @brief Copy constructor.
    * @param other The other FragTrap to copy.
@@ -28,7 +28,7 @@ public:
   /**
    * @brie Positive high fives request on std out.
    */
-  void highFivesGuys(void);
+  void highFivesGuys();
 };
 
 #endif // EX02_FRAGTRAP_HPP
