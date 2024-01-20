@@ -24,7 +24,6 @@ int main()
   ScavTrap ScavC = ScavA;
   ScavC.takeDamage(100);
   ScavC.takeDamage(100);
-  std::cout << ScavC;
   ScavC.attack("Perry");
   return 0;
 }
