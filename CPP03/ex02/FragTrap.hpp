@@ -25,6 +25,10 @@ public:
    * @brief Destructor.
    */
   ~FragTrap();
+  /**
+   * @brie Positive high fives request on std out.
+   */
+  void highFivesGuys(void);
 };
 
 #endif // EX02_FRAGTRAP_HPP
