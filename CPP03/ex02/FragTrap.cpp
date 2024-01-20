@@ -15,10 +15,10 @@ FragTrap &FragTrap::operator=(const FragTrap &other) {
   std::cout << "[FragTrap] Copy assignment operator called\n";
   if (this == &other)
     return *this;
-  Name_ = getName();
-  HitPoints_ = getHitPoints();
-  EnergyPoints_ = getEnergyPoints();
-  AttackDamage_ = getAttackDamage();
+  this->Name_ = other.getName();
+  this->HitPoints_ = other.getHitPoints();
+  this->EnergyPoints_ = other.getEnergyPoints();
+  this->AttackDamage_ = other.getAttackDamage();
   return *this;
 }
 
