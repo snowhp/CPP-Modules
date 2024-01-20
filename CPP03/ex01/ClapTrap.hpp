@@ -66,7 +66,7 @@ public:
    */
   int getAttackDamage() const;
 
-  /**
+  virtual /**
    * @brief Makes the ClapTrap attack a target.
    * @param target The name of the target to attack.
    */
