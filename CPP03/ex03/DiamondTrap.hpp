@@ -3,13 +3,16 @@
 #define DIAMONDTRAP_HPP
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ClapTrap {
+class DiamondTrap : public FragTrap, public ScavTrap {
+private:
+  std::string Name_;
 public:
    /**
    * @brief Default constructor.
    */
-    DiamondTrap(const std::string &Name);
+    explicit DiamondTrap(const std::string &Name);
    /**
    * @brief Copy constructor.
    * @param other The other DiamondTrap to copy.
@@ -25,6 +28,7 @@ public:
    * @brief Destructor.
    */
     ~DiamondTrap();
+    using ScavTrap::attack;
 };
 
 
