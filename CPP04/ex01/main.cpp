@@ -23,5 +23,13 @@ int main() {
     delete i;
     delete wrongCat;
 
+    const Animal* testA = new Dog();
+    const Animal* testB = new Cat();
+    testA->makeSound();
+    testB->makeSound();
+    std::cout << testA->getType() << " " << std::endl;
+    delete testA;//should not create a leak
+    delete testB;
+
     return 0;
 }
