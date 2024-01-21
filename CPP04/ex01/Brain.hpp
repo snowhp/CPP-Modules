@@ -7,7 +7,7 @@
 
 class Brain {
 private:
- std::string* ideas;
+  std::string* ideas;
 public:
    /**
    * @brief Default constructor.
