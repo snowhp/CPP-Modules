@@ -4,7 +4,7 @@
 
 #include "ScavTrap.hpp"
 
-class FragTrap : public ScavTrap {
+class FragTrap : virtual public ClapTrap {
 public:
   /**
    * @brief Default constructor.

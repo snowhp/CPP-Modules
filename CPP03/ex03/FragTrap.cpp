@@ -1,13 +1,13 @@
 // Created by tde-sous on 20-01-2024.
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(const std::string &Name) : ScavTrap(Name) {
+FragTrap::FragTrap(const std::string &Name) : ClapTrap(Name) {
   std::cout << "[FragTrap] Default constructor called\n";
   EnergyPoints_ = 100;
   AttackDamage_ = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &other) : ScavTrap(other) {
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
   std::cout << "[FragTrap] Copy constructor called\n";
 }
 
