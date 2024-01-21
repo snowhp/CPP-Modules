@@ -2,7 +2,7 @@
 #ifndef EX02_FRAGTRAP_HPP
 #define EX02_FRAGTRAP_HPP
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap {
 public:
