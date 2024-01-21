@@ -3,6 +3,7 @@
 
 Animal::Animal() {
   std::cout << "Animal -> Default constructor called!\n";
+  this->type = "Animauuu";
 }
 
 Animal::Animal(const Animal &other) {
