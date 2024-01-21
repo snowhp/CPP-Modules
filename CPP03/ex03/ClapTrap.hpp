@@ -40,7 +40,7 @@ public:
   /**
    * @brief Destructor.
    */
-  ~ClapTrap();
+  virtual ~ClapTrap();
 
   /**
    * @brief Get the name of the ClapTrap.

@@ -9,7 +9,7 @@
  * @brief This derived class represents a ScavTrap that inherits from base class
  * ClavTrap .
  */
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 public:
   /**
    * @brief Default constructor.
@@ -29,7 +29,7 @@ public:
   /**
    * @brief Destructor.
    */
-  ~ScavTrap();
+  virtual ~ScavTrap();
   /**
    * @brief Member function that prints a message informing that
    * ScavTrap is now in Gate keeper mode.
