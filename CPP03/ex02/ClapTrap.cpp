@@ -65,7 +65,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 }
 
 bool ClapTrap::isFunctional() const {
-  if (getEnergyPoints() && getHitPoints())
+  if (getEnergyPoints() > 0 && getHitPoints() > 0)
     return true;
   return false;
 }
