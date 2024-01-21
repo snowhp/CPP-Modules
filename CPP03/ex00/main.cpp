@@ -7,7 +7,7 @@ int main()
   ClapTrap MachineA("Roboto");
   ClapTrap MachineB("Roboto");
   MachineA.attack(MachineB.getName());
-  MachineB.takeDamage(5);
-  MachineA.beRepaired(1);
+  MachineB.takeDamage(1000);
+  MachineB.attack("Tests");
   return 0;
 }
