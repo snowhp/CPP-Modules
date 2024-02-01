@@ -3,6 +3,7 @@
 #define AMATERIA_HPP
 
 #include "ICharacter.hpp"
+#include <string>
 
 class AMateria {
 protected:
