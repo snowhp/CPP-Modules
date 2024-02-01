@@ -6,6 +6,7 @@ AMateria::AMateria(std::string const &type) : type(type){
 }
 AMateria::AMateria(const AMateria &other) {
   std::cout << "[AMateria] Copy constructor called\n";
+  this->type = other.type;
 }
 
 AMateria &AMateria::operator=(const AMateria &other) {
