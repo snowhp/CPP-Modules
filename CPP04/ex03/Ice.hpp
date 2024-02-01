@@ -30,6 +30,7 @@ public:
    * @return New instance of Cure.
    */
   AMateria *clone() const;
+  void use(ICharacter &target);
 };
 
 #endif // ICE_HPP

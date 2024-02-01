@@ -30,6 +30,7 @@ public:
    * @return New instance of Cure.
    */
   AMateria * clone() const;
+  void use(ICharacter &target);
 };
 
 #endif // EX03_CURE_HPP
