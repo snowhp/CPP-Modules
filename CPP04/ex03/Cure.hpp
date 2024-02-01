@@ -9,7 +9,7 @@ public:
   /**
    * @brief Default constructor.
    */
-  Cure(std::string const &type);
+  Cure();
   /**
    * @brief Copy constructor.
    * @param other The other Cure to copy.

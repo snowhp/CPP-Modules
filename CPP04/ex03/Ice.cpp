@@ -1,7 +1,7 @@
 // Created by tde-sous on 26-01-2024.
 #include "Ice.hpp"
 
-Ice::Ice(std::string const &type) : AMateria(type) {
+Ice::Ice() : AMateria("ice") {
   std::cout << "[Ice] Default constructor called\n";
 }
 

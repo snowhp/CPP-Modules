@@ -1,7 +1,7 @@
 // Created by tde-sous on 01-02-2024.
 #include "Cure.hpp"
 
-Cure::Cure(std::string const &type) : AMateria(type) {
+Cure::Cure() : AMateria("cure") {
   std::cout << "[Cure] Default constructor called\n";
 }
 
