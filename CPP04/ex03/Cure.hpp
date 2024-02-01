@@ -25,6 +25,11 @@ public:
    * @brief Destructor.
    */
   ~Cure();
+  /**
+   * @brief Creates a new instance of this type
+   * @return New instance of Cure.
+   */
+  AMateria * clone() const;
 };
 
 #endif // EX03_CURE_HPP
