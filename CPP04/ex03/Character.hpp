@@ -4,9 +4,12 @@
 
 #include "ICharacter.hpp"
 
+class ICharacter;
+
 class Character : public ICharacter {
 private:
   std::string name_;
+  AMateria *inventory_;
 public:
   /**
    * @brief Default constructor.
