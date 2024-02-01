@@ -2,6 +2,9 @@
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
+#include <string>
+#include "AMateria.hpp"
+
 class ICharacter {
 public:
   virtual ~ICharacter() {}
