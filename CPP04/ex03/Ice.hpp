@@ -9,7 +9,7 @@ public:
   /**
    * @brief Default constructor.
    */
-  Ice();
+  Ice(std::string const &type);
   /**
    * @brief Copy constructor.
    * @param other The other Ice to copy.
