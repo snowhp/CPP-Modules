@@ -18,3 +18,8 @@ Ice &Ice::operator=(const Ice &other) {
 }
 
 Ice::~Ice() { std::cout << "[Ice] Destructor called\n"; }
+
+AMateria *Ice::clone() const {
+  Ice *clone = new Ice;
+  return clone;
+}

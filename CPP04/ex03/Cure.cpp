@@ -18,3 +18,8 @@ Cure &Cure::operator=(const Cure &other) {
 }
 
 Cure::~Cure() { std::cout << "[Cure] Destructor called\n"; }
+
+AMateria *Cure::clone() const {
+  Cure *clone = new Cure;
+  return clone;
+}
