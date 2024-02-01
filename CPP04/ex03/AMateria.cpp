@@ -1,7 +1,7 @@
 // Created by tde-sous on 26-01-2024.
 #include "AMateria.hpp"
 
-AMateria::AMateria(const int &type) {
+AMateria::AMateria(std::string const &type) : type(type){
   std::cout << "[AMateria] Default constructor called\n";
 }
 AMateria::AMateria(const AMateria &other) {
