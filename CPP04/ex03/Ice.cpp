@@ -1,21 +1,14 @@
 // Created by tde-sous on 26-01-2024.
 #include "Ice.hpp"
 
+Ice::Ice() { std::cout << "[Ice] Default constructor called\n"; }
 
+Ice::Ice(const Ice &other) { std::cout << "[Ice] Copy constructor called\n"; }
 
-Ice::Ice() {
-    
+Ice &Ice::operator=(const Ice &other) {
+  std::cout << "[Ice] Copy assignment operator called\n";
+
+  return *this;
 }
 
-Ice::Ice(const Ice& other) {
-    
-}
-
-Ice& Ice::operator=(const Ice& other) {
-    
-    return *this;
-}
-
-Ice::~Ice() {
-    
-}
+Ice::~Ice() { std::cout << "[Ice] Destructor called\n"; }
