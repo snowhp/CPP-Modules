@@ -2,7 +2,9 @@
 #ifndef EX03_CURE_HPP
 #define EX03_CURE_HPP
 
-class Cure {
+#include "AMateria.hpp"
+
+class Cure : public AMateria {
 public:
   /**
    * @brief Default constructor.
