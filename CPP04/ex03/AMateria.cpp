@@ -21,6 +21,6 @@ AMateria::~AMateria() {
   std::cout << "[AMateria] Destructor called\n";
 }
 
-const int &AMateria::getType() const {}
+const int &AMateria::getType() const { return (type); }
 
 void AMateria::use(int &target) {}
