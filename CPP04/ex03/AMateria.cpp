@@ -6,14 +6,12 @@ AMateria::AMateria(std::string const &type) : type(type){
 }
 AMateria::AMateria(const AMateria &other) {
   std::cout << "[AMateria] Copy constructor called\n";
-  this->type = other.type;
 }
 
 AMateria &AMateria::operator=(const AMateria &other) {
   std::cout << "[AMateria] Copy assignment operator called\n";
-  if (*this == &other)
+  if (this == &other)
     return *this;
-  this->type = other.type;
   return *this;
 }
 
@@ -21,6 +19,6 @@ AMateria::~AMateria() {
   std::cout << "[AMateria] Destructor called\n";
 }
 
-const int &AMateria::getType() const { return (type); }
+std::string const &AMateria::getType() const { return (this->type); }
 
-void AMateria::use(int &target) {}
+//void AMateria::use(int &target) {}
