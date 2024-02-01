@@ -1,4 +1,4 @@
-SRCS = main.cpp Amateria.cpp Cube.cpp Ice.cpp ICharacter.cpp \
+SRCS = main.cpp Amateria.cpp Cure.cpp Ice.cpp ICharacter.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = a.out
