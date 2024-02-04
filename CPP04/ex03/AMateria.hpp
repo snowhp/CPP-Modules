@@ -35,7 +35,14 @@ public:
    * @brief Destructor.
    */
   ~AMateria();
-  std::string const &getType() const; // Returns the materia type
+  /**
+   * @brief Getter for the type of Materia.
+   * @return The type of the AMateria.
+   */
+  std::string const &getType() const;
+  /**
+   * @brief Pure virtual clone to be defined from derived classes.
+   */
   virtual AMateria *clone() const = 0;
   // virtual void use(ICharacter &target); Need to implement ICharacter first
 };
