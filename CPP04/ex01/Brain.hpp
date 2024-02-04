@@ -2,34 +2,40 @@
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
+#include <cstdlib>
+
+#define IDEAS 100
 
 class Brain {
 private:
-  std::string* ideas;
+  std::string ideas[IDEAS];
+
 public:
-   /**
+  /**
    * @brief Default constructor.
    */
-    Brain();
-   /**
+  Brain();
+  /**
    * @brief Copy constructor.
    * @param other The other Brain to copy.
    */
-    Brain(const Brain& other);
-   /**
+  Brain(const Brain &other);
+  /**
    * @brief Copy assignment operator.
    * @param other The other Brain to assign.
    * @return A reference to the assigned Brain.
    */
-    Brain& operator=(const Brain& other);
-   /**
+  Brain &operator=(const Brain &other);
+  /**
    * @brief Destructor.
    */
-    ~Brain();
+  ~Brain();
+  /**
+   * @brief Fill the brain with 25 random ideas.
+   */
+  void RandomIdeas();
 };
 
-
-
-#endif //BRAIN_HPP
+#endif // BRAIN_HPP
