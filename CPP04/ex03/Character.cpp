@@ -16,7 +16,17 @@ Character &Character::operator=(const Character &other) {
   return *this;
 }
 
-Character::~Character() { std::cout << "[Character] Destructor called.\n"; }
+Character::~Character() {
+  for (int i = 0; i < SLOTS; i++) {
+    if (this->inventory_[i])
+      delete this->inventory_[i];
+  }
+  while (this->unequipedMaterias_.size() > 0) {
+    delete this->unequipedMaterias_.front();
+    this->unequipedMaterias_.pop_front();
+  }
+  std::cout << "[Character] Destructor called.\n";
+}
 
 const std::string &Character::getName() const { return (this->name_); }
 
@@ -34,12 +44,21 @@ void Character::equip(AMateria *m) {
 }
 
 void Character::unequip(int idx) {
-  if (idx <= SLOTS) {
-    std::cout << "Invalid slots provided!\n";
-    return;
+  if (idx >= SLOTS) {
+    std::cout << "Invalid slot number provided!\n";
   } else if (!this->inventory_[idx]) {
     std::cout << "Trying to unequip a unexisting slot!\n";
-    return;
-  } else
+  } else {
+    this->unequipedMaterias_.push_front(this->inventory_[idx]);
     this->inventory_[idx] == NULL;
+  }
+}
+
+void Character::use(int idx, ICharacter &target) {
+  if (idx >= SLOTS) {
+    std::cout << "Invalid slot number provided!\n";
+  } else if (!this->inventory_[idx])
+    std::cout << "This slot is empty at the moment!\n";
+  else
+    this->inventory_[idx]->use(target);
 }
