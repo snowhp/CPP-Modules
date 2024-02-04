@@ -25,6 +25,7 @@ public:
    * @brief Destructor.
    */
   virtual ~Cat();
+  void makeSound() const;
 };
 
 #endif // CAT_HPP

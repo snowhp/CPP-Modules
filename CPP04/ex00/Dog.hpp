@@ -25,6 +25,7 @@ public:
    * @brief Destructor.
    */
   ~Dog();
+  void makeSound() const;
 };
 
 #endif // DOG_HPP
