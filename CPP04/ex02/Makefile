@@ -1,8 +1,9 @@
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp\
+SRCS = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/Brain.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = a.out
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+INCLUDES = "./inc"
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INCLUDES)
 CXX = c++
 RM = rm -f
 
