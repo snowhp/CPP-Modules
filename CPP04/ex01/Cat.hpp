@@ -5,10 +5,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : virtual public Animal {
-private:
-  Brain *CatBrain;
-
+class Cat : public Animal {
 public:
   /**
    * @brief Default constructor.
@@ -29,6 +26,10 @@ public:
    * @brief Destructor.
    */
   virtual ~Cat();
+  /**
+   * @brief Prints a custom message with a Sound from this class.
+   */
+  void makeSound() const;
 };
 
 #endif // CAT_HPP

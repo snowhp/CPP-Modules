@@ -28,7 +28,14 @@ public:
    * @brief Destructor.
    */
   ~WrongAnimal();
+  /**
+   * @brief Prints a custom message with a Sound from this class.
+   */
   void makeSound() const;
+  /**
+   * @brief Get the Type of the Animal.
+   * @return A std::string with the Type of the animal.
+   */
   std::string getType() const;
 };
 

@@ -5,7 +5,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : virtual public Animal {
+class Dog : public Animal {
 private:
   Brain *DogBrain;
 
@@ -29,6 +29,10 @@ public:
    * @brief Destructor.
    */
   ~Dog();
+  /**
+   * @brief Prints a custom message with a Sound from this class.
+   */
+  void makeSound() const;
 };
 
 #endif // DOG_HPP
