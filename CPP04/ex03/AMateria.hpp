@@ -36,7 +36,7 @@ public:
   /**
    * @brief Destructor.
    */
-  ~AMateria();
+  virtual ~AMateria();
   /**
    * @brief Getter for the type of Materia.
    * @return The type of the AMateria.
