@@ -1,7 +1,10 @@
 // Created by tde-sous on 21-01-2024.
 #include "Brain.hpp"
 
-Brain::Brain() { std::cout << "[Brain] Default constructor called.\n"; }
+Brain::Brain() {
+  std::cout << "[Brain] Default constructor called.\n";
+  RandomIdeas();
+}
 
 Brain::Brain(const Brain &other) {
   std::cout << "[Brain] Copy constructor called.\n";
