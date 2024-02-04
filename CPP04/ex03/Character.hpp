@@ -4,12 +4,14 @@
 
 #include "ICharacter.hpp"
 
+#define SLOTS 4
+
 class ICharacter;
 
 class Character : public ICharacter {
 private:
   std::string name_;
-  AMateria *inventory_;
+  AMateria *inventory_[SLOTS];
 public:
   /**
    * @brief Default constructor.
