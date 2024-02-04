@@ -16,6 +16,10 @@ int main() {
   Animal1->makeSound();
   Animal2->makeSound();
 
+  delete Animal1;
+  delete Dog1;
+  delete i;
+
   std::cout << "==== Wrong classes tests ====\n";
 
   // Additional tests with WrongCat
@@ -28,5 +32,8 @@ int main() {
   jj->makeSound();
   metaa->makeSound();
 
+  delete metaa;
+  delete jj;
+  delete ii;
   return 0;
 }
