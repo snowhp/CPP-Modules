@@ -6,6 +6,8 @@
 #include <iostream>
 #include <string>
 
+class ICharacter;
+
 class AMateria {
 protected:
   std::string type;
@@ -44,7 +46,12 @@ public:
    * @brief Pure virtual clone to be defined from derived classes.
    */
   virtual AMateria *clone() const = 0;
-  // virtual void use(ICharacter &target); Need to implement ICharacter first
+  /**
+   * @brief Virtual function to be used by Ice and Cure classes it will enable
+   * their special hability.
+   * @param target The target of the use().
+   */
+  virtual void use(ICharacter &target);
 };
 
 #endif // AMATERIA_HPP

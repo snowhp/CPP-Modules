@@ -1,6 +1,8 @@
 // Created by tde-sous on 26-01-2024.
 #include "AMateria.hpp"
 
+#include <initializer_list>
+
 AMateria::AMateria() { std::cout << "[AMateria] Default constructor called\n"; }
 
 AMateria::AMateria(std::string const &type) : type(type) {
@@ -21,4 +23,7 @@ AMateria::~AMateria() { std::cout << "[AMateria] Destructor called\n"; }
 
 std::string const &AMateria::getType() const { return (this->type); }
 
-// void AMateria::use(int &target) {}
+void use(ICharacter &target) {
+  std::cout << "I shouldn't be able to use this on " << target.getName()
+            << std::endl;
+}
