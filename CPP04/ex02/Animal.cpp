@@ -21,6 +21,10 @@ Animal &Animal::operator=(const Animal &other) {
 
 Animal::~Animal() { std::cout << "Animal -> Destructor called!\n"; }
 
-void Animal::makeSound() const { std::cout << "My sound is: " << getType() << std::endl; }
+void Animal::makeSound() const {
+  std::cout
+      << "I am a general animal and I don´t make sounds. Implement me somewhere"
+      << std::endl;
+}
 
 std::string Animal::getType() const { return type; }

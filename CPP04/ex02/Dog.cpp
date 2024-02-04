@@ -9,20 +9,24 @@ Dog::Dog() : Animal() {
 
 Dog::Dog(const Dog &other) : Animal(other) {
   std::cout << "Dog -> Default copy constructor called!\n";
-  this->type = other.type;
-  this->DogBrain = other.DogBrain;
+  delete this->DogBrain;
+  this->DogBrain = new Brain(*other.DogBrain);
 }
 
 Dog &Dog::operator=(const Dog &other) {
   std::cout << "Dog -> Copy assigment operator called!\n";
   if (this == &other)
     return *this;
-  this->type = other.type;
-  this->DogBrain = other.DogBrain;
+  delete this->DogBrain;
+  this->DogBrain = new Brain(*other.DogBrain);
   return *this;
 }
 
 Dog::~Dog() {
   delete this->DogBrain;
-  std::cout << "Dog -> Destructorcalled!\n";
+  std::cout << "Dog -> Destructor called!\n";
+}
+
+void Dog::makeSound() const {
+  std::cout << "I am a auf auf auffff...." << std::endl;
 }

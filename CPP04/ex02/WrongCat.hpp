@@ -6,27 +6,29 @@
 
 class WrongCat : public WrongAnimal {
 public:
-   /**
+  /**
    * @brief Default constructor.
    */
-    WrongCat();
-   /**
+  WrongCat();
+  /**
    * @brief Copy constructor.
    * @param other The other WrongCat to copy.
    */
-    WrongCat(const WrongCat& other);
-   /**
+  WrongCat(const WrongCat &other);
+  /**
    * @brief Copy assignment operator.
    * @param other The other WrongCat to assign.
    * @return A reference to the assigned WrongCat.
    */
-    WrongCat& operator=(const WrongCat& other);
-   /**
+  WrongCat &operator=(const WrongCat &other);
+  /**
    * @brief Destructor.
    */
-    ~WrongCat();
+  ~WrongCat();
+  /**
+   * @brief Prints a custom message with a Sound from this class.
+   */
+  void makeSound();
 };
 
-
-
-#endif //WRONGCAT_HPP
+#endif // WRONGCAT_HPP
