@@ -25,6 +25,9 @@ public:
    * @brief Destructor.
    */
   ~WrongCat();
+  /**
+   * @brief Prints a custom message with a Sound from this class.
+   */
   void makeSound();
 };
 
