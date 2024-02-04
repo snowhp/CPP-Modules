@@ -8,10 +8,12 @@ Character::Character(std::string const &name) : name_(name) {
 }
 
 Character::Character(const Character &other) {
+  (void)other;
   std::cout << "[Character] Copy constructor called.\n";
 }
 
 Character &Character::operator=(const Character &other) {
+  (void)other;
   std::cout << "[Character] Copy assigment operator called.\n";
   return *this;
 }
@@ -37,7 +39,7 @@ void Character::equip(AMateria *m) {
       return;
     }
     if (!this->inventory_[i]) {
-      this->inventory_[i] == m;
+      this->inventory_[i] = m;
       return;
     }
   }
@@ -50,7 +52,7 @@ void Character::unequip(int idx) {
     std::cout << "Trying to unequip a unexisting slot!\n";
   } else {
     this->unequipedMaterias_.push_front(this->inventory_[idx]);
-    this->inventory_[idx] == NULL;
+    this->inventory_[idx] = NULL;
   }
 }
 
