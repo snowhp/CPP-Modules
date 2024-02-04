@@ -22,7 +22,10 @@ Dog &Dog::operator=(const Dog &other) {
   return *this;
 }
 
-Dog::~Dog() { std::cout << "Dog -> Destructorcalled!\n"; }
+Dog::~Dog() {
+  delete this->DogBrain;
+  std::cout << "Dog -> Destructorcalled!\n";
+}
 
 void Dog::makeSound() const {
   std::cout << "I am a auf auf auffff...." << std::endl;
