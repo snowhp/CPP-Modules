@@ -23,7 +23,7 @@ AMateria::~AMateria() { std::cout << "[AMateria] Destructor called\n"; }
 
 std::string const &AMateria::getType() const { return (this->type); }
 
-void use(ICharacter &target) {
+void AMateria::use(ICharacter &target) {
   std::cout << "I shouldn't be able to use this on " << target.getName()
             << std::endl;
 }
