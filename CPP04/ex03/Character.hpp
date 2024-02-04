@@ -3,6 +3,7 @@
 #define EX03_CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#include <list>
 
 #define SLOTS 4
 
@@ -13,7 +14,7 @@ class Character : public ICharacter {
 private:
   std::string name_;
   AMateria *inventory_[SLOTS];
-
+  std::list<AMateria *> unequipedMaterias_;
 public:
   /**
    * @brief Default constructor.
@@ -49,6 +50,13 @@ public:
    * @param idx The index of the inventory to unequip.
    */
   void unequip(int idx);
+  /**
+   * @brief Use the AMateria at the slot[idx] and pass the target param to the
+   * AMateria::use.
+   * @param idx The index of the inventory to use.
+   * @param target Target to be passed to AMateria::use.
+   */
+  void use(int idx, ICharacter &target);
 };
 
 #endif // EX03_CHARACTER_HPP
