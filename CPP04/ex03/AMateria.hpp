@@ -3,8 +3,8 @@
 #define AMATERIA_HPP
 
 #include "ICharacter.hpp"
-#include <string>
 #include <iostream>
+#include <string>
 
 class AMateria {
 protected:
@@ -13,6 +13,11 @@ protected:
 public:
   /**
    * @brief Default constructor.
+   */
+  AMateria();
+  /**
+   * @brief Constructor for AMateria.
+   * @param type The type of AMateria
    */
   AMateria(std::string const &type);
   /**
@@ -32,7 +37,7 @@ public:
   ~AMateria();
   std::string const &getType() const; // Returns the materia type
   virtual AMateria *clone() const = 0;
-  //virtual void use(ICharacter &target); Need to implement ICharacter first
+  // virtual void use(ICharacter &target); Need to implement ICharacter first
 };
 
 #endif // AMATERIA_HPP
