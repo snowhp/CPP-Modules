@@ -21,3 +21,12 @@ Character::~Character() {
 }
 
 const std::string &Character::getName() const { return (this->name_); }
+
+void Character::equip(AMateria *m) {
+  for (int i = 0; i <= SLOTS; i++) {
+    if (i == SLOTS)
+      std::cout << "I tried to equip a " << m->getType() << " but I'm full!\n";
+    if (!this->inventory_[i])
+      this->inventory_[i] == m;
+  }
+}

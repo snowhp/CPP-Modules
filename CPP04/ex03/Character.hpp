@@ -7,11 +7,13 @@
 #define SLOTS 4
 
 class ICharacter;
+class AMateria;
 
 class Character : public ICharacter {
 private:
   std::string name_;
   AMateria *inventory_[SLOTS];
+
 public:
   /**
    * @brief Default constructor.
@@ -33,6 +35,7 @@ public:
    */
   ~Character();
   const std::string &getName() const;
+  void equip(AMateria *m);
 };
 
 #endif // EX03_CHARACTER_HPP
