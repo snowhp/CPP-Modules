@@ -3,6 +3,8 @@
 
 Character::Character(std::string const &name) : name_(name) {
   std::cout << "[Character] Default constructor called.\n";
+  for (int i = 0; i < SLOTS; i++)
+    this->inventory_[i] = NULL;
 }
 
 Character::Character(const Character &other) {
