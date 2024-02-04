@@ -34,8 +34,21 @@ public:
    * @brief Destructor.
    */
   ~Character();
+  /**
+   * @brief Getter for the name of the Character.
+   * @return The name of the Character.
+   */
   const std::string &getName() const;
+  /**
+   * @brief Equips a AMateria in the inventory.
+   * @param m The AMateria to equip.
+   */
   void equip(AMateria *m);
+  /**
+   * @brief Unequips a AMateria in the inventory.
+   * @param idx The index of the inventory to unequip.
+   */
+  void unequip(int idx);
 };
 
 #endif // EX03_CHARACTER_HPP

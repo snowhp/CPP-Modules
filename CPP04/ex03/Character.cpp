@@ -16,17 +16,30 @@ Character &Character::operator=(const Character &other) {
   return *this;
 }
 
-Character::~Character() {
-  std::cout << "[Character] Destructor called.\n";
-}
+Character::~Character() { std::cout << "[Character] Destructor called.\n"; }
 
 const std::string &Character::getName() const { return (this->name_); }
 
 void Character::equip(AMateria *m) {
   for (int i = 0; i <= SLOTS; i++) {
-    if (i == SLOTS)
+    if (i == SLOTS) {
       std::cout << "I tried to equip a " << m->getType() << " but I'm full!\n";
-    if (!this->inventory_[i])
+      return;
+    }
+    if (!this->inventory_[i]) {
       this->inventory_[i] == m;
+      return;
+    }
   }
+}
+
+void Character::unequip(int idx) {
+  if (idx <= SLOTS) {
+    std::cout << "Invalid slots provided!\n";
+    return;
+  } else if (!this->inventory_[idx]) {
+    std::cout << "Trying to unequip a unexisting slot!\n";
+    return;
+  } else
+    this->inventory_[idx] == NULL;
 }
