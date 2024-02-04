@@ -1,14 +1,14 @@
 // Created by tde-sous on 26-01-2024.
 #include "AMateria.hpp"
 
-#include <initializer_list>
-
 AMateria::AMateria() { std::cout << "[AMateria] Default constructor called\n"; }
 
 AMateria::AMateria(std::string const &type) {
+  (void)type;
   std::cout << "[AMateria] Constructor with parameter type called\n";
 }
 AMateria::AMateria(const AMateria &other) {
+  (void)other;
   std::cout << "[AMateria] Copy constructor called\n";
 }
 
