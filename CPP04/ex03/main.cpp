@@ -1,10 +1,16 @@
 // Created by tde-sous on 26-01-2024.
 
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+
 // Own tests
-int main()
-{
-
-
+int main() {
+  const AMateria *Ice_1 = new Ice();
+  const AMateria *Cure_1 = new Cure();
+  Character Char_3("mario");
+  Ice_1->getType();
+  Cure_1->getType();
 }
 
 // Subject Main test
