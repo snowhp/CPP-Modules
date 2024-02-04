@@ -22,7 +22,10 @@ Cat &Cat::operator=(const Cat &other) {
   return *this;
 }
 
-Cat::~Cat() { std::cout << "Cat -> Destructorcalled!\n"; }
+Cat::~Cat() {
+  delete this->CatBrain;
+  std::cout << "Cat -> Destructorcalled!\n";
+}
 
 void Cat::makeSound() const {
   std::cout << "I am a Meow Meowwwww" << std::endl;
