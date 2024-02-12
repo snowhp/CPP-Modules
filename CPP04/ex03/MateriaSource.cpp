@@ -28,6 +28,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
 
 MateriaSource::~MateriaSource() {
   std::cout << "[MateriaSource] Destructor called." << std::endl;
+  for (int i = 0; i < SLOTS; i++) {
+    if (this->learntMaterias_[i])
+      delete this->learntMaterias_[i];
+  }
 }
 void MateriaSource::learnMateria(AMateria *materiaToLearn) {
   for (int i = 0; i <= SLOTS; i++) {
