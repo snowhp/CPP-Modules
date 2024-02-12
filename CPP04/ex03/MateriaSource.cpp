@@ -4,7 +4,7 @@
 MateriaSource::MateriaSource() {
   std::cout << "[MateriaSource] Default Constructor called." << std::endl;
   for (int i = 0; i < SLOTS; i++)
-    this->learntMaterias[i] = NULL;
+    this->learntMaterias_[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other) {
@@ -38,6 +38,15 @@ void MateriaSource::learnMateria(AMateria *materiaToLearn) {
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
-  (void)type;
-  return NULL;
+  for (int i = 0; i <= SLOTS; i++) {
+    if (i == SLOTS) {
+      std::cout << "[MateriaSource] No Materia with type: " << type
+                << std::endl;
+      return 0;
+    } else if (this->learntMaterias_[i] &&
+               this->learntMaterias_[i]->getType() == type) {
+      return (this->learntMaterias_[i]->clone());
+    }
+  }
+  return 0;
 }
