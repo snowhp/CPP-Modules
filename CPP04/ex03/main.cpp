@@ -4,22 +4,27 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-// Own tests
+// Own tests | If a block is not equipped and its allocated, it need to be freeded at the end
 int main() {
-  const AMateria *Ice_1 = new Ice();
-  const AMateria *Cure_1 = new Cure();
-  Ice Ice_2;
+  AMateria *Ice_1 = new Ice();
+  AMateria *Cure_1 = new Cure();
+  AMateria *Ice_2 = new Ice();
+  AMateria *Ice_3 = new Ice();
+  AMateria *Ice_4 = new Ice();
   Cure Cure_2;
   Character Char_3("mario");
   std::cout << "Ice_1 type: " << Ice_1->getType() << std::endl;
-  std::cout << "Ice_2 type: " << Ice_2.getType() << std::endl;
+  std::cout << "Ice_2 type: " << Ice_2->getType() << std::endl;
   std::cout << "Cure_1 type: " << Cure_1->getType() << std::endl;
-  Ice_2.use(Char_3);
-  Char_3.equip(&Ice_2);
-  Char_3.equip(&Cure_2);
+  Ice_2->use(Char_3);
+  Char_3.equip(Ice_1);
+  Char_3.equip(Ice_2);
+  Char_3.equip(Ice_3);
+  Char_3.equip(Ice_4);
+  Char_3.unequip(4);
+  Char_3.unequip(3);
+  Char_3.equip(Cure_1);
   Char_3.use(0, Char_3);
-  delete Ice_1;
-  delete Cure_1;
 }
 
 // Subject Main test

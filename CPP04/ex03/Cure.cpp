@@ -2,22 +2,22 @@
 #include "Cure.hpp"
 
 Cure::Cure() : AMateria("cure") {
-  std::cout << "[Cure] Default constructor called\n";
+  std::cout << "[Cure] Default constructor called" << std::endl;
 }
 
 Cure::Cure(const Cure &other) : AMateria(other) {
-  std::cout << "[Cure] Copy constructor called\n";
+  std::cout << "[Cure] Copy constructor called" << std::endl;
 }
 
 Cure &Cure::operator=(const Cure &other) {
-  std::cout << "[Cure] Copy assignment operator called\n";
+  std::cout << "[Cure] Copy assignment operator called" << std::endl;
   if (this == &other)
     return (*this);
   this->type_ = other.type_;
   return *this;
 }
 
-Cure::~Cure() { std::cout << "[Cure] Destructor called\n"; }
+Cure::~Cure() { std::cout << "[Cure] Destructor called" << std::endl; }
 
 AMateria *Cure::clone() const {
   Cure *clone = new Cure;
@@ -25,5 +25,5 @@ AMateria *Cure::clone() const {
 }
 
 void Cure::use(ICharacter &target) {
-  std::cout << "* heals " << target.getName() << "’s wounds *\n";
+  std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
