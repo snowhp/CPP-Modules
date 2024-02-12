@@ -8,9 +8,18 @@
 int main() {
   const AMateria *Ice_1 = new Ice();
   const AMateria *Cure_1 = new Cure();
+  Ice Ice_2;
+  Cure Cure_2;
   Character Char_3("mario");
-  Ice_1->getType();
-  Cure_1->getType();
+  std::cout << "Ice_1 type: " << Ice_1->getType() << std::endl;
+  std::cout << "Ice_2 type: " << Ice_2.getType() << std::endl;
+  std::cout << "Cure_1 type: " << Cure_1->getType() << std::endl;
+  Ice_2.use(Char_3);
+  Char_3.equip(&Ice_2);
+  Char_3.equip(&Cure_2);
+  Char_3.use(0, Char_3);
+  delete Ice_1;
+  delete Cure_1;
 }
 
 // Subject Main test
