@@ -10,6 +10,7 @@ class ICharacter;
 
 class AMateria {
 protected:
+  /* The Type of the AMateria */
   std::string type_;
 
 public:

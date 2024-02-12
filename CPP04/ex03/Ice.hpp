@@ -32,6 +32,10 @@ public:
    * @return New instance of Cure.
    */
   AMateria *clone() const;
+  /**
+   * @brief Shoot an Ice Bolt at the target
+   *  @param target The target of the Ice
+   */
   void use(ICharacter &target);
 };
 

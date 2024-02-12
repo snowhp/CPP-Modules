@@ -31,7 +31,11 @@ public:
    * @brief Creates a new instance of this type
    * @return New instance of Cure.
    */
-  AMateria * clone() const;
+  AMateria *clone() const;
+  /**
+   * @brief Heals wounds at the target
+   *  @param target The target of the Cure
+   */
   void use(ICharacter &target);
 };
 

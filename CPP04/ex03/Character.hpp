@@ -12,9 +12,13 @@ class AMateria;
 
 class Character : public ICharacter {
 private:
+  /* The Name of the Character */
   std::string name_;
+  /* The Inventory of the Character with a number of SLOTS */
   AMateria *inventory_[SLOTS];
+  /* The List of unequiped Materias */
   std::list<AMateria *> unequipedMaterias_;
+
 public:
   /**
    * @brief Default constructor.
