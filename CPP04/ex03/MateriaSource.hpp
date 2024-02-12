@@ -10,7 +10,7 @@ class IMateriaSource;
 
 class MateriaSource : public IMateriaSource {
 private:
-  AMateria *learntMaterias[SLOTS];
+  AMateria *learntMaterias_[SLOTS];
 
 public:
   /**
@@ -35,9 +35,9 @@ public:
   /**
    * @brief Copies the Materia passed as a parameter and store it in memory so
    * it can be cloned later.
-   * @param "AMateria *" AMateria to learn.
+   * @param materiaToLearn AMateria to learn.
    */
-  void learnMateria(AMateria *);
+  void learnMateria(AMateria *materiaToLearn);
   /**
    * @brief Creates a copy of a Materia previously learned.
    * @param type The other MateriaSource to assign.

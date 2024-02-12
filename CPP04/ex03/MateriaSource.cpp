@@ -24,8 +24,18 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
 MateriaSource::~MateriaSource() {
   std::cout << "[MateriaSource] Destructor called." << std::endl;
 }
-
-void MateriaSource::learnMateria(AMateria *) {}
+void MateriaSource::learnMateria(AMateria *materiaToLearn) {
+  for (int i = 0; i <= SLOTS; i++) {
+    if (i == SLOTS) {
+      std::cout << "[MateriaSource] Not enought slots to learn a new Materia"
+                << std::endl;
+      return;
+    } else if (!this->learntMaterias_[i]) {
+      this->learntMaterias_[i] = materiaToLearn;
+      return;
+    }
+  }
+}
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
   (void)type;
