@@ -1,8 +1,9 @@
-SRCS = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp \
+SRCS = src/main.cpp src/AMateria.cpp src/Cure.cpp src/Ice.cpp src/Character.cpp src/MateriaSource.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = a.out
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+INCLUDES = "./inc"
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INCLUDES)
 CXX = c++
 RM = rm -f
 
