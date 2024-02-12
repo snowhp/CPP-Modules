@@ -10,7 +10,7 @@ class ICharacter;
 
 class AMateria {
 protected:
-  std::string type;
+  std::string type_;
 
 public:
   /**

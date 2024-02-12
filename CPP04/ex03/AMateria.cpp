@@ -3,8 +3,7 @@
 
 AMateria::AMateria() { std::cout << "[AMateria] Default constructor called\n"; }
 
-AMateria::AMateria(std::string const &type) {
-  (void)type;
+AMateria::AMateria(std::string const &type) : type_(type) {
   std::cout << "[AMateria] Constructor with parameter type called\n";
 }
 AMateria::AMateria(const AMateria &other) {
@@ -21,7 +20,7 @@ AMateria &AMateria::operator=(const AMateria &other) {
 
 AMateria::~AMateria() { std::cout << "[AMateria] Destructor called\n"; }
 
-std::string const &AMateria::getType() const { return (this->type); }
+std::string const &AMateria::getType() const { return (this->type_); }
 
 void AMateria::use(ICharacter &target) {
   std::cout << "I shouldn't be able to use this on " << target.getName()

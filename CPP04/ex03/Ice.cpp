@@ -13,7 +13,7 @@ Ice &Ice::operator=(const Ice &other) {
   std::cout << "[Ice] Copy assignment operator called\n";
   if (this == &other)
     return (*this);
-  this->type = other.type;
+  this->type_ = other.type_;
   return *this;
 }
 
