@@ -18,6 +18,11 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
   std::cout << "[MateriaSource] Copy assignment operator called." << std::endl;
   if (this == &other)
     return *this;
+  for (int i = 0; i < SLOTS; i++) {
+    if (this->learntMaterias_[i])
+      delete this->learntMaterias_[i];
+    this->learntMaterias_[i] = other.learntMaterias_[i];
+  }
   return *this;
 }
 
