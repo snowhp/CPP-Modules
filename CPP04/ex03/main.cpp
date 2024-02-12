@@ -3,9 +3,11 @@
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include "MateriaSource.hpp"
 
-// Own tests | If a block is not equipped and its allocated, it need to be freeded at the end
-int main() {
+// Own tests | If a block is not equipped and its allocated, it need to be
+// freeded at the end
+/*int main() {
   AMateria *Ice_1 = new Ice();
   AMateria *Cure_1 = new Cure();
   AMateria *Ice_2 = new Ice();
@@ -25,10 +27,9 @@ int main() {
   Char_3.unequip(3);
   Char_3.equip(Cure_1);
   Char_3.use(0, Char_3);
-}
+}*/
 
 // Subject Main test
-/*
 int main() {
   IMateriaSource *src = new MateriaSource();
   src->learnMateria(new Ice());
@@ -46,4 +47,4 @@ int main() {
   delete me;
   delete src;
   return 0;
-}*/
+}
