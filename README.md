@@ -75,7 +75,6 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **Multiple Inheritance // Giving your classes multiple parents:** [YouTube](https://www.youtube.com/watch?v=JSBtx_f3WqM)
     - **Multiple Inheritance Deep Dive:** [YouTube](https://www.youtube.com/watch?v=sswTE0u0r7g)
     - **Hybrid Inheritance in C++ with Diamond Problem:** [YouTube](https://www.youtube.com/watch?v=DiUXoiOLZY0)
-    - **NAME:** [AUTHOR](URL)
     
 5. **Module 04 - Subtype polymorphism, abstract classes, interfaces**
 
@@ -96,6 +95,9 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **Interfaces in C++ (Pure virtual functions):** [YouTube](https://www.youtube.com/watch?v=8USgOF7x0hM)
     - **C++ Programming: Abstract and Interface Classes:** [YouTube](https://www.youtube.com/watch?v=GumbgtSUMMo)
     - **Abstract Class vs Pure Abstract Class | Interface | OOP C++:** [YouTube](https://www.youtube.com/watch?v=BkrISFxSn-4)
+    - **What are Forward declarations in C++:** [geeksforgeeks](https://www.geeksforgeeks.org/what-are-forward-declarations-in-c/)
+    - **What are forward declarations in C++?:** [stackoverflow](https://stackoverflow.com/questions/4757565/what-are-forward-declarations-in-c)
+    - **C++ : How to copy / clone a STL List or Sub List:** [thispointer](https://thispointer.com/c-how-to-copy-clone-a-stl-list-or-sub-list/)
       
 ## Getting Started
 
