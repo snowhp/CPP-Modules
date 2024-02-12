@@ -8,13 +8,26 @@ Character::Character(std::string const &name) : name_(name) {
 }
 
 Character::Character(const Character &other) {
-  (void)other;
+  *this = other;
   std::cout << "[Character] Copy constructor called." << std::endl;
 }
 
 Character &Character::operator=(const Character &other) {
-  (void)other;
   std::cout << "[Character] Copy assigment operator called." << std::endl;
+  if (this == &other)
+    return *this;
+  this->name_ = other.name_;
+  while (!this->unequipedMaterias_.empty()) {
+    delete this->unequipedMaterias_.front();
+    this->unequipedMaterias_.pop_front();
+  }
+  this->unequipedMaterias_.assign(other.unequipedMaterias_.begin(),
+                                  other.unequipedMaterias_.end());
+  for (int i = 0; i < SLOTS; i++) {
+    if (this->inventory_[i])
+      delete this->inventory_[i];
+    this->inventory_[i] = other.inventory_[i];
+  }
   return *this;
 }
 
@@ -23,7 +36,7 @@ Character::~Character() {
     if (this->inventory_[i])
       delete this->inventory_[i];
   }
-  while (this->unequipedMaterias_.size() > 0) {
+  while (!this->unequipedMaterias_.empty()) {
     delete this->unequipedMaterias_.front();
     this->unequipedMaterias_.pop_front();
   }
@@ -35,7 +48,8 @@ const std::string &Character::getName() const { return (this->name_); }
 void Character::equip(AMateria *m) {
   for (int i = 0; i <= SLOTS; i++) {
     if (i == SLOTS) {
-      std::cout << "I tried to equip a " << m->getType() << " but I'm full!" << std::endl;
+      std::cout << "I tried to equip a " << m->getType() << " but I'm full!"
+                << std::endl;
       return;
     }
     if (!this->inventory_[i]) {
