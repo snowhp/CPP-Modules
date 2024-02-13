@@ -1,7 +1,7 @@
 // Created by tde-sous on 07-02-2024.
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {}
+Bureaucrat::Bureaucrat() : name_("unamed Bureaucrat"), grade_(150) {}
 
 Bureaucrat::Bureaucrat(std::string const &name, int const &grade)
     : name_(name) {
