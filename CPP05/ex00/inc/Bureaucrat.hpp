@@ -5,9 +5,14 @@
 #include <iostream>
 #include <string>
 
+#define MAX_GRADE 1
+#define MIN_GRADE 150
+
 class Bureaucrat {
 private:
+  /*  Name of the Bureaucrat */
   std::string const name_;
+  /*  Grade of the Bureaucrat */
   unsigned int grade_;
 
 public:
@@ -37,11 +42,13 @@ public:
    */
   ~Bureaucrat();
   /**
-   * @brief Increment the Grade of the Bureaucrat by the value -1.
+   * @brief Increment the Grade of the Bureaucrat by the value -1. Throws
+   * exception if invalid grade.
    */
   void incrementGrade();
   /**
-   * @brief Decrement the Grade of the Bureaucrat by the value +1.
+   * @brief Decrement the Grade of the Bureaucrat by the value +1. Throws
+   * exception if invalid grade.
    */
   void decrementGrade();
   /**
@@ -57,17 +64,17 @@ public:
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
-     * range. Grade value is lower than 1. */
+     * range. Grade value is lower than MAX_GRADE. */
     const char *what() const throw();
   };
 
   class GradeTooLowException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
-     * range. Grade value is greater than 150. */
+     * range. Grade value is greater than MIN_GRADE. */
     const char *what() const throw();
   };
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
 
 #endif // BUREAUCRAT_HPP
