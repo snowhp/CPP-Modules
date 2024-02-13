@@ -10,8 +10,7 @@ INCLUDES = "./inc"
 OBJS = $(SRCS:.cpp=.o)
 
 # Name Of The Compiled Program
-CURRENT_DIR := $(shell basename $(CURDIR))
-NAME = $(CURRENT_DIR)
+NAME = $(shell basename $(CURDIR))
 
 # Compilation Program
 CXX = c++
