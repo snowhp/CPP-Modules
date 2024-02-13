@@ -22,15 +22,15 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 Bureaucrat::~Bureaucrat() {}
 
 void Bureaucrat::decrementGrade() {
-  if (this->grade_ - 1 < 150)
+  if (this->grade_ + 1 > 150)
     throw GradeTooLowException();
-  this->grade_--;
+  this->grade_++;
 }
 
 void Bureaucrat::incrementGrade() {
-  if (this->grade_ + 1 > 1)
+  if (this->grade_ - 1 < 1)
     throw GradeTooHighException();
-  this->grade_++;
+  this->grade_--;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
