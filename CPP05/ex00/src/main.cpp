@@ -4,5 +4,11 @@
 
 int main()
 {
-
+  try
+  {
+    Bureaucrat BurA("other", 179);
+  }
+  catch (std::exception & e) {
+    std::cout << "Exception Catched";
+  }
 }
