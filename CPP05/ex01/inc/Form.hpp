@@ -3,6 +3,7 @@
 #define FORM_HPP
 
 #include <string>
+#include <iostream>
 
 class Form {
 private:
@@ -16,6 +17,13 @@ private:
   unsigned int execGrade_;
 
 public:
+  /**
+   * @brief Constructor with Name, signGrade and execGrade requirements.
+   * @param name The Name of the Form.
+   * @param signGrade The Required Grade to sign.
+   * @param execGrade The Required Grade to execute.
+   */
+  Form(const std::string& name, unsigned int signGrade, unsigned int execGrade);
   /**
    * @brief Default constructor.
    */
@@ -69,6 +77,6 @@ public:
   };
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
+std::ostream &operator<<(std::ostream &os, const Form &obj);
 
 #endif // FORM_HPP
