@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <string>
-#include <iostream>
 
 class Bureaucrat {
 private:
@@ -68,5 +67,7 @@ public:
     const char *what() const throw();
   };
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif // BUREAUCRAT_HPP
