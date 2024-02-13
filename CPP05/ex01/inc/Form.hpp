@@ -47,22 +47,22 @@ public:
    * @brief Getter for the Name of the Form.
    * @return The Name of the Form.
    */
-  std::string getName();
+  std::string getName() const;
   /**
    * @brief Getter for the status of isSigned.
    * @return True if is Signed othewise false.
    */
-  bool getSigned();
+  bool getSigned() const;
   /**
    * @brief Getter for the required grade execute it.
    * @return Grade needed to execute.
    */
-  unsigned int getSignGrade();
+  unsigned int getSignGrade() const;
   /**
    * @brief Getter for the required grade sign it.
    * @return Grade needed to execute.
    */
-  unsigned int getExecGrade();
+  unsigned int getExecGrade() const;
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed

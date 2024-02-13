@@ -37,6 +37,14 @@ Form &Form::operator=(const Form &other) {
 
 Form::~Form() { std::cout << "[Form] Destructor called." << std::endl; }
 
+std::string Form::getName() const { return (this->name_); }
+
+bool Form::getSigned() const { return (this->isSigned_); }
+
+unsigned int Form::getExecGrade() const { return (this->execGrade_); }
+
+unsigned int Form::getSignGrade() const { return (this->signGrade_); }
+
 const char *Form::GradeTooHighException::what() const throw() {
   return ("[Form] Grade is too High!");
 }
