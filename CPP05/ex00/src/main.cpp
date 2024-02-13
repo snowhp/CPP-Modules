@@ -41,6 +41,9 @@ int main() {
     std::cout << BurD << std::endl;
     BurD.incrementGrade();
     std::cout << BurD << std::endl;
+
+    Bureaucrat BurF(BurD);
+    std::cout << "I am a copy of BurD: " << BurF << std::endl;
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
