@@ -1,10 +1,13 @@
 // Created by tde-sous on 07-02-2024.
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name_("unamed Bureaucrat"), grade_(150) {}
+Bureaucrat::Bureaucrat() : name_("Unamed Bureaucrat"), grade_(150) {
+  std::cout << "[Bureaucrat] Default constructor called." << std::endl;
+}
 
 Bureaucrat::Bureaucrat(std::string const &name, int const &grade)
     : name_(name) {
+  std::cout << "[Bureaucrat] Constructor called." << std::endl;
   if (grade < MAX_GRADE)
     throw Bureaucrat::GradeTooHighException();
   if (grade > MIN_GRADE)
@@ -12,14 +15,22 @@ Bureaucrat::Bureaucrat(std::string const &name, int const &grade)
   this->grade_ = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) { (void)other; }
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name_(other.name_), grade_() {
+  std::cout << "[Bureaucrat] Copy constructor called." << std::endl;
+  *this = other;
+}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
-  (void)other;
+  std::cout << "[Bureaucrat] Copy assignment called." << std::endl;
+  if (this == &other)
+    return *this;
+  this->grade_ = other.grade_;
   return *this;
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {
+  std::cout << "[Bureaucrat] Destructor called." << std::endl;
+}
 
 void Bureaucrat::decrementGrade() {
   if (this->grade_ + 1 > MIN_GRADE)
