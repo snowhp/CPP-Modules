@@ -21,12 +21,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 
 Bureaucrat::~Bureaucrat() {}
 
-char *Bureaucrat::GradeTooHighException::what() {
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
   std::cout << "error high" << std::endl;
   return (char *)"Error";
 }
 
-char *Bureaucrat::GradeTooLowException::what() {
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
   std::cout << "error low" << std::endl;
   return (char *)"Error";
 }

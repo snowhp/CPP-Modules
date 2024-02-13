@@ -37,10 +37,10 @@ public:
    */
   ~Bureaucrat();
   class GradeTooHighException : public std::exception {
-    char *what();
+    const char* what() const throw();
   };
   class GradeTooLowException : public std::exception {
-    char *what();
+    const char* what() const throw();
   };
 };
 
