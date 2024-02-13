@@ -3,11 +3,12 @@
 #define BUREAUCRAT_HPP
 
 #include <string>
+#include <iostream>
 
 class Bureaucrat {
 private:
-  std::string const name;
-  unsigned int grade;
+  std::string const name_;
+  unsigned int grade_;
 
 public:
   /**
@@ -15,10 +16,11 @@ public:
    */
   Bureaucrat();
   /**
-   * @brief Default constructor.
-   * @param name Name of the Bureaucrat
+   * @brief Constructor with name and grade.
+   * @param name Name of the Bureaucrat.
+   * @param grade Grade of the Bureaucrat.
    */
-  Bureaucrat(std::string const &name);
+  Bureaucrat(std::string const &name, int const &grade);
   /**
    * @brief Copy constructor.
    * @param other The other Bureaucrat to copy.
@@ -34,6 +36,12 @@ public:
    * @brief Destructor.
    */
   ~Bureaucrat();
+  class GradeTooHighException : public std::exception {
+    char *what();
+  };
+  class GradeTooLowException : public std::exception {
+    char *what();
+  };
 };
 
 #endif // BUREAUCRAT_HPP
