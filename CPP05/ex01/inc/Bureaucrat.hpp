@@ -2,11 +2,14 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <iostream>
 #include <string>
 
 #define MAX_GRADE 1
 #define MIN_GRADE 150
+
+class Form;
 
 class Bureaucrat {
 private:
@@ -61,6 +64,13 @@ public:
    * @return The Grade of the Bureaucrat.
    */
   unsigned int getGrade() const;
+  /**
+   * @brief If form got signed or not, will print a message accordingly with a
+   * reason if denied.
+   * @param signedForm The Form that Bureautcrat tried to sign.
+   * @param reason The Reason not to sign the Form. Empty if it was signed.
+   */
+  void signForm(const Form &signedForm, const std::string& reason);
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
