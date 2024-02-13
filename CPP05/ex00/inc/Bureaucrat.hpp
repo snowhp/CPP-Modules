@@ -2,6 +2,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include <iostream>
 #include <string>
 #include <iostream>
 
@@ -36,13 +37,25 @@ public:
    * @brief Destructor.
    */
   ~Bureaucrat();
+  /**
+   * @brief Increment the Grade of the Bureaucrat by the value -1.
+   */
   void incrementGrade();
+  /**
+   * @brief Decrement the Grade of the Bureaucrat by the value +1.
+   */
   void decrementGrade();
+
   class GradeTooHighException : public std::exception {
-    const char* what() const throw();
+    /** @brief Throws an exception indicating a grade was outside the allowed
+     * range. Grade value is lower than 1. */
+    const char *what() const throw();
   };
+
   class GradeTooLowException : public std::exception {
-    const char* what() const throw();
+    /** @brief Throws an exception indicating a grade was outside the allowed
+     * range. Grade value is greater than 150. */
+    const char *what() const throw();
   };
 };
 
