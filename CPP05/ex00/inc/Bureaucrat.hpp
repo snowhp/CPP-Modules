@@ -75,6 +75,8 @@ public:
   };
 };
 
+/** @brief Prints the information about the Bureaucrat in the format
+ * "<name>, bureaucrat grade <grade>." */
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
 
 #endif // BUREAUCRAT_HPP
