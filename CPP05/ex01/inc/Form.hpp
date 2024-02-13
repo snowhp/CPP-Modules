@@ -2,8 +2,8 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 
 class Form {
 private:
@@ -23,7 +23,7 @@ public:
    * @param signGrade The Required Grade to sign.
    * @param execGrade The Required Grade to execute.
    */
-  Form(const std::string& name, unsigned int signGrade, unsigned int execGrade);
+  Form(const std::string &name, unsigned int signGrade, unsigned int execGrade);
   /**
    * @brief Default constructor.
    */
@@ -77,6 +77,10 @@ public:
   };
 };
 
+/** @brief Prints the information about the Form in the format
+* "This form is named: <Name> and its "signed "/"not signed " the required grade
+to sign it is <SignRequiredGrade> and the required grade to execute it is
+<RequiredExecGrade> */
 std::ostream &operator<<(std::ostream &os, const Form &obj);
 
 #endif // FORM_HPP
