@@ -45,6 +45,16 @@ unsigned int Form::getExecGrade() const { return (this->execGrade_); }
 
 unsigned int Form::getSignGrade() const { return (this->signGrade_); }
 
+void Form::beSigned(Bureaucrat &signer) {
+  if (this->getSigned())
+    signer.signForm(this, "Form was already signed");
+  else if (this->getSignGrade() < signer.getGrade()) {
+    signer.signForm(this, "grade is too low");
+    throw Form::GradeTooLowException();
+  } else
+    this->isSigned_ = true;
+}
+
 const char *Form::GradeTooHighException::what() const throw() {
   return ("[Form] Grade is too High!");
 }

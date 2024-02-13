@@ -2,8 +2,11 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <string>
+
+class Bureaucrat;
 
 class Form {
 private:
@@ -54,15 +57,22 @@ public:
    */
   bool getSigned() const;
   /**
-   * @brief Getter for the required grade execute it.
+   * @brief Getter for the required grade sign it.
    * @return Grade needed to execute.
    */
   unsigned int getSignGrade() const;
   /**
-   * @brief Getter for the required grade sign it.
+   * @brief Getter for the required grade execute it.
    * @return Grade needed to execute.
    */
   unsigned int getExecGrade() const;
+  /**
+   * @brief Takes a Bureaucrat as a parameter, changing the form status to
+   * signed if e bureaucrat’s grade is high enough (higher or egal to the
+   * required one). If the grade is too low, throw a Form::GradeTooLowException.
+   * @param signer The Signer Bureaucrat.
+   */
+  void beSigned(Bureaucrat &signer);
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
@@ -78,9 +88,9 @@ public:
 };
 
 /** @brief Prints the information about the Form in the format
-* "This form is named: <Name> and its "signed "/"not signed " the required grade
-to sign it is <SignRequiredGrade> and the required grade to execute it is
-<RequiredExecGrade> */
+ * "This form is named: <Name> and its "signed "/"not signed " the required
+ * grade to sign it is <SignRequiredGrade> and the required grade to execute it
+ * is <RequiredExecGrade> */
 std::ostream &operator<<(std::ostream &os, const Form &obj);
 
 #endif // FORM_HPP
