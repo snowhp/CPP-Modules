@@ -33,6 +33,10 @@ void Bureaucrat::incrementGrade() {
   this->grade_--;
 }
 
+unsigned int Bureaucrat::getGrade() const { return this->grade_; }
+
+std::string Bureaucrat::getName() const { return this->name_; }
+
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
   return ("Grade is too High!");
 }

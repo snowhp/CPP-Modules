@@ -45,6 +45,16 @@ public:
    * @brief Decrement the Grade of the Bureaucrat by the value +1.
    */
   void decrementGrade();
+  /**
+   * @brief Getter for the Name of the Bureaucrat.
+   * @return The Name of the Bureaucrat.
+   */
+  std::string getName() const;
+  /**
+   * @brief Getter for the Grade of the Bureaucrat.
+   * @return The Grade of the Bureaucrat.
+   */
+  unsigned int getGrade() const;
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
