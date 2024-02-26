@@ -16,9 +16,13 @@ int main() {
   }
   std::cout << "============" << std::endl;
 
-  // Wrong Grade of FormA
+  // Correct grade and sign
   try {
-    Form FormA("Formâge A", 151,  123);
+    Bureaucrat BurA("Bureaucrat A", 124);
+    Form FormB("Formâge B", 150,  123);
+    FormB.beSigned(BurA);
+    std::cout << FormB << std::endl;
+    BurA.signForm(&FormB, "");
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
