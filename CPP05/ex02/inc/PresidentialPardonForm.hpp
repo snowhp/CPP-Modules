@@ -35,6 +35,10 @@ public:
    * @brief Destructor.
    */
   ~PresidentialPardonForm();
+  /**
+   * @brief Prints to std::cout -> Informs that <target> has been pardoned by Zaphod Beeblebrox.
+   */
+  void pardoned();
 };
 
 #endif // PRESIDENTIALPARDONFORM_HPP
