@@ -10,7 +10,7 @@ class AForm;
 
 class ShrubberyCreationForm : public AForm {
 private:
-  void asciiTreeWriter(const std::string &name);
+  void execute();
   std::string target_;
 
 public:

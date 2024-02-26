@@ -41,7 +41,7 @@ private:
    * robotomized successfully 50% of the time. Otherwise, informs that the
    * robotomy failed..
    */
-  void drill() const;
+  void execute();
 };
 
 #endif // ROBOTOMYREQUESTFORM_HPP
