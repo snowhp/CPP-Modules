@@ -2,7 +2,7 @@
 #include "AForm.hpp"
 
 AForm::AForm(const std::string &name, const unsigned int signGrade,
-           const unsigned int execGrade)
+             const unsigned int execGrade)
     : name_(name) {
   std::cout << "[AForm] Constructor called." << std::endl;
   if (signGrade > 150 || execGrade > 150)
@@ -40,6 +40,8 @@ AForm::~AForm() { std::cout << "[Form] Destructor called." << std::endl; }
 std::string AForm::getName() const { return (this->name_); }
 
 bool AForm::getSigned() const { return (this->isSigned_); }
+
+void AForm::setSigned(bool sign) { this->isSigned_ = sign; }
 
 unsigned int AForm::getExecGrade() const { return (this->execGrade_); }
 

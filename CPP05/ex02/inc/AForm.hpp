@@ -26,7 +26,8 @@ public:
    * @param signGrade The Required Grade to sign.
    * @param execGrade The Required Grade to execute.
    */
-  AForm(const std::string &name, unsigned int signGrade, unsigned int execGrade);
+  AForm(const std::string &name, unsigned int signGrade,
+        unsigned int execGrade);
   /**
    * @brief Default constructor.
    */
@@ -56,6 +57,11 @@ public:
    * @return True if is Signed othewise false.
    */
   bool getSigned() const;
+  /**
+   * @brief Setter for the status of isSigned.
+   * @param sign Boolean for the status of the sign.
+   */
+  void setSigned(bool sign);
   /**
    * @brief Getter for the required grade sign it.
    * @return Grade needed to execute.
@@ -93,4 +99,4 @@ public:
  * is <RequiredExecGrade> */
 std::ostream &operator<<(std::ostream &os, const AForm &obj);
 
-#endif // FORM_HPP
+#endif // AFORM_HPP
