@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("", 145, 137) {
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
     : AForm(target, 145, 137) {
-  std::cout << "[ShrubberyCreationForm] Default constructor called." << std::endl;
+  std::cout << "[ShrubberyCreationForm] Constructor called." << std::endl;
   this->asciiTreeWriter(target);
 }
 
