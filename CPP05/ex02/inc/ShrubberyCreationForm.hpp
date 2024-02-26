@@ -10,7 +10,6 @@ class AForm;
 
 class ShrubberyCreationForm : public AForm {
 private:
-  void execute();
   std::string target_;
 
 public:
@@ -38,6 +37,7 @@ public:
    * @brief Destructor.
    */
   ~ShrubberyCreationForm();
+  void execute();
 };
 
 #endif // SHRUBBERYCREATIONFORM_HPP
