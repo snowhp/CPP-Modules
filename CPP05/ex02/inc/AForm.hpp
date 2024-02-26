@@ -90,7 +90,7 @@ public:
   /**
    * @brief Pure virtual to be redifined in concrete classes as the execution.
    */
-  virtual void execute() const = 0;
+  virtual void executer() const = 0;
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
