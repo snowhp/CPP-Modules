@@ -8,6 +8,7 @@ class AForm;
 
 class PresidentialPardonForm : public AForm {
 private:
+  /* The name of the target */
   std::string target_;
 
 public:
@@ -36,7 +37,8 @@ public:
    */
   ~PresidentialPardonForm();
   /**
-   * @brief Prints to std::cout -> Informs that <target> has been pardoned by Zaphod Beeblebrox.
+   * @brief Prints to std::cout -> Informs that <target> has been pardoned by
+   * Zaphod Beeblebrox.
    */
   void execute();
 };

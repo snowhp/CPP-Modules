@@ -10,8 +10,10 @@ class AForm;
 
 class RobotomyRequestForm : public AForm {
 private:
- std::string target_;
- public:
+  /* The name of the target */
+  std::string target_;
+
+public:
   /**
    * @brief Default constructor.
    */

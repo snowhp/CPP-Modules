@@ -10,6 +10,7 @@ class AForm;
 
 class ShrubberyCreationForm : public AForm {
 private:
+  /* The name of the target */
   std::string target_;
 
 public:
@@ -37,6 +38,9 @@ public:
    * @brief Destructor.
    */
   ~ShrubberyCreationForm();
+  /**
+   * @brief Prints an ASCII tree to std::cout.
+   */
   void execute();
 };
 
