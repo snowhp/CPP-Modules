@@ -80,6 +80,18 @@ public:
    */
   void beSigned(Bureaucrat &signer);
 
+  /**
+   * @brief A function to execute the form’s action of the concrete
+   * class.
+   * @param executor The Executor Bureaucrat.
+   */
+  void execute(Bureaucrat const &executor);
+
+  /**
+   * @brief Pure virtual to be redifined in concrete classes as the execution.
+   */
+  virtual void execute() = 0;
+
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
      * range. Grade value is lower than MAX_GRADE. */
