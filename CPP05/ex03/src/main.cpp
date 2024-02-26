@@ -9,34 +9,12 @@
 int main() {
   // Expected behavior
   try {
-    Bureaucrat BurA("other", 144);
-    ShrubberyCreationForm FormA("Formâge A");
-    FormA.execute(BurA);
-    std::cout << FormA << std::endl;
-    FormA.beSigned(BurA);
-    //FormA.execute(BurA);
-    std::cout << FormA << std::endl;
-  } catch (std::exception &e) {
-    std::cout << e.what() << std::endl;
-  }
-  std::cout << "============" << std::endl;
-  try {
-    Bureaucrat BurA("other", 72);
-    RobotomyRequestForm FormA("hellooo");
-    std::cout << FormA << std::endl;
-    FormA.beSigned(BurA);
-    std::cout << FormA << std::endl;
-    BurA.executeForm(FormA);
-  } catch (std::exception &e) {
-    std::cout << e.what() << std::endl;
-  }
-  std::cout << "============" << std::endl;
-  try {
-    Bureaucrat BurA("other", 25);
-    PresidentialPardonForm FormA("hellooo");
-    std::cout << FormA << std::endl;
-    FormA.beSigned(BurA);
-    std::cout << FormA << std::endl;
+    Intern someRandomIntern;
+    Form* rrf;
+    rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
+    std::cout << rrf->getName() << std::endl;
+    rrf->executer();
+    delete rrf;
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
