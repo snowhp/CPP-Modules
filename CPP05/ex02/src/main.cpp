@@ -28,7 +28,7 @@ int main() {
   }
   std::cout << "============" << std::endl;
   try {
-    Bureaucrat BurA("other", 72); // Grade to High for ShrubberyCreationForm
+    Bureaucrat BurA("other", 25); // Grade to High for ShrubberyCreationForm
     PresidentialPardonForm FormA("hellooo");
     std::cout << FormA << std::endl;
     FormA.beSigned(BurA);
