@@ -2,7 +2,8 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("", 145, 137) {
-  std::cout << "[ShrubberyCreationForm] Default constructor called." << std::endl;
+  std::cout << "[ShrubberyCreationForm] Default constructor called."
+            << std::endl;
   this->asciiTreeWriter("");
 }
 
@@ -16,12 +17,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
     : AForm(other.getName(), other.getSignGrade(), other.getExecGrade()) {
   std::cout << "[ShrubberyCreationForm] Copy constructor called." << std::endl;
   this->asciiTreeWriter(other.getName());
+  this->setSigned(other.getSigned());
 }
 
 ShrubberyCreationForm &
 ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) {
-  std::cout << "[ShrubberyCreationForm] Copy assignment operator called." << std::endl;
+  std::cout << "[ShrubberyCreationForm] Copy assignment operator called."
+            << std::endl;
   this->asciiTreeWriter(other.getName());
+  this->setSigned(other.getSigned());
   return *this;
 }
 
