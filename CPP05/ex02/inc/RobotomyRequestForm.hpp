@@ -4,6 +4,7 @@
 
 #include "AForm.hpp"
 #include <cstdlib>
+#include <ctime>
 
 class AForm;
 
@@ -35,6 +36,12 @@ private:
    * @brief Destructor.
    */
   ~RobotomyRequestForm();
+  /**
+   * @brief Makes some drilling noises. Then, informs that <target> has been
+   * robotomized successfully 50% of the time. Otherwise, informs that the
+   * robotomy failed..
+   */
+  void drill() const;
 };
 
 #endif // ROBOTOMYREQUESTFORM_HPP
