@@ -91,6 +91,11 @@ public:
      * range. Grade value is greater than MIN_GRADE. */
     const char *what() const throw();
   };
+
+  class FormIsNotSigned : public std::exception {
+    /** @brief Throws an exception indicating that the Form is not signed. */
+    const char *what() const throw();
+  };
 };
 
 /** @brief Prints the information about the Form in the format
