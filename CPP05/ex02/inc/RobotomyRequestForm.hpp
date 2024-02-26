@@ -3,11 +3,14 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <cstdlib>
 
 class AForm;
 
 class RobotomyRequestForm : public AForm {
-public:
+private:
+ std::string target_;
+ public:
   /**
    * @brief Default constructor.
    */
