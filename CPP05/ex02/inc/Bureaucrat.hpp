@@ -70,7 +70,13 @@ public:
    * @param signedForm The Form that Bureautcrat tried to sign.
    * @param reason The Reason not to sign the Form. Empty if it was signed.
    */
-  void signForm(const AForm *signedForm, const std::string& reason);
+  void signForm(const AForm *signedForm, const std::string &reason);
+
+  /**
+   * @brief It will attempt to execute the form and print a message.
+   * @param form The form to be executed.
+   */
+  void executeForm(AForm const &form);
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed

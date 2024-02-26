@@ -65,6 +65,15 @@ void Bureaucrat::signForm(const AForm *signedForm, const std::string &reason) {
               << " because " << reason << std::endl;
 }
 
+void Bureaucrat::executeForm(AForm const &form) {
+  try {
+    form.executer();
+    std::cout << this->getName() << " executed " << form.getName() << std::endl;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+}
+
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj) {
   os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "."
      << std::endl;
