@@ -45,7 +45,7 @@ public:
   /**
    * @brief Destructor.
    */
-  ~Form();
+  virtual ~Form() = 0;
   /**
    * @brief Getter for the Name of the Form.
    * @return The Name of the Form.

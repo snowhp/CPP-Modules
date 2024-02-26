@@ -1,5 +1,5 @@
 # Source Files
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp
 
 # Source Files Prefix
 SRCS := $(addprefix src/, $(SRCS))
