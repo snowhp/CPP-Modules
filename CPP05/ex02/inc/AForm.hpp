@@ -1,6 +1,6 @@
 // Created by tde-sous on 13-02-2024.
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 #include <iostream>
@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 private:
   /* The Name of the Form */
   std::string const name_;
@@ -26,26 +26,26 @@ public:
    * @param signGrade The Required Grade to sign.
    * @param execGrade The Required Grade to execute.
    */
-  Form(const std::string &name, unsigned int signGrade, unsigned int execGrade);
+  AForm(const std::string &name, unsigned int signGrade, unsigned int execGrade);
   /**
    * @brief Default constructor.
    */
-  Form();
+  AForm();
   /**
    * @brief Copy constructor.
    * @param other The other Form to copy.
    */
-  Form(const Form &other);
+  AForm(const AForm &other);
   /**
    * @brief Copy assignment operator.
    * @param other The other Form to assign.
    * @return A reference to the assigned Form.
    */
-  Form &operator=(const Form &other);
+  AForm &operator=(const AForm &other);
   /**
    * @brief Destructor.
    */
-  virtual ~Form() = 0;
+  virtual ~AForm() = 0;
   /**
    * @brief Getter for the Name of the Form.
    * @return The Name of the Form.
@@ -91,6 +91,6 @@ public:
  * "This form is named: <Name> and its "signed "/"not signed " the required
  * grade to sign it is <SignRequiredGrade> and the required grade to execute it
  * is <RequiredExecGrade> */
-std::ostream &operator<<(std::ostream &os, const Form &obj);
+std::ostream &operator<<(std::ostream &os, const AForm &obj);
 
 #endif // FORM_HPP

@@ -9,7 +9,7 @@
 #define MAX_GRADE 1
 #define MIN_GRADE 150
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
@@ -70,7 +70,7 @@ public:
    * @param signedForm The Form that Bureautcrat tried to sign.
    * @param reason The Reason not to sign the Form. Empty if it was signed.
    */
-  void signForm(const Form *signedForm, const std::string& reason);
+  void signForm(const AForm *signedForm, const std::string& reason);
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed
