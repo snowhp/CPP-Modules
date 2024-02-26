@@ -3,14 +3,16 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
-#include <string>
 #include <fstream>
+#include <string>
 
 class AForm;
 
 class ShrubberyCreationForm : public AForm {
 private:
-   void asciiTreeWriter(const std::string &name);
+  void asciiTreeWriter(const std::string &name);
+  std::string target_;
+
 public:
   /**
    * @brief Default constructor.
