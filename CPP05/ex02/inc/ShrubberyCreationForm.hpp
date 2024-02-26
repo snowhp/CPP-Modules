@@ -6,9 +6,9 @@
 #include <fstream>
 #include <string>
 
-class AForm;
+class Form;
 
-class ShrubberyCreationForm : public AForm {
+class ShrubberyCreationForm : public Form {
 private:
   /* The name of the target */
   std::string target_;

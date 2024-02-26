@@ -6,9 +6,9 @@
 #include <cstdlib>
 #include <ctime>
 
-class AForm;
+class Form;
 
-class RobotomyRequestForm : public AForm {
+class RobotomyRequestForm : public Form {
 private:
   /* The name of the target */
   std::string target_;

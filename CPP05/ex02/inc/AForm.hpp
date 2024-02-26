@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class AForm {
+class Form {
 private:
   /* The Name of the Form */
   std::string const name_;
@@ -26,27 +26,27 @@ public:
    * @param signGrade The Required Grade to sign.
    * @param execGrade The Required Grade to execute.
    */
-  AForm(const std::string &name, unsigned int signGrade,
+  Form(const std::string &name, unsigned int signGrade,
         unsigned int execGrade);
   /**
    * @brief Default constructor.
    */
-  AForm();
+  Form();
   /**
    * @brief Copy constructor.
    * @param other The other Form to copy.
    */
-  AForm(const AForm &other);
+  Form(const Form &other);
   /**
    * @brief Copy assignment operator.
    * @param other The other Form to assign.
    * @return A reference to the assigned Form.
    */
-  AForm &operator=(const AForm &other);
+  Form &operator=(const Form &other);
   /**
    * @brief Destructor.
    */
-  virtual ~AForm() = 0;
+  virtual ~Form() = 0;
   /**
    * @brief Getter for the Name of the Form.
    * @return The Name of the Form.
@@ -114,6 +114,6 @@ public:
  * "This form is named: <Name> and its "signed "/"not signed " the required
  * grade to sign it is <SignRequiredGrade> and the required grade to execute it
  * is <RequiredExecGrade> */
-std::ostream &operator<<(std::ostream &os, const AForm &obj);
+std::ostream &operator<<(std::ostream &os, const Form &obj);
 
 #endif // AFORM_HPP
