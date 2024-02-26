@@ -41,7 +41,7 @@ public:
   /**
    * @brief Prints an ASCII tree to std::cout.
    */
-  void execute();
+  void execute() const;
 };
 
 #endif // SHRUBBERYCREATIONFORM_HPP

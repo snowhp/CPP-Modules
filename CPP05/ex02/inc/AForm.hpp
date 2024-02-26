@@ -85,12 +85,12 @@ public:
    * class.
    * @param executor The Executor Bureaucrat.
    */
-  void execute(Bureaucrat const &executor);
+  void execute(Bureaucrat const &executor) const;
 
   /**
    * @brief Pure virtual to be redifined in concrete classes as the execution.
    */
-  virtual void execute() = 0;
+  virtual void execute() const = 0;
 
   class GradeTooHighException : public std::exception {
     /** @brief Throws an exception indicating a grade was outside the allowed

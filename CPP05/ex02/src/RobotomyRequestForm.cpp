@@ -33,7 +33,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
   std::cout << "[RobotomyRequestForm] Destructor called." << std::endl;
 }
 
-void RobotomyRequestForm::execute() {
+void RobotomyRequestForm::execute() const {
   std::cout << this->target_ << " started to drill" << std::endl;
   std::cout << "vrummmm vrummmm 🛠️🛠️" << std::endl;
 

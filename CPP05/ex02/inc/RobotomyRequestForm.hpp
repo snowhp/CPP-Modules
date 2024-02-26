@@ -43,7 +43,7 @@ public:
    * robotomized successfully 50% of the time. Otherwise, informs that the
    * robotomy failed..
    */
-  void execute();
+  void execute() const;
 };
 
 #endif // ROBOTOMYREQUESTFORM_HPP

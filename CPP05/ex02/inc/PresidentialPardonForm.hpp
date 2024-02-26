@@ -40,7 +40,7 @@ public:
    * @brief Prints to std::cout -> Informs that <target> has been pardoned by
    * Zaphod Beeblebrox.
    */
-  void execute();
+  void execute() const;
 };
 
 #endif // PRESIDENTIALPARDONFORM_HPP
