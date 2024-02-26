@@ -2,18 +2,18 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm("", 145, 137), target_("") {
+    : Form("", 145, 137), target_("") {
   std::cout << "[ShrubberyCreationForm] Default constructor called."
             << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : AForm(target, 145, 137), target_(target) {
+    : Form(target, 145, 137), target_(target) {
   std::cout << "[ShrubberyCreationForm] Constructor called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
-    : AForm(other.getName(), other.getSignGrade(), other.getExecGrade()),
+    : Form(other.getName(), other.getSignGrade(), other.getExecGrade()),
       target_(other.target_) {
   std::cout << "[ShrubberyCreationForm] Copy constructor called." << std::endl;
   this->setSigned(other.getSigned());

@@ -1,17 +1,17 @@
 // Created by tde-sous on 26-02-2024.
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("", 72, 45), target_("") {
+RobotomyRequestForm::RobotomyRequestForm() : Form("", 72, 45), target_("") {
   std::cout << "[RobotomyRequestForm] Default constructor called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-    : AForm(target, 72, 45), target_(target) {
+    : Form(target, 72, 45), target_(target) {
   std::cout << "[RobotomyRequestForm] Constructor called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
-    : AForm(other.target_, 72, 45) {
+    : Form(other.target_, 72, 45) {
   std::cout << "[RobotomyRequestForm] Copy constructor constructor called."
             << std::endl;
   this->setSigned(other.getSigned());

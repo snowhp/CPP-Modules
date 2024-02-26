@@ -4,9 +4,9 @@
 
 #include "AForm.hpp"
 
-class AForm;
+class Form;
 
-class PresidentialPardonForm : public AForm {
+class PresidentialPardonForm : public Form {
 private:
   /* The name of the target */
   std::string target_;
