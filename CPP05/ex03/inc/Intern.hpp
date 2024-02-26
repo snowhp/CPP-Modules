@@ -6,7 +6,11 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include <iostream>
+
+class AForm;
+class PresidentialPardonForm;
+class RobotomyRequestForm;
+class ShrubberyCreationForm;
 
 class Intern {
 public:
@@ -37,8 +41,8 @@ public:
    * @return  pointer to a Form object (whose name is the one passed as
    * parameter) whose target will be initialized to the second parameter
    */
-  AForm *makeForm(const std::string &formName,
-                  const std::string &formTargetName);
+  static AForm *makeForm(const std::string &formName,
+                         const std::string &formTargetName);
   /**
    * \brief Creates a new residentialPardonForm
    * \param target The name of the PresidentialPardonForm
@@ -59,7 +63,7 @@ public:
   static AForm *makeShrubberyCreationForm(const std::string &target);
   class FormNotFound : public std::exception {
   public:
-   /** @brief Throws an exception indicating that the Form is not Found. */
+    /** @brief Throws an exception indicating that the Form is not Found. */
     virtual const char *what() const throw();
   };
 };

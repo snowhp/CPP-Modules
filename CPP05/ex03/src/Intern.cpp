@@ -19,8 +19,32 @@ Intern& Intern::operator=(const Intern& other) {
 
 Intern::~Intern() {
     std::cout << "[Intern] Destructor called." << std::endl;
-
 }
+
+AForm *Intern::makeForm(const std::string &formName,
+                  const std::string &formTargetName)
+{
+	std::string names[3] = {
+	"PresidentialPardon",
+	"RobotomyRequest",
+	"ShrubberyCreation"
+};
+	int number = 0;
+	while (number <= 3)
+	{
+		if (names[number] == formName)
+			break;
+		number++;
+	}
+	switch (number)
+	{
+		case 0: return (makePresidentialPardonForm(formTargetName));
+		case 1: return (makeRobotomyRequestForm(formTargetName));
+		case 2: return (makeShrubberyCreationForm(formTargetName));
+		default: throw FormNotFound();
+	}
+}
+
 
 AForm *Intern::makePresidentialPardonForm(const std::string &target)
 {
@@ -40,3 +64,4 @@ AForm *Intern::makeShrubberyCreationForm(const std::string &target)
 const char *Intern::FormNotFound::what() const throw() {
 	return "Form not found.";
 }
+
