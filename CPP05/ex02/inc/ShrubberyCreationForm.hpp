@@ -10,7 +10,7 @@ class AForm;
 
 class ShrubberyCreationForm : public AForm {
 private:
-   void asciiTreeWriter();
+   void asciiTreeWriter(const std::string &name);
 public:
   /**
    * @brief Default constructor.

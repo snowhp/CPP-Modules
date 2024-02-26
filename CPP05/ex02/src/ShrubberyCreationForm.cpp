@@ -3,24 +3,26 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("", 145, 137) {
   std::cout << "[ShrubberyCreationForm] Default constructor called.";
+  this->asciiTreeWriter("");
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
     : AForm(target, 145, 137) {
   std::cout << "[ShrubberyCreationForm] Default constructor called.";
+  this->asciiTreeWriter(target);
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
     : AForm(other.getName(), other.getSignGrade(), other.getExecGrade()) {
   std::cout << "[ShrubberyCreationForm] Copy constructor called.";
+  this->asciiTreeWriter(other.getName());
 }
 
 ShrubberyCreationForm &
 ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
     : AForm(other.getName(), other.getSignGrade(), other.getExecGrade()) {
   std::cout << "[ShrubberyCreationForm] Copy assignment operator called.";
-  if (this == &other)
-    return *this;
+  this->asciiTreeWriter(other.getName());
   return *this;
 }
 
@@ -28,8 +30,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
   std::cout << "[ShrubberyCreationForm] Destructor called.";
 }
 
-void ShrubberyCreationForm::asciiTreeWriter() {
-  std::string outputFileName = this->getName() + "_shrubbery";
+void ShrubberyCreationForm::asciiTreeWriter(const std::string &name) {
+  std::string outputFileName = name + "_shrubbery";
   std::ofstream outputFile(outputFileName.c_str());
   outputFile << "   *\n";
   outputFile << "  /|\\\n";
