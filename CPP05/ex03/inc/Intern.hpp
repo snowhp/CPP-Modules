@@ -7,7 +7,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-class AForm;
+class Form;
 class PresidentialPardonForm;
 class RobotomyRequestForm;
 class ShrubberyCreationForm;
@@ -41,26 +41,26 @@ public:
    * @return  pointer to a Form object (whose name is the one passed as
    * parameter) whose target will be initialized to the second parameter
    */
-  static AForm *makeForm(const std::string &formName,
+  static Form *makeForm(const std::string &formName,
                          const std::string &formTargetName);
   /**
    * \brief Creates a new residentialPardonForm
    * \param target The name of the PresidentialPardonForm
    * \return A new instance of type AForm
    */
-  static AForm *makePresidentialPardonForm(const std::string &target);
+  static Form *makePresidentialPardonForm(const std::string &target);
   /**
    * \brief Creates a new RobotomyRequestForm
    * \param target The name of the RobotomyRequestForm
    * \return A new instance of type AForm
    */
-  static AForm *makeRobotomyRequestForm(const std::string &target);
+  static Form *makeRobotomyRequestForm(const std::string &target);
   /**
    * \brief Creates a new ShrubberyCreationForm
    * \param target The name of the ShrubberyCreationForm
    * \return A new instance of type AForm
    */
-  static AForm *makeShrubberyCreationForm(const std::string &target);
+  static Form *makeShrubberyCreationForm(const std::string &target);
   class FormNotFound : public std::exception {
   public:
     /** @brief Throws an exception indicating that the Form is not Found. */
