@@ -2,31 +2,39 @@
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
+#include "AForm.hpp"
 
+class AForm;
 
-class PresidentialPardonForm {
+class PresidentialPardonForm : public AForm {
+private:
+  std::string target_;
+
 public:
-   /**
+  /**
    * @brief Default constructor.
    */
-    PresidentialPardonForm();
-   /**
+  PresidentialPardonForm();
+  /**
+   * @brief Constructor with target name.
+   * @param target The name of the target.
+   */
+  explicit PresidentialPardonForm(const std::string &target);
+  /**
    * @brief Copy constructor.
    * @param other The other PresidentialPardonForm to copy.
    */
-    PresidentialPardonForm(const PresidentialPardonForm& other);
-   /**
+  PresidentialPardonForm(const PresidentialPardonForm &other);
+  /**
    * @brief Copy assignment operator.
    * @param other The other PresidentialPardonForm to assign.
    * @return A reference to the assigned PresidentialPardonForm.
    */
-    PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
-   /**
+  PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+  /**
    * @brief Destructor.
    */
-    ~PresidentialPardonForm();
+  ~PresidentialPardonForm();
 };
 
-
-
-#endif //PRESIDENTIALPARDONFORM_HPP
+#endif // PRESIDENTIALPARDONFORM_HPP
