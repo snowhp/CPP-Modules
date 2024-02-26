@@ -3,6 +3,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
   // Expected behavior
@@ -19,6 +20,16 @@ int main() {
   try {
     Bureaucrat BurA("other", 72); // Grade to High for ShrubberyCreationForm
     RobotomyRequestForm FormA("hellooo");
+    std::cout << FormA << std::endl;
+    FormA.beSigned(BurA);
+    std::cout << FormA << std::endl;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
+  }
+  std::cout << "============" << std::endl;
+  try {
+    Bureaucrat BurA("other", 72); // Grade to High for ShrubberyCreationForm
+    PresidentialPardonForm FormA("hellooo");
     std::cout << FormA << std::endl;
     FormA.beSigned(BurA);
     std::cout << FormA << std::endl;
