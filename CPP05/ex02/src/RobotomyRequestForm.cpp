@@ -5,14 +5,21 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("", 72, 45) {
   std::cout << "[RobotomyRequestForm] Default constructor called." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other.getName(), 72, 45) {
-  std::cout << "[RobotomyRequestForm] Copy constructor constructor called." << std::endl;
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
+    : AForm(target, 72, 45) {}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+    : AForm(other.getName(), 72, 45) {
+  std::cout << "[RobotomyRequestForm] Copy constructor constructor called."
+            << std::endl;
+  this->setSigned(other.getSigned());
 }
 
 RobotomyRequestForm &
 RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
-  (void) other;
-  std::cout << "[RobotomyRequestForm] Copy assignment operator constructor called." << std::endl;
+  std::cout
+      << "[RobotomyRequestForm] Copy assignment operator constructor called."
+      << std::endl;
+  this->setSigned(other.getSigned());
   return *this;
 }
 

@@ -13,6 +13,11 @@ public:
    */
   RobotomyRequestForm();
   /**
+   * @brief Constructor with target name.
+   * @param target Name of the target
+   */
+  RobotomyRequestForm(const std::string &target);
+  /**
    * @brief Copy constructor.
    * @param other The other RobotomyRequestForm to copy.
    */
