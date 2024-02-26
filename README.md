@@ -98,7 +98,29 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **What are Forward declarations in C++:** [geeksforgeeks](https://www.geeksforgeeks.org/what-are-forward-declarations-in-c/)
     - **What are forward declarations in C++?:** [stackoverflow](https://stackoverflow.com/questions/4757565/what-are-forward-declarations-in-c)
     - **C++ : How to copy / clone a STL List or Sub List:** [thispointer](https://thispointer.com/c-how-to-copy-clone-a-stl-list-or-sub-list/)
-      
+
+6. **Module 05 - Try/Catch and Exceptions**
+
+    - [ex00 - Exception handling, class design](./CPP05/ex00/)
+    - [ex01 - Exception handling, class design, member functions](./CPP05/ex01/)
+    - [ex02 - Abstract classes, inheritance, polymorphism, execution logic](./CPP05/ex02/)
+    - [ex03 - Factory method, class design, string manipulation](./CPP05/ex03/)
+
+    ### Resources
+    - **Exception Handling - C++ Tutorial For Beginners** [NeuralNine](https://www.youtube.com/watch?v=5MI2N8yLdMI)
+    - **Throwing Exceptions in C++** [RollBar](https://rollbar.com/blog/error-exceptions-in-c/#)
+    - **Exception handling in C++ (How to handle errors in your program?)** [CodeBeauty](https://www.youtube.com/watch?v=kjEhqgmEiWY)
+    - **C++ Nested Try Catch statements | Re throwing Exceptions** [LearningLad](https://www.youtube.com/watch?v=UcT_sXaJF94)
+    - **How to Implement Custom Exceptions in  C++** [Rollbar Editorial Team](https://rollbar.com/blog/cpp-custom-exceptions/#)
+    - **std::exception** [cppreference](https://en.cppreference.com/w/cpp/error/exception)
+    - **Intermediate-Advanced C++ 3: Custom Exceptions** [Cave of Programming](https://www.youtube.com/watch?v=64HmWAH9Jvg)
+    - **How to Create a Random Number Generator in C++** [digitalocean](https://www.digitalocean.com/community/tutorials/random-number-generator-c-plus-plus)
+    - **C++ Files** [w3schools](https://www.w3schools.com/cpp/cpp_files.asp)
+    - **Is this really 50/50 chance?** [cplusplus](https://cplusplus.com/forum/beginner/48833/)
+    - **Declaring an array of functions inside a class** [stackoverflow](https://stackoverflow.com/questions/68666087/declaring-an-array-of-functions-inside-a-class)
+    - **Factory Method in C++, the Right Way** [medium](https://medium.com/@antwang/factory-method-in-c-the-right-way-e8c5f015fe39)
+    
+
 ## Getting Started
 
 1. Clone this repository:
@@ -117,7 +139,7 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
 
     ```bash
     make
-    ./PROGRAM_EXECUTABLE_NAME (Depends on the exercise most are default [a.out] )
+    ./PROGRAM_EXECUTABLE_NAME (Depends on the exercise most are default [a.out] or the number of the exercise [ex00])
     ```
 
-Feel free to send questions or improvements for modules exercises.
+Feel free to send questions or improvements for module exercises.
