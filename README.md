@@ -4,7 +4,8 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
 
 ## Module List
 
-1. **Module 00 - Namespace, class, member functions, stdio stream, initialization lists, static**
+<details>
+<summary>1. Module 00 - Namespace, class, member functions, stdio stream, initialization lists, static</summary>
 
     - [ex00 - String manipulation and command-line argument handling](./CPP00/ex00/)
     - [ex01 - Classes, Object instantiation, Basic I/O, String manipulation](./CPP00/ex01/)
@@ -19,8 +20,10 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **Destructors in CPP:** [GeeksforGeeks](https://www.geeksforgeeks.org/destructors-c/)
     - **C++: cin.getline - no instance of overload function:** [Stack Overflow](https://stackoverflow.com/questions/36459267/c-cin-getline-no-instance-of-overload-function)
     - **C++ iomanip Library:** [YouTube](https://www.youtube.com/watch?v=JAEKyNfqm0A)
+</details>
 
-2. **Module 01 - Memory allocation, References, Pointers to members, File streams**
+<details>
+<summary>2. Module 01 - Memory allocation, References, Pointers to members, File streams</summary>
 
     - [ex00 - Classes, Member Functions, Pointers, Memory Allocation (stack vs. heap), Destructors](./CPP01/ex00/)
     - [ex01 - Arrays of Objects, Memory Allocation (array of objects), Object Initialization](./CPP01/ex01/)
@@ -36,9 +39,10 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **C++ Pointers - GeeksforGeeks:** [GeeksforGeeks](https://www.geeksforgeeks.org/cpp-pointers/)
     - **How to Read File Line by Line in C++:** [Medium](https://medium.com/@teamcode20233/how-to-read-file-line-by-line-in-c-a1d829f697c0)
     - **C++ File Handling: How to Open, Write, Read, Close Files in C++:** [Guru99](https://www.guru99.com/cpp-file-read-write-open.html)
-
+</details>
   
-3. **Module 02 - Ad-hoc polymorphism, operators overload and canonical classes**
+<details>
+<summary>3. Module 02 - Ad-hoc polymorphism, operators overload, and canonical classes</summary>
 
     - [ex00 - Fixed-point numbers, Orthodox Canonical Form](./CPP02/ex00/)
     - [ex01 - Constructors (from int and float), Member Functions (toFloat, toInt), Operator Overloading](./CPP02/ex01/)
@@ -60,8 +64,10 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **Overloading Increment and Decrement Operators in Postfix form :** [YouTube](https://www.youtube.com/watch?v=XJbA1AjW1zw)
     - **Overloading ++ for both pre and post increment  :** [stackoverflow](https://stackoverflow.com/questions/15244094/overloading-for-both-pre-and-post-increment)
     - **Check if a point lies inside a triangle :** [YouTube](https://www.youtube.com/watch?v=qObJQesvZUU)
+</details>
 
-4. **Module 03 - Inheritance**
+<details>
+<summary>4. Module 03 - Inheritance</summary>
 
     - [ex00 - Class implementation](./CPP03ex00/)
     - [ex01 - Inheritance, Constructors/Destructors Chaining, Overriding Member Functions](./CPP03/ex01/)
@@ -75,8 +81,10 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **Multiple Inheritance // Giving your classes multiple parents:** [YouTube](https://www.youtube.com/watch?v=JSBtx_f3WqM)
     - **Multiple Inheritance Deep Dive:** [YouTube](https://www.youtube.com/watch?v=sswTE0u0r7g)
     - **Hybrid Inheritance in C++ with Diamond Problem:** [YouTube](https://www.youtube.com/watch?v=DiUXoiOLZY0)
-    
-5. **Module 04 - Subtype polymorphism, abstract classes, interfaces**
+</details>
+
+<details>
+<summary>5. Module 04 - Subtype polymorphism, abstract classes, interfaces</summary>
 
     - [ex00 - Polymorphism, Inheritance, Virtual Functions](./CPP04/ex00/)
     - [ex01 - Memory Management, Deep Copy](./CPP04/ex01/)
@@ -98,8 +106,10 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **What are Forward declarations in C++:** [geeksforgeeks](https://www.geeksforgeeks.org/what-are-forward-declarations-in-c/)
     - **What are forward declarations in C++?:** [stackoverflow](https://stackoverflow.com/questions/4757565/what-are-forward-declarations-in-c)
     - **C++ : How to copy / clone a STL List or Sub List:** [thispointer](https://thispointer.com/c-how-to-copy-clone-a-stl-list-or-sub-list/)
+</details>
 
-6. **Module 05 - Try/Catch and Exceptions**
+<details>
+<summary>6. Module 05 - Try/Catch and Exceptions</summary>
 
     - [ex00 - Exception handling, class design](./CPP05/ex00/)
     - [ex01 - Exception handling, class design, member functions](./CPP05/ex01/)
@@ -119,7 +129,7 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
     - **Is this really 50/50 chance?** [cplusplus](https://cplusplus.com/forum/beginner/48833/)
     - **Declaring an array of functions inside a class** [stackoverflow](https://stackoverflow.com/questions/68666087/declaring-an-array-of-functions-inside-a-class)
     - **Factory Method in C++, the Right Way** [medium](https://medium.com/@antwang/factory-method-in-c-the-right-way-e8c5f015fe39)
-    
+</details>
 
 ## Getting Started
 
