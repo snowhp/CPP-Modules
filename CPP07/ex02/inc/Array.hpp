@@ -16,13 +16,17 @@ public:
    */
   Array() {
     std::cout << "[Array] destructor called!" << std::endl;
-    array_ = new T[0];
+    this->array_ = new T[0];
+    this->size_ = 0;
   };
   /**
    * @brief Constructor with array_ with n size.
    * @param n The size of the array to be allocated.
    */
-  Array(unsigned int n) { array_ = new T[n]; };
+  Array(unsigned int n) {
+    this->array_ = new T[n];
+    this->size_ = n;
+  };
   /**
    * @brief Copy constructor.
    * @param other The other Array to copy.
