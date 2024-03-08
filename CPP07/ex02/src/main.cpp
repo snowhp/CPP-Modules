@@ -35,8 +35,8 @@ int main() {
 
   try {
     Array<int> obj;
-      obj[0] = 5;
-      std::cout << obj[0] << std::endl;
+    obj[0] = 5;
+    std::cout << obj[0] << std::endl;
   } catch (const std::exception &e) {
     std::cout << e.what() << std::endl;
   }
