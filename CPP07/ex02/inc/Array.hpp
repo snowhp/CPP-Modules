@@ -31,18 +31,26 @@ public:
    * @brief Copy constructor.
    * @param other The other Array to copy.
    */
-  Array(const Array &other) { this = other; }
+  Array(const Array &other) {
+    this->array_ = new T[other.size()];
+    for (unsigned int i = 0; i < other.size(); i++)
+      this->array_[i] = other.array_[i];
+    this->size_ = other.size_;
+  }
   /**
    * @brief Copy assignment operator.
    * @param other The other Array to assign.
    * @return A reference to the assigned Array.
    */
   Array &operator=(const Array &other) {
+    if (this == &other)
+      return *this;
     delete this->array_;
     this->array_ = new T[other.size()];
-    for (int i = 0; i <= other.size(); i++)
+    for (unsigned int i = 0; i < other.size(); i++)
       this->array_[i] = other.array_[i];
     this->size_ = other.size_;
+    return *this;
   }
   /**
    * @brief Destructor.
