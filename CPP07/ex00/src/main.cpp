@@ -5,7 +5,7 @@
 
 int main() {
   whatever obj;
-  int a = 60;
+  int a = 651;
   int b = 6;
   std::cout << "BEFORE SWAP: a = " << a << " b = " << b << std::endl;
   obj.swap<int>(a, b);
@@ -13,6 +13,9 @@ int main() {
 
   std::cout << "The min value between a(" << a << ") and b(" << b << ") is "
             << obj.min<int>(a, b) << std::endl;
+
+  std::cout << "The max value between a(" << a << ") and b(" << b << ") is "
+            << obj.max<int>(a, b) << std::endl;
 
   float c = 60.6123123;
   float d = 6.01;
@@ -22,4 +25,7 @@ int main() {
 
   std::cout << "The min value between c(" << c << ") and d(" << d << ") is "
             << obj.min<float>(c, d) << std::endl;
+
+  std::cout << "The max value between c(" << c << ") and d(" << d << ") is "
+            << obj.max<float>(c, d) << std::endl;
 }
