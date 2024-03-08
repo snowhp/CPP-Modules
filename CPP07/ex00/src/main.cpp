@@ -11,4 +11,11 @@ int main()
   std::cout << "BEFORE SWAP: a = " << a << " b = " << b << std::endl;
   obj.swap<int>(a, b);
   std::cout << "AFTER SWAP: a = " << a << " b = " << b << std::endl;
+
+  float c = 60.6123123;
+  float d = 6.01;
+  std::cout << "BEFORE SWAP: c = " << c << " d = " << d << std::endl;
+  obj.swap<float>(c, d);
+  std::cout << "AFTER SWAP: c = " << c << " d = " << d << std::endl;
+
 }
