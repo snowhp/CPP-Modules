@@ -14,8 +14,8 @@ public:
   /**
    * @brief Default constructor.
    */
-  Array() {
-    std::cout << "[Array] destructor called!" << std::endl;
+  Array() : size_() {
+    std::cout << "[Array] Default Constructor called!" << std::endl;
     this->array_ = new T[0];
     this->size_ = 0;
   };
@@ -23,9 +23,9 @@ public:
    * @brief Constructor with array_ with n size.
    * @param n The size of the array to be allocated.
    */
-  Array(unsigned int n) {
+  Array(unsigned int n) : size_(n) {
+    std::cout << "[Array] Constructor called!" << std::endl;
     this->array_ = new T[n];
-    this->size_ = n;
   };
   /**
    * @brief Copy constructor.
@@ -41,12 +41,12 @@ public:
   /**
    * @brief Destructor.
    */
-  ~Array() { std::cout << "[Array] destructor called!" << std::endl; };
+  ~Array() { std::cout << "[Array] Destructor called!" << std::endl; };
   /**
    * @brief Get the size of the array.
    * @return The size of the array.
    */
-  unsigned int size() { return size_; };
+  unsigned int size() const { return size_; };
   /**
    * @brief Overload of the operator [] to access the array.
    * @param i The value of the array to access.
@@ -54,7 +54,7 @@ public:
    * than the index_.
    */
   T &operator[](unsigned int i) {
-    if (i > this->size())
+    if (i >= this->size())
       throw OutOfRange();
     return this->array_[i];
   };
