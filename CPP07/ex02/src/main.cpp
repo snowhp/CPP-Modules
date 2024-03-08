@@ -25,6 +25,10 @@ int main() {
       obj[i] = i;
       std::cout << "Index " << i << " = " << obj[i] << std::endl;
     }
+    Array<int> obj2(obj);
+    for (int i = 0; i < size; i++) {
+      std::cout << "Index " << i << " = " << obj[i] << std::endl;
+    }
   } catch (const std::exception &e) {
     std::cout << e.what() << std::endl;
   }
