@@ -14,71 +14,46 @@ public:
   /**
    * @brief Default constructor.
    */
-  Array() : size_() {
-    std::cout << "[Array] Default Constructor called!" << std::endl;
-    this->array_ = new T[0];
-    this->size_ = 0;
-  };
+  Array();
   /**
    * @brief Constructor with array_ with n size.
    * @param n The size of the array to be allocated.
    */
-  Array(unsigned int n) : size_(n) {
-    std::cout << "[Array] Constructor called!" << std::endl;
-    this->array_ = new T[n];
-  };
+  Array(unsigned int n);
   /**
    * @brief Copy constructor.
    * @param other The other Array to copy.
    */
-  Array(const Array &other) {
-    this->array_ = new T[other.size()];
-    for (unsigned int i = 0; i < other.size(); i++)
-      this->array_[i] = other.array_[i];
-    this->size_ = other.size_;
-  }
+  Array(const Array &other);
   /**
    * @brief Copy assignment operator.
    * @param other The other Array to assign.
    * @return A reference to the assigned Array.
    */
-  Array &operator=(const Array &other) {
-    if (this == &other)
-      return *this;
-    delete this->array_;
-    this->array_ = new T[other.size()];
-    for (unsigned int i = 0; i < other.size(); i++)
-      this->array_[i] = other.array_[i];
-    this->size_ = other.size_;
-    return *this;
-  }
+  Array &operator=(const Array &other);
   /**
    * @brief Destructor.
    */
-  ~Array() {
-    delete this->array_;
-    std::cout << "[Array] Destructor called!" << std::endl;
-  };
+  ~Array();
   /**
    * @brief Get the size of the array.
    * @return The size of the array.
    */
-  unsigned int size() const { return size_; };
+  unsigned int size() const;
   /**
    * @brief Overload of the operator [] to access the array.
    * @param i The value of the array to access.
    * @return The value in the array or exception OutOfRange() if i is bigger
    * than the index_.
    */
-  T &operator[](unsigned int i) {
-    if (i >= this->size())
-      throw OutOfRange();
-    return this->array_[i];
-  };
+  T &operator[](unsigned int i);
+
   class OutOfRange : public std::exception {
     /** @brief Throws an exception indicating that the index is out of range. */
-    const char *what() const throw() { return "Index is out of range."; }
+    const char *what() const throw();
   };
 };
+
+#include "Array.tpp"
 
 #endif // ARRAY_HPP
