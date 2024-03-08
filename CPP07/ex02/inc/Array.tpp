@@ -23,7 +23,7 @@ template <class T> Array<T>::Array(const Array &other) {
 template <class T> Array<T> &Array<T>::operator=(const Array &other) {
   if (this == &other)
     return *this;
-  delete this->array_;
+  delete[] this->array_;
   this->array_ = new T[other.size()];
   for (unsigned int i = 0; i < other.size(); i++)
     this->array_[i] = other.array_[i];
@@ -32,7 +32,7 @@ template <class T> Array<T> &Array<T>::operator=(const Array &other) {
 }
 
 template <class T> Array<T>::~Array() {
-  delete this->array_;
+  delete[] this->array_;
   std::cout << "[Array] Destructor called!" << std::endl;
 };
 
