@@ -12,6 +12,10 @@ public:
       num1 =  num2;
       num2 = tmp;
   };
+  template <typename T>
+    T min(T &num1, T &num2) {
+     return (num1 < num2 ? num1 : num2);
+  };
 };
 
 
