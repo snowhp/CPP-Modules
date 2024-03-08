@@ -55,7 +55,10 @@ public:
   /**
    * @brief Destructor.
    */
-  ~Array() { std::cout << "[Array] Destructor called!" << std::endl; };
+  ~Array() {
+    delete this->array_;
+    std::cout << "[Array] Destructor called!" << std::endl;
+  };
   /**
    * @brief Get the size of the array.
    * @return The size of the array.
