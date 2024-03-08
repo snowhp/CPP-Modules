@@ -4,14 +4,12 @@
 #include <iostream>
 #include <string>
 
-void ft_addOneChar(char c) {
-  std::cout << c << std::endl;
-}
+void ft_addOneChar(char c) { std::cout << c << std::endl; }
 
 int main() {
   std::string str = "ola julio";
   char *copy = (char *)str.c_str();
   ::iter<char>(&copy[0], str.size(),
-               ft_addOneChar); // Remove the "&" before ft_addOneChar
+               ft_addOneChar);
   return 0;
 }
