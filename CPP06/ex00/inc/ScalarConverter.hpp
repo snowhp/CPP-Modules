@@ -3,13 +3,10 @@
 #define SCALARCONVERTER_HPP
 
 #include <string>
+#include <iostream>
 
 class ScalarConverter {
 private:
- static void convertToChar(const std::string &representation);
- static void convertToInt(const std::string &representation);
- static void convertToFloat(const std::string &representation);
- static void convertToDouble(const std::string &representation);
 public:
   /**
    * @brief Destructor.
