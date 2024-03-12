@@ -1,7 +1,7 @@
 // Created by tde-sous on 28-02-2024.
 #include "ScalarConverter.hpp"
 
-bool isChar(const std::string &representation) {
+bool ScalarConverter::isChar(const std::string &representation) {
   return (representation.size() == 1 &&
           std::isprint(representation[0]) && !std::isdigit(representation[0]));
 }

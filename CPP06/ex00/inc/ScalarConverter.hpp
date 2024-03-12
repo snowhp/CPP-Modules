@@ -7,6 +7,12 @@
 
 class ScalarConverter {
 private:
+  /**
+   *
+   * @param representation The string to be checked.
+   * @return True if is a Char otherwise false
+   */
+  static bool isChar(const std::string &representation);
 public:
   /**
    * @brief Destructor.
