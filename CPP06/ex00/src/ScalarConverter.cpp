@@ -3,7 +3,7 @@
 
 bool isChar(const std::string &representation) {
   return (representation.size() == 1 &&
-          std::isprint(representation[0] && !std::isdigit(representation[0])));
+          std::isprint(representation[0]) && !std::isdigit(representation[0]));
 }
 
 void ScalarConverter::convert(const std::string &representation) {
