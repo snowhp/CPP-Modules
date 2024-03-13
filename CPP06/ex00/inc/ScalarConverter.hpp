@@ -21,6 +21,12 @@ private:
    * @return True if is a Integer otherwise false.
    */
   static bool isInteger(const std::string &representation);
+  /**
+   *
+   * @param representation The string to be checked.
+   * @return True if is a Float otherwise false.
+   */
+  static bool isFloat(const std::string &representation);
 
 public:
   /**
