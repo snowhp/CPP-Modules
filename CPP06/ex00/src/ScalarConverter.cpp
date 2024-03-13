@@ -8,7 +8,6 @@ bool ScalarConverter::isChar(const std::string &representation) {
 
 bool ScalarConverter::isInteger(const std::string &representation) {
   const size_t signal = representation.find('-');
-  std::cout << signal << std::endl;
   if (signal != 0 && signal != 1 && signal != std::string::npos)
     return (false);
   if (representation.find_first_not_of(
