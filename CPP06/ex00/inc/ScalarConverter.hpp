@@ -4,11 +4,34 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <limits>
 
 #define DIGITS "0123456789"
 
+typedef enum { CHAR, INT, FLOAT, DOUBLE, INFINITE } t_type;
+
 class ScalarConverter {
 private:
+  /**
+   * @brief Default constructor.
+   */
+  ScalarConverter();
+  /**
+   * @brief Copy constructor.
+   * @param other ScalarConverter to be copied.
+   */
+  ScalarConverter(const ScalarConverter &other);
+  /**
+   * @brief Copy assignment operator.
+   * @param other ScalarConverter to be copied.
+   * @return The new copy of the ScalarConverter.
+   */
+  ScalarConverter &operator=(const ScalarConverter &other);
+  /**
+   * @brief Destructor.
+   */
+  virtual ~ScalarConverter() = 0;
   /**
    *
    * @param representation The string to be checked.
@@ -33,12 +56,16 @@ private:
    * @return True if is a Double otherwise false.
    */
   static bool isDouble(const std::string &representation);
+  /**
+   * @brief Converts the representation into char, int, double and float.
+   * @param representation The string to be represented.
+   * @param number The converted number of that string.
+   */
+  static void convertToNumber(const std::string &representation,
+                              long double number);
+  static void convertToChar(const char &c, const std::string &representation);
 
 public:
-  /**
-   * @brief Destructor.
-   */
-  virtual ~ScalarConverter() = 0;
   /**
    *  @brief Converts and outputs the following scalar types: char, int, float,
    * double.
