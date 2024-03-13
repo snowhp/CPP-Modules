@@ -27,6 +27,12 @@ private:
    * @return True if is a Float otherwise false.
    */
   static bool isFloat(const std::string &representation);
+  /**
+   *
+   * @param representation The string to be checked.
+   * @return True if is a Double otherwise false.
+   */
+  static bool isDouble(const std::string &representation);
 
 public:
   /**
