@@ -2,10 +2,10 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <iostream>
-#include <string>
 #include <cstdlib>
+#include <iostream>
 #include <limits>
+#include <string>
 
 #define DIGITS "0123456789"
 
@@ -63,7 +63,11 @@ private:
    */
   static void convertToNumber(const std::string &representation,
                               long double number);
-  static void convertToChar(const char &c, const std::string &representation);
+  /**
+   *
+   * @param c The char to be printed.
+   */
+static void convertToChar(const char &c);
 
 public:
   /**

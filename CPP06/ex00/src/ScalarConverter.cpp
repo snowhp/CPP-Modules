@@ -103,17 +103,20 @@ void ScalarConverter::convertToNumber(const std::string &representation,
     }
     return;
   }
-  convertToChar(static_cast<char>(number), representation);
+
+  if (number < std::numeric_limits<char>::min() ||
+      number > std::numeric_limits<char>::max())
+    std::cout << "char: overflows" << std::endl;
+  else
+    convertToChar(static_cast<char>(number));
 }
 
-void ScalarConverter::convertToChar(const char &c,
-                                    const std::string &representation) {
-  (void)representation;
+void ScalarConverter::convertToChar(const char &c) {
   if (std::isprint(c)) {
-    std::cout << "char:"
+    std::cout << "char: "
               << "'" << c << "'" << std::endl;
   } else
-    std::cout << "char:"
+    std::cout << "char: "
               << "Non displayable" << std::endl;
 }
 
