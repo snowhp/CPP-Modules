@@ -67,7 +67,7 @@ private:
    *
    * @param c The char to be printed.
    */
-static void convertToChar(const char &c);
+  static void convertToChar(const char &c);
 
 public:
   /**
