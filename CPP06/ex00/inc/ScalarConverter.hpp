@@ -2,17 +2,26 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
+
+#define DIGITS "0123456789"
 
 class ScalarConverter {
 private:
   /**
    *
    * @param representation The string to be checked.
-   * @return True if is a Char otherwise false
+   * @return True if is a Char otherwise false.
    */
   static bool isChar(const std::string &representation);
+  /**
+   *
+   * @param representation The string to be checked.
+   * @return True if is a Integer otherwise false.
+   */
+  static bool isInteger(const std::string &representation);
+
 public:
   /**
    * @brief Destructor.
