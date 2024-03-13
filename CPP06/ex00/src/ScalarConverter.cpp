@@ -109,6 +109,26 @@ void ScalarConverter::convertToNumber(const std::string &representation,
     std::cout << "char: overflows" << std::endl;
   else
     convertToChar(static_cast<char>(number));
+
+  if (number < std::numeric_limits<int>::min() ||
+      number > std::numeric_limits<int>::max())
+    std::cout << "int: overflows" << std::endl;
+  else
+    std::cout << "int: " << std::atoi(representation.c_str()) << std::endl;
+
+  if (number < -std::numeric_limits<float>::min() ||
+      number > std::numeric_limits<float>::max())
+    std::cout << "float: overflows" << std::endl;
+  else
+    std::cout << "float: " << std::strtof(representation.c_str(), NULL) << "f"
+              << std::endl;
+
+  if (number < -std::numeric_limits<double>::min() ||
+      number > std::numeric_limits<double>::max())
+    std::cout << "double: overflows" << std::endl;
+  else
+    std::cout << "double: " << std::strtod(representation.c_str(), NULL)
+              << std::endl;
 }
 
 void ScalarConverter::convertToChar(const char &c) {
