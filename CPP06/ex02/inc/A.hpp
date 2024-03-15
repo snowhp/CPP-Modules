@@ -4,6 +4,6 @@
 
 #include "Base.hpp"
 
-class A {};
+class A : public Base {};
 
 #endif // EX02_A_HPP
