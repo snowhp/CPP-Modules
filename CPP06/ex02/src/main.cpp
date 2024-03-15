@@ -4,5 +4,5 @@
 
 int main() {
   Base *derivedClass = generate();
-  (void) derivedClass;
+  identify(derivedClass);
 }

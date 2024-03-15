@@ -21,4 +21,10 @@ public:
  */
 Base *generate(void);
 
+/**
+ * @brief It prints the actual type of the object pointed to by p: "A", "B" or "C".
+ * @param p The Base pointer to be checked.
+ */
+void identify(Base* p);
+
 #endif // EX02_BASE_HPP
