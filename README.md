@@ -155,6 +155,20 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
 - **dynamic_cast conversion** [cppreference](https://en.cppreference.com/w/cpp/language/dynamic_cast)
 </details>
 
+<details>
+<summary>Module 07 - C++ templates</summary>
+
+- [ex00 - template functions, swap, min, max](./CPP07/ex00/)
+- [ex01 - iterate with template](./CPP07/ex01/)
+- [ex02 - template class](./CPP07/ex02/)
+
+### Resources
+- **C++ Function Template** [programiz](https://www.programiz.com/cpp-programming/function-template)
+- **C++ Class Templates** [programiz](https://www.programiz.com/cpp-programming/class-templates)
+- **Overloading Subscript or array index operator [] in C++** [geeksforgeeks](https://www.geeksforgeeks.org/overloading-subscript-or-array-index-operator-in-c/)
+- **Why use a "tpp" file when implementing templated functions and classes defined in a header?** [stackoverflow](https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i)
+</details>
+
 
 ## Getting Started
 
