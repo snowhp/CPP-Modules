@@ -132,6 +132,30 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
 - **Factory Method in C++, the Right Way** [medium](https://medium.com/@antwang/factory-method-in-c-the-right-way-e8c5f015fe39)
 </details>
 
+<details>
+<summary>Module 06 - C++ casts</summary>
+
+- [ex00 - type conversion, static_cast](./CPP06/ex00/)
+- [ex01 - reinterpret_cast](./CPP06/ex01/)
+- [ex02 - dynamic_cast](./CPP06/ex02/)
+
+### Resources
+- **Type Conversion in C++** [scaler](https://www.scaler.com/topics/cpp/type-conversion-in-cpp/)
+- **Type Conversions in C++** [Neso Academy](https://www.youtube.com/watch?v=uI10H1jzw00&ab_channel=NesoAcademy)
+- **Type Punning in C++** [The Cherno](https://www.youtube.com/watch?v=8egZ_5GA9Bc&ab_channel=TheCherno)
+- **Casting in C++** [The Cherno](https://www.youtube.com/watch?v=pWZS1MtxI-A&ab_channel=TheCherno)
+- **std::string::find_first_not_of** [cppreference](https://en.cppreference.com/w/cpp/types/numeric_limits)
+- **strtof, strtod, strtold** [cppreference](https://en.cppreference.com/w/c/string/byte/strtof)
+- **C++ Casting - Part 3 - static_cast and dynamic_cast (mega lesson) | Modern Cpp Series** [Mike Shah
+](https://www.youtube.com/watch?v=rJO7azMDOjU)
+- **C++ Casting - Part 4 - static_cast vs dynamic_cast (Interview Question)** [Mike Shah
+](https://www.youtube.com/watch?v=pHktGhvXVR0)
+- **C++ Casting - Part 5 - reinterpret_cast | Modern Cpp Series** [Mike Shah](https://www.youtube.com/watch?v=jQR2doi51Bo)
+- **What is the uintptr_t data type?** [stackoverflow](https://stackoverflow.com/questions/1845482/what-is-the-uintptr-t-data-type)
+- **dynamic_cast conversion** [cppreference](https://en.cppreference.com/w/cpp/language/dynamic_cast)
+</details>
+
+
 ## Getting Started
 
 1. Clone this repository:
