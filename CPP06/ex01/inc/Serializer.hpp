@@ -2,8 +2,11 @@
 #ifndef EX01_SERIALIZER_HPP
 #define EX01_SERIALIZER_HPP
 
+#include "Data.hpp"
+#include <stdint.h>
+
 class Serializer {
-public:
+private:
   /**
    * @brief Default constructor.
    */
@@ -23,6 +26,20 @@ public:
    * @brief Destructor.
    */
   ~Serializer();
+
+public:
+  /**
+   * @brief Converts a data pointer to the unsigned integer type uintptr_t.
+   * @param ptr The Data struct to be converted.
+   * @return Converted Data pointer to uintptr_t.
+   */
+  static uintptr_t serialize(Data *ptr);
+  /**
+   * Convertes a uintptr_t to Data pointer.
+   * @param raw The uintptr_t to be converted.
+   * @return Converted Data pointer.
+   */
+  static Data *deserialize(uintptr_t raw);
 };
 
 #endif // EX01_SERIALIZER_HPP
