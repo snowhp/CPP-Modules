@@ -27,4 +27,10 @@ Base *generate(void);
  */
 void identify(Base* p);
 
+/**
+ * It prints the actual type of the object pointed to by p: "A", "B" or "C".
+ * @param p The Base Reference to be checked.
+ */
+void identify(Base& p);
+
 #endif // EX02_BASE_HPP
