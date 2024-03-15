@@ -1,0 +1,9 @@
+// Created by tde-sous on 15-03-2024.
+#ifndef EX02_A_HPP
+#define EX02_A_HPP
+
+#include "Base.hpp"
+
+class A {};
+
+#endif // EX02_A_HPP
