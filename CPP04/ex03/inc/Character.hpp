@@ -16,7 +16,7 @@ private:
   std::string name_;
   /* The Inventory of the Character with a number of SLOTS */
   AMateria *inventory_[SLOTS];
-  /* The List of unequiped Materias */
+  /* The List of unequipped Materias */
   std::list<AMateria *> unequipedMaterias_;
 
 public:
