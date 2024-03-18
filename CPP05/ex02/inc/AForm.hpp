@@ -15,9 +15,9 @@ private:
   /* Signed or not. At construction is not*/
   bool isSigned_;
   /* A constant grade required to sign it */
-  unsigned int signGrade_;
+  const unsigned int signGrade_;
   /* A constant grade required to execute it*/
-  unsigned int execGrade_;
+  const unsigned int execGrade_;
 
 public:
   /**

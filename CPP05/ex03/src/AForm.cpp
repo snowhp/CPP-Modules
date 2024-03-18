@@ -3,15 +3,13 @@
 
 Form::Form(const std::string &name, const unsigned int signGrade,
              const unsigned int execGrade)
-    : name_(name) {
+    : name_(name), signGrade_(signGrade), execGrade_(execGrade) {
   std::cout << "[AForm] Constructor called." << std::endl;
   if (signGrade > 150 || execGrade > 150)
     throw GradeTooLowException();
   else if (signGrade < 1 || execGrade < 1)
     throw GradeTooHighException();
   this->isSigned_ = false;
-  this->signGrade_ = signGrade;
-  this->execGrade_ = execGrade;
 }
 
 Form::Form()
@@ -20,9 +18,9 @@ Form::Form()
 }
 
 Form::Form(const Form &other)
-    : name_(other.name_), isSigned_(), signGrade_(), execGrade_() {
+    : name_(other.name_), isSigned_(), signGrade_(other.getSignGrade()), execGrade_(other.getExecGrade()) {
   std::cout << "[AForm] Copy Constructor called." << std::endl;
-  *this = other;
+  this->isSigned_ = other.isSigned_;
 }
 
 Form &Form::operator=(const Form &other) {
@@ -30,8 +28,6 @@ Form &Form::operator=(const Form &other) {
   if (this == &other)
     return (*this);
   this->isSigned_ = other.isSigned_;
-  this->signGrade_ = other.signGrade_;
-  this->execGrade_ = other.execGrade_;
   return *this;
 }
 
