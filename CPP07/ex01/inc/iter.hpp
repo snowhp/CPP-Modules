@@ -6,8 +6,8 @@
 
 template <typename T>
 void iter(T *arrayAddress, int arrayLength, void(*func)(T)) {
-  while(arrayLength > 0)
-    func(arrayAddress[--arrayLength]);
+  for (int i = 0; i < arrayLength; i++)
+    func(arrayAddress[i]);
 }
 
 #endif // ITER_HPP
