@@ -97,17 +97,12 @@ void ScalarConverter::convertToNumber(const std::string &representation,
   if (number < std::numeric_limits<int>::min() ||
       number > std::numeric_limits<int>::max())
     std::cout << "int: overflows" << std::endl;
-  else if (isChar(representation))
-    std::cout << "int: " << static_cast<int>(representation[0]) << std::endl;
   else
     std::cout << "int: " << std::atoi(representation.c_str()) << std::endl;
 
   if (number < -std::numeric_limits<float>::max() ||
       number > std::numeric_limits<float>::max())
     std::cout << "float: overflows" << std::endl;
-  else if (isChar(representation))
-    std::cout << "float: " << static_cast<float>(representation[0]) << "f"
-              << std::endl;
   else
     std::cout << "float: " << std::strtof(representation.c_str(), NULL) << "f"
               << std::endl;
@@ -115,12 +110,18 @@ void ScalarConverter::convertToNumber(const std::string &representation,
   if (number < -std::numeric_limits<double>::max() ||
       number > std::numeric_limits<double>::max())
     std::cout << "double: overflows" << std::endl;
-  else if (isChar(representation))
-    std::cout << "double: " << static_cast<double>(representation[0])
-              << std::endl;
   else
     std::cout << "double: " << std::strtod(representation.c_str(), NULL)
               << std::endl;
+}
+
+void ScalarConverter::convertFromChar(const std::string &representation) {
+  convertToChar(representation[0]);
+  std::cout << "int: " << static_cast<int>(representation[0]) << std::endl;
+  std::cout << "float: " << static_cast<float>(representation[0]) << "f"
+            << std::endl;
+  std::cout << "double: " << static_cast<double>(representation[0])
+            << std::endl;
 }
 
 void ScalarConverter::convertToChar(const char &c) {
@@ -132,7 +133,7 @@ void ScalarConverter::convertToChar(const char &c) {
               << "Non displayable" << std::endl;
 }
 
-void ScalarConverter::convertToInfinite(const std::string &representation) {
+void ScalarConverter::convertFromInfinite(const std::string &representation) {
   std::cout << "char: impossible" << std::endl;
   std::cout << "int: impossible" << std::endl;
 
@@ -144,10 +145,10 @@ void ScalarConverter::convertToInfinite(const std::string &representation) {
     std::cout << "double: " << representation[0] << "inf" << std::endl;
   }
 }
+
 void ScalarConverter::convert(const std::string &representation) {
   if (isChar(representation)) {
-    convertToNumber(representation,
-                    static_cast<long double>(representation[0]));
+    convertFromChar(representation);
     // std::cout << "Is a char." << std::endl;
   } else if (isInteger(representation)) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
@@ -159,7 +160,7 @@ void ScalarConverter::convert(const std::string &representation) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
     // std::cout << "Is a double." << std::endl;
   } else if (isInfinite(representation)) {
-    convertToInfinite(representation);
+    convertFromInfinite(representation);
   } else
     std::cout << "Unknown type" << std::endl;
 }

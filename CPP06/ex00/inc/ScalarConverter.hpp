@@ -73,7 +73,12 @@ private:
    * @brief Converts infinite representations
    * @param representation The number to be represented.
    */
-  static void convertToInfinite(const std::string &representation);
+  static void convertFromInfinite(const std::string &representation);
+  /**
+   * @brief Converts from chart.
+   * @param representation The char to be represented.
+   */
+  static void convertFromChar(const std::string &representation);
   /**
    *
    * @param c The char to be printed.
