@@ -57,12 +57,23 @@ private:
    */
   static bool isDouble(const std::string &representation);
   /**
+   *
+   * @param representation The string to be checked.
+   * @return True if is a Double otherwise false.
+   */
+  static bool isInfinite(const std::string &representation);
+  /**
    * @brief Converts the representation into char, int, double and float.
    * @param representation The string to be represented.
    * @param number The converted number of that string.
    */
   static void convertToNumber(const std::string &representation,
                               long double number);
+  /**
+   * @brief Converts infinite representations
+   * @param representation The number to be represented.
+   */
+  static void convertToInfinite(const std::string &representation);
   /**
    *
    * @param c The char to be printed.

@@ -32,10 +32,6 @@ bool ScalarConverter::isInteger(const std::string &representation) {
 }
 
 bool ScalarConverter::isFloat(const std::string &representation) {
-  if (representation == "-inff" || representation == "+inff" ||
-      representation == "nanf")
-    return (true);
-
   const size_t signal = representation.find('-');
   if (signal != 0 && signal != std::string::npos)
     return (false);
@@ -61,10 +57,6 @@ bool ScalarConverter::isFloat(const std::string &representation) {
 }
 
 bool ScalarConverter::isDouble(const std::string &representation) {
-  if (representation == "-inf" || representation == "+inf" ||
-      representation == "nan")
-    return (true);
-
   const size_t signal = representation.find('-');
   if (signal != 0 && signal != std::string::npos)
     return (false);
@@ -86,24 +78,16 @@ bool ScalarConverter::isDouble(const std::string &representation) {
   return (!decimalPart.empty() && !fractionalPart.empty());
 }
 
-void ScalarConverter::convertToNumber(const std::string &representation,
-                                      long double number) {
+bool ScalarConverter::isInfinite(const std::string &representation) {
   if (representation == "-inff" || representation == "+inff" ||
       representation == "nanf" || representation == "-inf" ||
-      representation == "+inf" || representation == "nan") {
-    std::cout << "char: impossible" << std::endl;
-    std::cout << "int: impossible" << std::endl;
+      representation == "+inf" || representation == "nan")
+    return true;
+  return false;
+}
 
-    if (representation.find("nan") != std::string::npos) {
-      std::cout << "float: nanf" << std::endl;
-      std::cout << "double: nan" << std::endl;
-    } else {
-      std::cout << "float: " << representation[0] << "inff" << std::endl;
-      std::cout << "double: " << representation[0] << "inf" << std::endl;
-    }
-    return;
-  }
-
+void ScalarConverter::convertToNumber(const std::string &representation,
+                                      long double number) {
   if (number < std::numeric_limits<char>::min() ||
       number > std::numeric_limits<char>::max())
     std::cout << "char: overflows" << std::endl;
@@ -114,7 +98,7 @@ void ScalarConverter::convertToNumber(const std::string &representation,
       number > std::numeric_limits<int>::max())
     std::cout << "int: overflows" << std::endl;
   else if (isChar(representation))
-        std::cout << "int: " << static_cast<int>(representation[0]) << std::endl;
+    std::cout << "int: " << static_cast<int>(representation[0]) << std::endl;
   else
     std::cout << "int: " << std::atoi(representation.c_str()) << std::endl;
 
@@ -122,8 +106,8 @@ void ScalarConverter::convertToNumber(const std::string &representation,
       number > std::numeric_limits<float>::max())
     std::cout << "float: overflows" << std::endl;
   else if (isChar(representation))
-        std::cout << "float: " << static_cast<float>(representation[0]) << "f"
-                  << std::endl;
+    std::cout << "float: " << static_cast<float>(representation[0]) << "f"
+              << std::endl;
   else
     std::cout << "float: " << std::strtof(representation.c_str(), NULL) << "f"
               << std::endl;
@@ -131,8 +115,9 @@ void ScalarConverter::convertToNumber(const std::string &representation,
   if (number < -std::numeric_limits<double>::max() ||
       number > std::numeric_limits<double>::max())
     std::cout << "double: overflows" << std::endl;
-  else if(isChar(representation))
-        std::cout << "double: " << static_cast<double>(representation[0]) << std::endl;
+  else if (isChar(representation))
+    std::cout << "double: " << static_cast<double>(representation[0])
+              << std::endl;
   else
     std::cout << "double: " << std::strtod(representation.c_str(), NULL)
               << std::endl;
@@ -147,20 +132,34 @@ void ScalarConverter::convertToChar(const char &c) {
               << "Non displayable" << std::endl;
 }
 
+void ScalarConverter::convertToInfinite(const std::string &representation) {
+  std::cout << "char: impossible" << std::endl;
+  std::cout << "int: impossible" << std::endl;
+
+  if (representation.find("nan") != std::string::npos) {
+    std::cout << "float: nanf" << std::endl;
+    std::cout << "double: nan" << std::endl;
+  } else {
+    std::cout << "float: " << representation[0] << "inff" << std::endl;
+    std::cout << "double: " << representation[0] << "inf" << std::endl;
+  }
+}
 void ScalarConverter::convert(const std::string &representation) {
   if (isChar(representation)) {
     convertToNumber(representation,
                     static_cast<long double>(representation[0]));
-    //std::cout << "Is a char." << std::endl;
+    // std::cout << "Is a char." << std::endl;
   } else if (isInteger(representation)) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
-    //std::cout << "Is a integer." << std::endl;
+    // std::cout << "Is a integer." << std::endl;
   } else if (isFloat(representation)) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
-    //std::cout << "Is a float." << std::endl;
+    // std::cout << "Is a float." << std::endl;
   } else if (isDouble(representation)) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
-    //std::cout << "Is a double." << std::endl;
+    // std::cout << "Is a double." << std::endl;
+  } else if (isInfinite(representation)) {
+    convertToInfinite(representation);
   } else
     std::cout << "Unknown type" << std::endl;
 }
