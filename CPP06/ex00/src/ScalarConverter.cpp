@@ -113,19 +113,26 @@ void ScalarConverter::convertToNumber(const std::string &representation,
   if (number < std::numeric_limits<int>::min() ||
       number > std::numeric_limits<int>::max())
     std::cout << "int: overflows" << std::endl;
+  else if (isChar(representation))
+        std::cout << "int: " << static_cast<int>(representation[0]) << std::endl;
   else
     std::cout << "int: " << std::atoi(representation.c_str()) << std::endl;
 
-  if (number < -std::numeric_limits<float>::min() ||
+  if (number < -std::numeric_limits<float>::max() ||
       number > std::numeric_limits<float>::max())
     std::cout << "float: overflows" << std::endl;
+  else if (isChar(representation))
+        std::cout << "float: " << static_cast<float>(representation[0]) << "f"
+                  << std::endl;
   else
     std::cout << "float: " << std::strtof(representation.c_str(), NULL) << "f"
               << std::endl;
 
-  if (number < -std::numeric_limits<double>::min() ||
+  if (number < -std::numeric_limits<double>::max() ||
       number > std::numeric_limits<double>::max())
     std::cout << "double: overflows" << std::endl;
+  else if(isChar(representation))
+        std::cout << "double: " << static_cast<double>(representation[0]) << std::endl;
   else
     std::cout << "double: " << std::strtod(representation.c_str(), NULL)
               << std::endl;
@@ -142,16 +149,17 @@ void ScalarConverter::convertToChar(const char &c) {
 
 void ScalarConverter::convert(const std::string &representation) {
   if (isChar(representation)) {
-    convertToNumber(representation, representation[0]);
+    convertToNumber(representation,
+                    static_cast<long double>(representation[0]));
     std::cout << "Is a char." << std::endl;
   } else if (isInteger(representation)) {
-    convertToNumber(representation, std::atoi(representation.c_str()));
+    convertToNumber(representation, std::strtold(representation.c_str(), NULL));
     std::cout << "Is a integer." << std::endl;
   } else if (isFloat(representation)) {
-    convertToNumber(representation, std::strtof(representation.c_str(), NULL));
+    convertToNumber(representation, std::strtold(representation.c_str(), NULL));
     std::cout << "Is a float." << std::endl;
   } else if (isDouble(representation)) {
-    convertToNumber(representation, std::strtod(representation.c_str(), NULL));
+    convertToNumber(representation, std::strtold(representation.c_str(), NULL));
     std::cout << "Is a double." << std::endl;
   } else
     std::cout << "Unknown type" << std::endl;
