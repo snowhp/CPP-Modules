@@ -151,16 +151,16 @@ void ScalarConverter::convert(const std::string &representation) {
   if (isChar(representation)) {
     convertToNumber(representation,
                     static_cast<long double>(representation[0]));
-    std::cout << "Is a char." << std::endl;
+    //std::cout << "Is a char." << std::endl;
   } else if (isInteger(representation)) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
-    std::cout << "Is a integer." << std::endl;
+    //std::cout << "Is a integer." << std::endl;
   } else if (isFloat(representation)) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
-    std::cout << "Is a float." << std::endl;
+    //std::cout << "Is a float." << std::endl;
   } else if (isDouble(representation)) {
     convertToNumber(representation, std::strtold(representation.c_str(), NULL));
-    std::cout << "Is a double." << std::endl;
+    //std::cout << "Is a double." << std::endl;
   } else
     std::cout << "Unknown type" << std::endl;
 }
