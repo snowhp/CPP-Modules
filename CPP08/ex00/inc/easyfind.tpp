@@ -10,5 +10,5 @@ template <typename T> void easyfind(T container, int toBeFound) {
 }
 
 const char *ValueNotFound::what() const throw() {
-  return "The value was not found in the container";
+  return "[Exception] The value was not found in the container";
 }
