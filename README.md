@@ -167,6 +167,7 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
 - **C++ Class Templates** [programiz](https://www.programiz.com/cpp-programming/class-templates)
 - **Overloading Subscript or array index operator [] in C++** [geeksforgeeks](https://www.geeksforgeeks.org/overloading-subscript-or-array-index-operator-in-c/)
 - **Why use a "tpp" file when implementing templated functions and classes defined in a header?** [stackoverflow](https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i)
+- **Candidate template ignored: deduced conflicting types for parameter: <const T &> vs <T &>** [stackoverflow](https://stackoverflow.com/questions/29367467/candidate-template-ignored-deduced-conflicting-types-for-parameter-const-t)
 </details>
 
 
