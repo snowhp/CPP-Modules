@@ -1,5 +1,21 @@
-//
 // Created by tde-sous on 3/27/24.
-//
+#include "Span.hpp"
 
-#include "../inc/Span.hpp"
+Span::Span() {
+  std::cout << "Default constructor called!" << std::endl;
+}
+
+Span::Span(const Span &other) {
+    (void) other;
+    std::cout << "Copy constructor called!" << std::endl;
+}
+
+Span &Span::operator=(const Span &other) {
+  std::cout << "Copy assignment operator called!" << std::endl;
+  if (this == &other)
+    return *this;
+  return *this; }
+
+Span::~Span() {
+  std::cout << "Destructor called!" << std::endl;
+}
