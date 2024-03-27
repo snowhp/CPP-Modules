@@ -5,11 +5,20 @@
 #include <iostream>
 
 class Span {
-public:
+private:
+  unsigned int maxStorage_;
+
   /**
    * @brief Default constructor.
    */
   Span();
+
+public:
+  /**
+   * @brief Default constructor.
+   * @param N maximum capacity of storage for
+   */
+  Span(unsigned int N);
   /**
    * @brief Copy constructor.
    * @param other The other Span to copy.
