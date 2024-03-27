@@ -1,5 +1,5 @@
 # Source Files
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 
 # Source Files Prefix
 SRCS := $(addprefix src/, $(SRCS))
