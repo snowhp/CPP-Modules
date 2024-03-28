@@ -6,7 +6,7 @@ Span::Span(unsigned int N) : maxStorage_(N) {
 }
 Span::Span() : maxStorage_() { std::cout << "Default constructor called!" << std::endl; }
 
-Span::Span(const Span &other) {
+Span::Span(const Span &other) : maxStorage_() {
   (void)other;
   std::cout << "Copy constructor called!" << std::endl;
 }
