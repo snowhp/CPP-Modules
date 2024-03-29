@@ -171,6 +171,26 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
 </details>
 
 
+<details>
+<summary>Module 08 - Templated containers, iterators, algorithms</summary>
+
+- [ex00 - Function templates, container manipulation, exception handling](./CPP08/ex00/)
+- [ex01 - std::max, std::min, std::sort exceptions, iterators](./CPP08/ex01/)
+- [ex02 - Iterators, template specialization](./CPP08/ex02/)
+
+### Resources
+- **Back To Basics: C++ Containers** [javidx9](https://www.youtube.com/watch?v=6OoSgY6NVVk&ab_channel=javidx9)
+- **Back to Basics: Classic STL - Bob Steagall - CppCon 2021** [CppCon](https://www.youtube.com/watch?v=tXUXl_RzkAk)
+- **The C++ Standard Template Library (STL)** [geeksforgeeks](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/)
+- **Containers** [cplusplus](https://cplusplus.com/reference/stl/)
+- **C++ Vectors** [programiz](https://www.programiz.com/cpp-programming/vectors)
+- **std::max** [cppreference](https://en.cppreference.com/w/cpp/algorithm/max)
+- **std::sort** [cppreference](https://en.cppreference.com/w/cpp/algorithm/sort)
+- **How do I find the max element in a vector (C++)?** [stackoverflow](https://stackoverflow.com/questions/32159151/how-do-i-find-the-max-element-in-a-vector-c)
+- **std::stack** [cppreference](https://cplusplus.com/reference/stack/stack/)
+</details>
+
+
 ## Getting Started
 
 1. Clone this repository:
