@@ -3,11 +3,12 @@
 #define EX01_SPAN_HPP
 
 #include <iostream>
+#include <vector>
 
 class Span {
 private:
   unsigned int maxStorage_;
-
+  std::vector<int> numberList_;
   /**
    * @brief Default constructor.
    */
@@ -34,6 +35,11 @@ public:
    * @brief Destructor.
    */
   ~Span();
+  /**
+   * @brief Add a single number to the span
+   * @param number Number to be added to the span.
+   */
+  void addNumber(int number);
 };
 
 #endif // EX01_SPAN_HPP

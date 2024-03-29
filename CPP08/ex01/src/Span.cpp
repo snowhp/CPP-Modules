@@ -20,3 +20,7 @@ Span &Span::operator=(const Span &other) {
 }
 
 Span::~Span() { std::cout << "Destructor called!" << std::endl; }
+
+void Span::addNumber(int number) {
+  this->numberList_.push_back(number);
+}
