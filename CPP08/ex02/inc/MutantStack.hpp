@@ -2,7 +2,12 @@
 #ifndef EX02_MUTANTSTACK_HPP
 #define EX02_MUTANTSTACK_HPP
 
-class MutantStack {
+#include <stack>
+#include <vector>
+#include <iostream>
+
+template <typename T>
+class MutantStack : public std::stack<T, std::vector<int> > {
 public:
   /**
    * @brief Default constructor.
