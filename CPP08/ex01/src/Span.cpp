@@ -11,6 +11,7 @@ Span::Span() : maxStorage_() {
 Span::Span(const Span &other) : maxStorage_() {
   std::cout << "Copy constructor called!" << std::endl;
   this->maxStorage_ = other.maxStorage_;
+  this->numberList_ = other.numberList_;
 }
 
 Span &Span::operator=(const Span &other) {
@@ -18,6 +19,7 @@ Span &Span::operator=(const Span &other) {
   if (this == &other)
     return *this;
   this->maxStorage_ = other.maxStorage_;
+  this->numberList_ = other.numberList_;
   return *this;
 }
 
