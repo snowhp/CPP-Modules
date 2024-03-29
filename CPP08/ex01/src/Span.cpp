@@ -31,6 +31,14 @@ void Span::addNumber(int number) {
   this->numberList_.push_back(number);
 }
 
+int Span::longestSpan() {
+  std::vector<int>::iterator it_max;
+  std::vector<int>::iterator it_min;
+  it_max = std::max_element(this->numberList_.begin(), this->numberList_.end());
+  it_min = std::min_element(this->numberList_.begin(), this->numberList_.end());
+  return (*it_max - *it_min);
+}
+
 const char *Span::maxCapacityException::what() const throw() {
   return "[Exception] Exceeded size of vector";
 }

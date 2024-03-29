@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 class Span {
 private:
@@ -40,6 +41,11 @@ public:
    * @param number Number to be added to the span.
    */
   void addNumber(int number);
+  /**
+   * @brief Find the longest Span between all numbers stored.
+   * @return The biggest distance between the number. Exception if no span is found.
+   */
+  int longestSpan();
   class maxCapacityException : public std::exception {
     const char *what() const throw();
   };
