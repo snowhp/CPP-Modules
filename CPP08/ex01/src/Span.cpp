@@ -4,7 +4,9 @@
 Span::Span(unsigned int N) : maxStorage_(N) {
   std::cout << "Constructor called!" << std::endl;
 }
-Span::Span() : maxStorage_() { std::cout << "Default constructor called!" << std::endl; }
+Span::Span() : maxStorage_() {
+  std::cout << "Default constructor called!" << std::endl;
+}
 
 Span::Span(const Span &other) : maxStorage_() {
   std::cout << "Copy constructor called!" << std::endl;
@@ -22,5 +24,11 @@ Span &Span::operator=(const Span &other) {
 Span::~Span() { std::cout << "Destructor called!" << std::endl; }
 
 void Span::addNumber(int number) {
+  if (this->numberList_.size() + 1 == this->maxStorage_)
+    throw maxCapacityException();
   this->numberList_.push_back(number);
+}
+
+const char *Span::maxCapacityException::what() const throw() {
+  return "[Exception] Exceeded size of vector";
 }

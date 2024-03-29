@@ -40,6 +40,9 @@ public:
    * @param number Number to be added to the span.
    */
   void addNumber(int number);
+  class maxCapacityException : public std::exception {
+    const char *what() const throw();
+  };
 };
 
 #endif // EX01_SPAN_HPP
