@@ -28,6 +28,11 @@ public:
    * @brief Destructor.
    */
   ~MutantStack();
+
+  typedef typename C::iterator iteratorOfC;
+
+  iteratorOfC begin();
+  iteratorOfC end();
 };
 
 #include "MutantStack.tpp"

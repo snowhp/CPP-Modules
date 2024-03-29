@@ -2,8 +2,7 @@
 
 #include "MutantStack.hpp"
 
-template <typename T, typename C>
-MutantStack<T, C>::MutantStack() {
+template <typename T, typename C> MutantStack<T, C>::MutantStack() {
   std::cout << "Default constructor called!" << std::endl;
 }
 
@@ -22,7 +21,16 @@ MutantStack<T, C> &MutantStack<T, C>::operator=(const MutantStack &other) {
   return (*this);
 }
 
-template <typename T, typename C>
-MutantStack<T, C>::~MutantStack() {
+template <typename T, typename C> MutantStack<T, C>::~MutantStack() {
   std::cout << "Destructor called!" << std::endl;
+}
+
+template <typename T, typename C>
+typename MutantStack<T, C>::iteratorOfC MutantStack<T, C>::begin() {
+  return this->C.begin();
+}
+
+template<typename T, typename C>
+typename MutantStack<T, C>::iteratorOfC MutantStack<T, C>::end() {
+  return this->C.end();
 }
