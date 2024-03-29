@@ -32,11 +32,14 @@ void Span::addNumber(int number) {
 }
 
 int Span::longestSpan() {
+  if (this->numberList_.size() < 2)
+    throw noSpanFound();
+
   std::vector<int>::iterator it_max;
   std::vector<int>::iterator it_min;
   it_max = std::max_element(this->numberList_.begin(), this->numberList_.end());
   it_min = std::min_element(this->numberList_.begin(), this->numberList_.end());
-  if (*it_min == *it_max || this->numberList_.size() < 2)
+  if (*it_min == *it_max)
     throw noSpanFound();
   return (abs(*it_max - *it_min));
 }
