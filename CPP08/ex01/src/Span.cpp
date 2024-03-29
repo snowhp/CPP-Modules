@@ -7,14 +7,15 @@ Span::Span(unsigned int N) : maxStorage_(N) {
 Span::Span() : maxStorage_() { std::cout << "Default constructor called!" << std::endl; }
 
 Span::Span(const Span &other) : maxStorage_() {
-  (void)other;
   std::cout << "Copy constructor called!" << std::endl;
+  this->maxStorage_ = other.maxStorage_;
 }
 
 Span &Span::operator=(const Span &other) {
   std::cout << "Copy assignment operator called!" << std::endl;
   if (this == &other)
     return *this;
+  this->maxStorage_ = other.maxStorage_;
   return *this;
 }
 
