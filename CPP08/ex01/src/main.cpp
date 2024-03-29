@@ -12,7 +12,7 @@ int main() {
     obj.addNumber(3);
     obj.addNumber(4);
     obj.addNumber(5);
-    obj.addNumber(5);
+    std::cout << "Longest Span is = " << obj.longestSpan() << std::endl;
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
