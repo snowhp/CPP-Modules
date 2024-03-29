@@ -42,6 +42,22 @@ int Span::longestSpan() {
   return (abs(*it_max - *it_min));
 }
 
+int Span::shortestSpan() {
+  if (this->numberList_.size() < 2)
+    throw noSpanFound();
+
+  std::sort(this->numberList_.begin(), this->numberList_.end());
+  std::vector<int>::iterator it = this->numberList_.begin();
+  int difference = abs(*it - *(it + 1));
+
+  while (it != this->numberList_.end()) {
+    if (abs(*it - *(it + 1)) < difference)
+      difference = abs(*it - *(it + 1));
+    it++;
+  }
+  return (difference);
+}
+
 const char *Span::maxCapacityException::what() const throw() {
   return "[Exception] Exceeded size of vector.";
 }

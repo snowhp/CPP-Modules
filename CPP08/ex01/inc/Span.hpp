@@ -2,9 +2,9 @@
 #ifndef EX01_SPAN_HPP
 #define EX01_SPAN_HPP
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 class Span {
 private:
@@ -43,9 +43,16 @@ public:
   void addNumber(int number);
   /**
    * @brief Find the longest Span between all numbers stored.
-   * @return The biggest distance between the number. Exception if no span is found.
+   * @return The biggest distance between the number. Exception if no span is
+   * found.
    */
   int longestSpan();
+  /**
+   * @brief Find the shortest Span between all numbers stored.
+   * @return The shortest distance between the number. Exception if no span is
+   * found.
+   */
+  int shortestSpan();
   class maxCapacityException : public std::exception {
     const char *what() const throw();
   };
