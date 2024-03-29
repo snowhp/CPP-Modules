@@ -36,9 +36,15 @@ int Span::longestSpan() {
   std::vector<int>::iterator it_min;
   it_max = std::max_element(this->numberList_.begin(), this->numberList_.end());
   it_min = std::min_element(this->numberList_.begin(), this->numberList_.end());
-  return (*it_max - *it_min);
+  if (*it_min == *it_max || this->numberList_.size() < 2)
+    throw noSpanFound();
+  return (abs(*it_max - *it_min));
 }
 
 const char *Span::maxCapacityException::what() const throw() {
-  return "[Exception] Exceeded size of vector";
+  return "[Exception] Exceeded size of vector.";
+}
+
+const char *Span::noSpanFound ::what() const throw() {
+  return "[Exception] No Span was found.";
 }

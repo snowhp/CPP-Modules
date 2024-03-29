@@ -49,6 +49,9 @@ public:
   class maxCapacityException : public std::exception {
     const char *what() const throw();
   };
+  class noSpanFound : public std::exception {
+    const char *what() const throw();
+  };
 };
 
 #endif // EX01_SPAN_HPP
