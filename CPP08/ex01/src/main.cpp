@@ -4,18 +4,20 @@
 
 #include "Span.hpp"
 
-/*int main() {
-  Span obj(5);
+int main() {
+  Span obj(102);
   try {
     obj.addNumber(111);
     obj.addNumber(119);
+    obj.addRandomNumbers(100);
     std::cout << "Longest Span is = " << obj.longestSpan() << std::endl;
     std::cout << "Shortest Span is = " << obj.shortestSpan() << std::endl;
   } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
-}*/
+}
 
+/*
 int main()
 {
   Span sp = Span(5);
@@ -27,4 +29,4 @@ int main()
   std::cout << sp.shortestSpan() << std::endl;
   std::cout << sp.longestSpan() << std::endl;
   return 0;
-}
+}*/

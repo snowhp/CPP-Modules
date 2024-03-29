@@ -3,8 +3,10 @@
 #define EX01_SPAN_HPP
 
 #include <algorithm>
+#include <cstdlib>
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 class Span {
 private:
@@ -53,6 +55,11 @@ public:
    * found.
    */
   int shortestSpan();
+  /**
+   * @brief Add a quantity of random numbers to the vector of Span.
+   * @param quantity How many random numbers to be added.
+   */
+  void addRandomNumbers(unsigned int quantity);
   class maxCapacityException : public std::exception {
     const char *what() const throw();
   };

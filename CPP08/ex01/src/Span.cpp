@@ -58,6 +58,16 @@ int Span::shortestSpan() {
   return (difference);
 }
 
+void Span::addRandomNumbers(unsigned int quantity) {
+  std::srand(static_cast<unsigned int>(std::time(NULL)));
+  while (quantity > 0) {
+    int randomNum = std::rand() - RAND_MAX / 2;
+    this->addNumber(randomNum);
+    std::cout << "Random number added: " << randomNum << std::endl;
+    quantity--;
+  }
+}
+
 const char *Span::maxCapacityException::what() const throw() {
   return "[Exception] Exceeded size of vector.";
 }
