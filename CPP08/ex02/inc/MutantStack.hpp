@@ -6,7 +6,7 @@
 #include <stack>
 #include <vector>
 
-template <typename T, typename C = std::vector<T> >
+template <typename T, typename C = std::deque<T> >
 class MutantStack : public std::stack<T, C> {
 public:
   /**
@@ -29,10 +29,10 @@ public:
    */
   ~MutantStack();
 
-  typedef typename C::iterator iteratorOfC;
+  typedef typename C::iterator iterator;
 
-  iteratorOfC begin();
-  iteratorOfC end();
+  iterator begin();
+  iterator end();
 };
 
 #include "MutantStack.tpp"
