@@ -24,7 +24,7 @@ Span &Span::operator=(const Span &other) {
 Span::~Span() { std::cout << "Destructor called!" << std::endl; }
 
 void Span::addNumber(int number) {
-  if (this->numberList_.size() + 1 == this->maxStorage_)
+  if (this->numberList_.size() + 1 > this->maxStorage_)
     throw maxCapacityException();
   this->numberList_.push_back(number);
 }
