@@ -10,7 +10,7 @@ INCLUDES = "./inc"
 OBJS = $(SRCS:.cpp=.o)
 
 # Name Of The Compiled Program
-NAME = $(shell basename $(CURDIR))
+NAME = btc
 
 # Compilation Program
 CXX = c++
