@@ -4,5 +4,15 @@
 
 #include "BitcoinExchange.hpp"
 
-int main() {
+#include <iostream>
+#include <fstream>
+
+int main(int argc, char **argv) {
+  if (argc != 2)
+    return (std::cout << "Usage: ./btc input.txt" << std::endl, 0);
+  std::ifstream inputFile(argv[1]);
+  if (!inputFile.is_open())
+    return (std::cout << "Couldn't open the file " << argv[1] << std::endl, 0);
+  std::cout << "File is opened!" << std::endl;
+  inputFile.close();
 }
