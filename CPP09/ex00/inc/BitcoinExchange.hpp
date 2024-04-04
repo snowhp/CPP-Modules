@@ -20,7 +20,7 @@ private:
    * @brief Read and parse the input file.
    */
   void parseInputFile(const char *file);
-  bool isValidData(const tm& date);
+  static bool isValidData(const tm& date);
 
 public:
   /**
