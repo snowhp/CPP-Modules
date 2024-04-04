@@ -2,12 +2,30 @@
 #ifndef EX00_BITCOINEXCHANGE_HPP
 #define EX00_BITCOINEXCHANGE_HPP
 
+# include <string>
+# include <iostream>
+# include <fstream>
+# include <exception>
+# include <time.h>
+
+
 class BitcoinExchange {
-public:
+private:
   /**
    * @brief Default constructor.
    */
   BitcoinExchange();
+  /*
+   * @brief Read and parse the input file.
+   */
+  void parseInputFile(const char *file);
+
+public:
+  /**
+   * @brief Constructor with parameter file.
+   * @param file The file to be used as input
+   */
+  explicit BitcoinExchange(const char *file);
   /**
    * @brief Copy constructor.
    * @param other The other BitcoinExchange to copy.
@@ -23,6 +41,22 @@ public:
    * @brief Destructor.
    */
   ~BitcoinExchange();
+
+
+  /**
+   * Wrong Header in the input file exception.
+   */
+  class wrongHeader : public std::exception
+  {
+      const char *what() const throw();
+  };
+  /**
+   * Wrong Header in the input file exception.
+   */
+  class nothingToRead : public std::exception
+  {
+    const char *what() const throw();
+  };
 };
 
 #endif // EX00_BITCOINEXCHANGE_HPP
