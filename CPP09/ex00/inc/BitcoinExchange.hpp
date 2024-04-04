@@ -42,7 +42,13 @@ public:
    */
   ~BitcoinExchange();
 
-
+  /**
+   * Invalid format
+   */
+  class invalidFormat : public std::exception
+  {
+    const char *what() const throw();
+  };
   /**
    * Wrong Header in the input file exception.
    */

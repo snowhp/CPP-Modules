@@ -15,12 +15,14 @@ void BitcoinExchange::parseInputFile(const char *file) {
         std::cout << "Line " << i + 1 << ": " << str << std::endl;
         throw wrongHeader();
       }
+      i++;
+      continue;
     }
 
     if (str.find(" | ") == std::string::npos)
     {
       std::cout << "Line " << i + 1 << ": " << str << std::endl;
-      std::cout << "Invalid format missing \" | \" " << std::endl; //convert to exception
+      throw invalidFormat();
     }
     std::string datePart = str.substr(0, str.find(" | "));
     std::string amountPart = str.substr(str.find(" | "));
@@ -52,6 +54,11 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+
+const char *BitcoinExchange::invalidFormat::what() const throw() {
+  return "Invalid format missing \" | \" ";
+}
 
 const char *BitcoinExchange::wrongHeader::what() const throw() {
   return "Wrong header on the file.";
