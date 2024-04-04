@@ -5,11 +5,10 @@ void BitcoinExchange::parseInputFile(const char *file) {
   std::ifstream fileStream(file, std::ifstream::in);
   std::string str;
   int i = 0;
-  struct tm tm = {};
 
-  while (std::getline(fileStream, str))
-  {
+  while (std::getline(fileStream, str)) {
     std::cout << str << std::endl;
+
     if (i == 0) {
       if (str != "date | value") {
         std::cout << "Line " << i + 1 << ": " << str << std::endl;
@@ -19,18 +18,30 @@ void BitcoinExchange::parseInputFile(const char *file) {
       continue;
     }
 
-    if (str.find(" | ") == std::string::npos)
-    {
+    if (str.find(" | ") == std::string::npos) {
       std::cout << "Line " << i + 1 << ": " << str << std::endl;
       throw invalidFormat();
     }
+
     std::string datePart = str.substr(0, str.find(" | "));
-    std::string amountPart = str.substr(str.find(" | "));
-    if (!strptime(datePart.c_str(), "%Y-%m-%d", &tm)) {
-      std::cout << "Invalid" << std::endl;
-    } else {
-      std::cout << "Valid" << std::endl;
+    std::string amountPartStr = str.substr(str.find(" | ") + 3);
+
+    struct tm tm = {};
+    if (!strptime(datePart.c_str(), "%Y-%m-%d", &tm) || !isValidData(tm)) {
+      std::cout << "Line " << i + 1 << ": " << str << std::endl;
+      throw invalidDate();
     }
+
+    if (!amountPartStr.empty()) {
+      char *pEnd;
+      long int a = std::strtol(&amountPartStr[0], &pEnd, 10);
+      if (a < 0 || a > 1000) {
+        std::cout << "Line " << i + 1 << ": " << str << std::endl;
+        throw amountOutOfRange();
+      }
+    }
+
+    std::cout << "\n\n";
 
     i++;
   }
@@ -38,26 +49,44 @@ void BitcoinExchange::parseInputFile(const char *file) {
     throw nothingToRead();
 }
 
+bool BitcoinExchange::isValidData(const tm &date) {
+  switch (date.tm_mon) {
+  case 1:
+    if ((date.tm_year % 4 == 0 && date.tm_year % 100 != 0) || (date.tm_year % 400 == 0)) {
+      return date.tm_mday <= 29;
+    } else {
+      return date.tm_mday <= 28;
+    }
+  case 3: case 5: case 8: case 10:
+    return date.tm_mday <= 30;
+  default:
+    return date.tm_mday <= 31;
+  }
+}
+
 BitcoinExchange::BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(const char *file) {
-    parseInputFile(file);
-}
+BitcoinExchange::BitcoinExchange(const char *file) { parseInputFile(file); }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
-    (void) other;
-}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { (void)other; }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
-  (void) other;
+  (void)other;
   return *this;
 }
 
 BitcoinExchange::~BitcoinExchange() {}
 
+const char *BitcoinExchange::amountOutOfRange::what() const throw() {
+  return "Amount is out of range. Use between 0 and 1000.";
+}
+
+const char *BitcoinExchange::invalidDate::what() const throw() {
+  return "Date format is invalid.";
+}
 
 const char *BitcoinExchange::invalidFormat::what() const throw() {
-  return "Invalid format missing \" | \" ";
+  return "Invalid format missing \" | \".";
 }
 
 const char *BitcoinExchange::wrongHeader::what() const throw() {

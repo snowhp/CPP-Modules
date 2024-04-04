@@ -7,6 +7,7 @@
 # include <fstream>
 # include <exception>
 # include <time.h>
+# include <cstdlib>
 
 
 class BitcoinExchange {
@@ -19,6 +20,7 @@ private:
    * @brief Read and parse the input file.
    */
   void parseInputFile(const char *file);
+  bool isValidData(const tm& date);
 
 public:
   /**
@@ -42,23 +44,27 @@ public:
    */
   ~BitcoinExchange();
 
-  /**
-   * Invalid format
-   */
+
+  class amountOutOfRange : public std::exception
+  {
+    const char *what() const throw();
+  };
+
+  class invalidDate : public std::exception
+  {
+    const char *what() const throw();
+  };
+
   class invalidFormat : public std::exception
   {
     const char *what() const throw();
   };
-  /**
-   * Wrong Header in the input file exception.
-   */
+
   class wrongHeader : public std::exception
   {
       const char *what() const throw();
   };
-  /**
-   * Wrong Header in the input file exception.
-   */
+
   class nothingToRead : public std::exception
   {
     const char *what() const throw();
