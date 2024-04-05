@@ -1,6 +1,34 @@
 // Created by tde-sous on 4/1/24.
 #include "BitcoinExchange.hpp"
 
+void BitcoinExchange::parseDatabase() {
+  std::ifstream databaseFile("data.csv", std::ifstream ::in);
+  std::string str;
+
+  if (!databaseFile.is_open())
+    throw noDatabaseFile();
+
+  int i = 0;
+  while (std::getline(databaseFile, str)) {
+    if (str == "date,exchange_rate" && i++ == 0)
+      continue;
+    std::cout << str << std::endl;
+
+    std::string datePart = str.substr(0, str.find(','));
+    std::string amountPartStr = str.substr(str.find(',') + 1);
+
+    datePart.erase(std::remove(datePart.begin(), datePart.end(), '-'), datePart.end());
+
+    float date = std::strtof(datePart.c_str(), NULL);
+
+    std::cout << "Date = " << datePart << " | Value = " << amountPartStr << std::endl;
+    this->list_.insert(std::pair<std::string, float>(amountPartStr, date));
+    i++;
+  }
+  if (i == 0)
+    throw nothingToRead();
+}
+
 void BitcoinExchange::parseInputFile(const char *file) {
   std::ifstream fileStream(file, std::ifstream::in);
   std::string str;
@@ -34,7 +62,7 @@ void BitcoinExchange::parseInputFile(const char *file) {
 
     if (!amountPartStr.empty()) {
       char *pEnd;
-      long int a = std::strtol(&amountPartStr[0], &pEnd, 10);
+      float a = std::strtof(&amountPartStr[0], &pEnd);
       if (a < 0 || a > 1000) {
         std::cout << "Line " << i + 1 << ": " << str << std::endl;
         throw amountOutOfRange();
@@ -66,7 +94,10 @@ bool BitcoinExchange::isValidData(const tm &date) {
 
 BitcoinExchange::BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(const char *file) { parseInputFile(file); }
+BitcoinExchange::BitcoinExchange(const char *file) {
+  parseDatabase();
+  parseInputFile(file);
+}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { (void)other; }
 
@@ -76,6 +107,10 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+const char *BitcoinExchange::noDatabaseFile::what() const throw() {
+  return "The data.csv file doesn't exists.";
+}
 
 const char *BitcoinExchange::amountOutOfRange::what() const throw() {
   return "Amount is out of range. Use between 0 and 1000.";

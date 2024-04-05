@@ -8,18 +8,28 @@
 # include <exception>
 # include <time.h>
 # include <cstdlib>
+# include <map>
+# include <algorithm>
 
 
 class BitcoinExchange {
 private:
+  std::map<std::string, float> list_;
   /**
    * @brief Default constructor.
    */
   BitcoinExchange();
+  void parseDatabase();
   /*
    * @brief Read and parse the input file.
    */
-  void parseInputFile(const char *file);
+  static void parseInputFile(const char *file);
+  /**
+   * @brief Check if the date is valid by
+   * day and month.
+   * @param date The reference to the data
+   * @return True if its valid otherwise false.
+   */
   static bool isValidData(const tm& date);
 
 public:
@@ -44,6 +54,10 @@ public:
    */
   ~BitcoinExchange();
 
+  class noDatabaseFile : public std::exception
+  {
+    const char *what() const throw();
+  };
 
   class amountOutOfRange : public std::exception
   {
