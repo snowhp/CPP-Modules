@@ -33,7 +33,6 @@ void BitcoinExchange::parseDatabase() {
   while (std::getline(databaseFile, str)) {
     if (str == "date,exchange_rate" && i++ == 0)
       continue;
-    // std::cout << str << std::endl;
 
     std::string datePart = str.substr(0, str.find(','));
     std::string amountPartStr = str.substr(str.find(',') + 1);
@@ -43,8 +42,6 @@ void BitcoinExchange::parseDatabase() {
 
     float date = std::strtof(datePart.c_str(), NULL);
 
-    // std::cout << "Date = " << datePart << " | Value = " << amountPartStr
-    //          << std::endl;
     this->list_.insert(std::pair<std::string, float>(amountPartStr, date));
     i++;
   }
@@ -58,7 +55,6 @@ void BitcoinExchange::parseInputFile(const char *file) {
   int i = 0;
 
   while (std::getline(fileStream, str)) {
-    // std::cout << str << std::endl;
     try {
       if (i == 0) {
         if (str != "date | value") {
@@ -83,7 +79,6 @@ void BitcoinExchange::parseInputFile(const char *file) {
         throw invalidDate();
       }
 
-      // std::cout << "Date format is " << datePart << std::endl;
       if (!amountPartStr.empty()) {
         char *pEnd;
         float a = std::strtof(&amountPartStr[0], &pEnd);
@@ -106,8 +101,6 @@ void BitcoinExchange::parseInputFile(const char *file) {
     } catch (std::exception &e) {
       std::cout << e.what() << std::endl;
     }
-
-    // std::cout << "\n";
 
     i++;
   }
