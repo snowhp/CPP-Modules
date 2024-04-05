@@ -8,15 +8,16 @@ template <typename T> std::string BitcoinExchange::NumberToString(T Number) {
 }
 
 float BitcoinExchange::findValue(float date) {
-  std::map<std::string, float>::iterator it = this->list_.begin();
-
   std::string bestMatch;
-  while (it != this->list_.end()) {
-    bestMatch = it->first;
+
+  for (std::map<std::string, float>::iterator it = this->list_.begin();
+       it != this->list_.end(); it++) {
     if (date <= it->second) {
+      if (date < it->second)
+        it--;
+      bestMatch = it->first;
       return (std::strtof(&bestMatch[0], NULL));
     }
-    it++;
   }
   return -1;
 }
@@ -32,7 +33,7 @@ void BitcoinExchange::parseDatabase() {
   while (std::getline(databaseFile, str)) {
     if (str == "date,exchange_rate" && i++ == 0)
       continue;
-    //std::cout << str << std::endl;
+    // std::cout << str << std::endl;
 
     std::string datePart = str.substr(0, str.find(','));
     std::string amountPartStr = str.substr(str.find(',') + 1);
@@ -82,7 +83,7 @@ void BitcoinExchange::parseInputFile(const char *file) {
         throw invalidDate();
       }
 
-      //std::cout << "Date format is " << datePart << std::endl;
+      // std::cout << "Date format is " << datePart << std::endl;
       if (!amountPartStr.empty()) {
         char *pEnd;
         float a = std::strtof(&amountPartStr[0], &pEnd);
@@ -97,15 +98,16 @@ void BitcoinExchange::parseInputFile(const char *file) {
                      datePart.end());
 
       float date = std::strtof(datePart.c_str(), NULL);
+      float amount = std::strtof(amountPartStr.c_str(), NULL);
 
       float value = findValue(date);
-      std::cout << datePartTmp << "=> " << amountPartStr << " = " << value
-                << std::endl;
+      std::cout << datePartTmp << "=> " << amountPartStr << " = "
+                << value * amount << std::endl;
     } catch (std::exception &e) {
       std::cout << e.what() << std::endl;
     }
 
-    //std::cout << "\n";
+    // std::cout << "\n";
 
     i++;
   }
