@@ -1,6 +1,13 @@
 // Created by tde-sous on 4/1/24.
 #include "BitcoinExchange.hpp"
 
+template <typename T>
+std::string BitcoinExchange::NumberToString(T Number) {
+  std::ostringstream ss;
+  ss << Number;
+  return ss.str();
+}
+
 void BitcoinExchange::parseDatabase() {
   std::ifstream databaseFile("data.csv", std::ifstream ::in);
   std::string str;
@@ -17,11 +24,13 @@ void BitcoinExchange::parseDatabase() {
     std::string datePart = str.substr(0, str.find(','));
     std::string amountPartStr = str.substr(str.find(',') + 1);
 
-    datePart.erase(std::remove(datePart.begin(), datePart.end(), '-'), datePart.end());
+    datePart.erase(std::remove(datePart.begin(), datePart.end(), '-'),
+                   datePart.end());
 
     float date = std::strtof(datePart.c_str(), NULL);
 
-    std::cout << "Date = " << datePart << " | Value = " << amountPartStr << std::endl;
+    std::cout << "Date = " << datePart << " | Value = " << amountPartStr
+              << std::endl;
     this->list_.insert(std::pair<std::string, float>(amountPartStr, date));
     i++;
   }
@@ -36,40 +45,43 @@ void BitcoinExchange::parseInputFile(const char *file) {
 
   while (std::getline(fileStream, str)) {
     std::cout << str << std::endl;
-
-    if (i == 0) {
-      if (str != "date | value") {
-        std::cout << "Line " << i + 1 << ": " << str << std::endl;
-        throw wrongHeader();
+    try {
+      if (i == 0) {
+        if (str != "date | value") {
+          std::cout << "Line " << i + 1 << ": " << str << std::endl;
+          throw wrongHeader();
+        }
+        i++;
+        continue;
       }
-      i++;
-      continue;
-    }
 
-    if (str.find(" | ") == std::string::npos) {
-      std::cout << "Line " << i + 1 << ": " << str << std::endl;
-      throw invalidFormat();
-    }
-
-    std::string datePart = str.substr(0, str.find(" | "));
-    std::string amountPartStr = str.substr(str.find(" | ") + 3);
-
-    struct tm tm = {};
-    if (!strptime(datePart.c_str(), "%Y-%m-%d", &tm) || !isValidData(tm)) {
-      std::cout << "Line " << i + 1 << ": " << str << std::endl;
-      throw invalidDate();
-    }
-
-    if (!amountPartStr.empty()) {
-      char *pEnd;
-      float a = std::strtof(&amountPartStr[0], &pEnd);
-      if (a < 0 || a > 1000) {
+      if (str.find(" | ") == std::string::npos) {
         std::cout << "Line " << i + 1 << ": " << str << std::endl;
-        throw amountOutOfRange();
+        throw invalidFormat();
       }
+
+      std::string datePart = str.substr(0, str.find(" | "));
+      std::string amountPartStr = str.substr(str.find(" | ") + 3);
+
+      struct tm tm = {};
+      if (!strptime(datePart.c_str(), "%Y-%m-%d", &tm) || !isValidData(tm)) {
+        std::cout << "Line " << i + 1 << ": " << str << std::endl;
+        throw invalidDate();
+      }
+      std::string date = NumberToString(tm.tm_year) + NumberToString(tm.tm_mon) + NumberToString(tm.tm_mday);
+      if (!amountPartStr.empty()) {
+        char *pEnd;
+        float a = std::strtof(&amountPartStr[0], &pEnd);
+        if (a < 0 || a > 1000) {
+          std::cout << "Line " << i + 1 << ": " << str << std::endl;
+          throw amountOutOfRange();
+        }
+      }
+    } catch (std::exception &e) {
+      std::cout << e.what() << std::endl;
     }
 
-    std::cout << "\n\n";
+    std::cout << "\n";
 
     i++;
   }
@@ -80,12 +92,16 @@ void BitcoinExchange::parseInputFile(const char *file) {
 bool BitcoinExchange::isValidData(const tm &date) {
   switch (date.tm_mon) {
   case 1:
-    if ((date.tm_year % 4 == 0 && date.tm_year % 100 != 0) || (date.tm_year % 400 == 0)) {
+    if ((date.tm_year % 4 == 0 && date.tm_year % 100 != 0) ||
+        (date.tm_year % 400 == 0)) {
       return date.tm_mday <= 29;
     } else {
       return date.tm_mday <= 28;
     }
-  case 3: case 5: case 8: case 10:
+  case 3:
+  case 5:
+  case 8:
+  case 10:
     return date.tm_mday <= 30;
   default:
     return date.tm_mday <= 31;

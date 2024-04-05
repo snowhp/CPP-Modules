@@ -10,11 +10,13 @@
 # include <cstdlib>
 # include <map>
 # include <algorithm>
-
+#include <sstream>
 
 class BitcoinExchange {
 private:
   std::map<std::string, float> list_;
+  template <typename T>
+  static std::string NumberToString ( T Number );
   /**
    * @brief Default constructor.
    */
