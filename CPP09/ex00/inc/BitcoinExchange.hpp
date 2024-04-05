@@ -2,21 +2,23 @@
 #ifndef EX00_BITCOINEXCHANGE_HPP
 #define EX00_BITCOINEXCHANGE_HPP
 
-# include <string>
-# include <iostream>
-# include <fstream>
-# include <exception>
-# include <time.h>
-# include <cstdlib>
-# include <map>
-# include <algorithm>
+#include <algorithm>
+#include <cstdlib>
+#include <exception>
+#include <fstream>
+#include <iostream>
+#include <map>
 #include <sstream>
+#include <string>
+#include <time.h>
 
 class BitcoinExchange {
 private:
   std::map<std::string, float> list_;
   template <typename T>
-  static std::string NumberToString ( T Number );
+  static std::string NumberToString(T Number);
+
+  float findValue(float date);
   /**
    * @brief Default constructor.
    */
@@ -25,14 +27,14 @@ private:
   /*
    * @brief Read and parse the input file.
    */
-  static void parseInputFile(const char *file);
+  void parseInputFile(const char *file);
   /**
    * @brief Check if the date is valid by
    * day and month.
    * @param date The reference to the data
    * @return True if its valid otherwise false.
    */
-  static bool isValidData(const tm& date);
+  static bool isValidData(const tm &date);
 
 public:
   /**
@@ -56,33 +58,27 @@ public:
    */
   ~BitcoinExchange();
 
-  class noDatabaseFile : public std::exception
-  {
+  class noDatabaseFile : public std::exception {
     const char *what() const throw();
   };
 
-  class amountOutOfRange : public std::exception
-  {
+  class amountOutOfRange : public std::exception {
     const char *what() const throw();
   };
 
-  class invalidDate : public std::exception
-  {
+  class invalidDate : public std::exception {
     const char *what() const throw();
   };
 
-  class invalidFormat : public std::exception
-  {
+  class invalidFormat : public std::exception {
     const char *what() const throw();
   };
 
-  class wrongHeader : public std::exception
-  {
-      const char *what() const throw();
+  class wrongHeader : public std::exception {
+    const char *what() const throw();
   };
 
-  class nothingToRead : public std::exception
-  {
+  class nothingToRead : public std::exception {
     const char *what() const throw();
   };
 };

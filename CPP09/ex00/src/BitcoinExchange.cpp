@@ -1,11 +1,24 @@
 // Created by tde-sous on 4/1/24.
 #include "BitcoinExchange.hpp"
 
-template <typename T>
-std::string BitcoinExchange::NumberToString(T Number) {
+template <typename T> std::string BitcoinExchange::NumberToString(T Number) {
   std::ostringstream ss;
   ss << Number;
   return ss.str();
+}
+
+float BitcoinExchange::findValue(float date) {
+  std::map<std::string, float>::iterator it = this->list_.begin();
+
+  std::string bestMatch;
+  while (it != this->list_.end()) {
+    bestMatch = it->first;
+    if (date <= it->second) {
+      return (std::strtof(&bestMatch[0], NULL));
+    }
+    it++;
+  }
+  return -1;
 }
 
 void BitcoinExchange::parseDatabase() {
@@ -19,7 +32,7 @@ void BitcoinExchange::parseDatabase() {
   while (std::getline(databaseFile, str)) {
     if (str == "date,exchange_rate" && i++ == 0)
       continue;
-    std::cout << str << std::endl;
+    //std::cout << str << std::endl;
 
     std::string datePart = str.substr(0, str.find(','));
     std::string amountPartStr = str.substr(str.find(',') + 1);
@@ -29,8 +42,8 @@ void BitcoinExchange::parseDatabase() {
 
     float date = std::strtof(datePart.c_str(), NULL);
 
-    std::cout << "Date = " << datePart << " | Value = " << amountPartStr
-              << std::endl;
+    // std::cout << "Date = " << datePart << " | Value = " << amountPartStr
+    //          << std::endl;
     this->list_.insert(std::pair<std::string, float>(amountPartStr, date));
     i++;
   }
@@ -44,7 +57,7 @@ void BitcoinExchange::parseInputFile(const char *file) {
   int i = 0;
 
   while (std::getline(fileStream, str)) {
-    std::cout << str << std::endl;
+    // std::cout << str << std::endl;
     try {
       if (i == 0) {
         if (str != "date | value") {
@@ -68,7 +81,8 @@ void BitcoinExchange::parseInputFile(const char *file) {
         std::cout << "Line " << i + 1 << ": " << str << std::endl;
         throw invalidDate();
       }
-      std::string date = NumberToString(tm.tm_year) + NumberToString(tm.tm_mon) + NumberToString(tm.tm_mday);
+
+      //std::cout << "Date format is " << datePart << std::endl;
       if (!amountPartStr.empty()) {
         char *pEnd;
         float a = std::strtof(&amountPartStr[0], &pEnd);
@@ -77,11 +91,21 @@ void BitcoinExchange::parseInputFile(const char *file) {
           throw amountOutOfRange();
         }
       }
+
+      std::string datePartTmp = datePart;
+      datePart.erase(std::remove(datePart.begin(), datePart.end(), '-'),
+                     datePart.end());
+
+      float date = std::strtof(datePart.c_str(), NULL);
+
+      float value = findValue(date);
+      std::cout << datePartTmp << "=> " << amountPartStr << " = " << value
+                << std::endl;
     } catch (std::exception &e) {
       std::cout << e.what() << std::endl;
     }
 
-    std::cout << "\n";
+    //std::cout << "\n";
 
     i++;
   }
