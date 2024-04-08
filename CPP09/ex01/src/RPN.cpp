@@ -14,9 +14,9 @@ RPN::RPN(char *input) : input_(input) {
     else if (input_.find_first_of("+/*-", i) == i) {
       if (this->list_.size() < 2)
         throw notEnoughNumbers();
-      a = list_.top();
-      list_.pop();
       b = list_.top();
+      list_.pop();
+      a = list_.top();
       list_.pop();
       if (input_[i] == '+')
         list_.push(a + b);
@@ -30,7 +30,9 @@ RPN::RPN(char *input) : input_(input) {
         list_.push(a * b);
     }
   }
-  std::cout << "Last element was " << list_.top() << std::endl;
+  if (list_.size() != 1)
+    throw notEnoughOperators();
+  std::cout << "Result is: " << list_.top() << std::endl;
 }
 
 RPN::RPN(const RPN &other) { (void)other; }
@@ -48,4 +50,8 @@ const char *RPN::noDivisionByZero::what() const throw() {
 
 const char *RPN::notEnoughNumbers::what() const throw() {
   return "Not enough number to perform operation";
+}
+
+const char *RPN::notEnoughOperators::what() const throw() {
+  return "Not enough operators to perform operation.";
 }

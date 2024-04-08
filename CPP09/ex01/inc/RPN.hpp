@@ -47,6 +47,10 @@ public:
   class notEnoughNumbers : public std::exception {
     const char *what() const throw();
   };
+
+  class notEnoughOperators : public std::exception {
+    const char *what() const throw();
+  };
 };
 
 #endif // EX01_RPN_HPP
