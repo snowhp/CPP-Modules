@@ -19,10 +19,15 @@ PmergeMe::PmergeMe(std::vector<int> list)
   }
 }
 
-PmergeMe::PmergeMe(const PmergeMe &other) { (void)other; }
+PmergeMe::PmergeMe(const PmergeMe &other)
+    : vector_(other.vector_.begin(), other.vector_.end()),
+      deque_(other.deque_.begin(), other.deque_.end()) {}
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
-  (void)other;
+  if (this != &other) {
+    this->vector_ = other.vector_;
+    this->deque_ = other.deque_;
+  }
   return *this;
 }
 
