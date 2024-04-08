@@ -2,12 +2,28 @@
 #ifndef EX01_RPN_HPP
 #define EX01_RPN_HPP
 
+#include <iostream>
+#include <stack>
+#include <algorithm>
+#include <exception>
+
 class RPN {
-public:
+private:
+
+  std::string input_;
+  std::stack<float> list_;
+
   /**
    * @brief Default constructor.
    */
   RPN();
+
+public:
+  /**
+   * @brief Constructor with input param.
+   * @param input The input given by the user.
+   */
+  RPN(char *input);
   /**
    * @brief Copy constructor.
    * @param other The other RPN to copy.
@@ -23,6 +39,14 @@ public:
    * @brief Destructor.
    */
   ~RPN();
+
+  class noDivisionByZero : public std::exception {
+    const char *what() const throw();
+  };
+
+  class notEnoughNumbers : public std::exception {
+    const char *what() const throw();
+  };
 };
 
 #endif // EX01_RPN_HPP
