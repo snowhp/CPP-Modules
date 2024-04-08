@@ -2,6 +2,10 @@
 #ifndef EX02_PMERGEME_HPP
 #define EX02_PMERGEME_HPP
 
+#include <iostream>
+#include <cstdlib>
+#include <limits>
+
 class PmergeMe {
 public:
   /**
