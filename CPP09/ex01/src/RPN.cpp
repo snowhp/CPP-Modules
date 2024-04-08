@@ -35,10 +35,14 @@ RPN::RPN(char *input) : input_(input) {
   std::cout << "Result is: " << list_.top() << std::endl;
 }
 
-RPN::RPN(const RPN &other) { (void)other; }
+RPN::RPN(const RPN &other) : input_(other.input_), list_(other.list_){ }
 
 RPN &RPN::operator=(const RPN &other) {
-  (void)other;
+  if (this != &other)
+  {
+    this->input_ = other.input_;
+    this->list_ = other.list_;
+  }
   return *this;
 }
 
