@@ -20,10 +20,10 @@ private:
 
 public:
   /**
-   * @brief Constructor with input param.
+   * @brief Constructor with input param and solve the RPN.
    * @param input The input given by the user.
    */
-  RPN(char *input);
+  explicit RPN(char *input);
   /**
    * @brief Copy constructor.
    * @param other The other RPN to copy.
