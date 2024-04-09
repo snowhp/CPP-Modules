@@ -13,8 +13,10 @@ float BitcoinExchange::findValue(float date) {
   for (std::map<std::string, float>::iterator it = this->list_.begin();
        it != this->list_.end(); it++) {
     if (date <= it->second) {
-      if (date < it->second)
-        it--;
+      if (date < it->second) {
+        if (it != list_.begin())
+          it--;
+      }
       bestMatch = it->first;
       return (std::strtof(&bestMatch[0], NULL));
     }
