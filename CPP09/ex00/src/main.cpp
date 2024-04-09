@@ -14,11 +14,8 @@ int main(int argc, char **argv) {
   std::ifstream inputFile(argv[1]);
   if (!inputFile.is_open())
     return (std::cout << "Couldn't open the file " << argv[1] << std::endl, 0);
-  try {
+  if (inputFile.peek() == std::ifstream::traits_type::eof())
+    return (std::cout << "No content on the file " << argv[1] << std::endl, 0);
   BitcoinExchange wallet(argv[1]);
-  }
-  catch (std::exception &e) {
-      std::cout << e.what() << std::endl;
-  }
   inputFile.close();
 }
