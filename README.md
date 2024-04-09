@@ -190,6 +190,24 @@ This repository contains the C++ (CPP) modules completed as part of the curricul
 - **std::stack** [cppreference](https://cplusplus.com/reference/stack/stack/)
 </details>
 
+<details>
+<summary>Module 09 - STL</summary>
+
+- [ex00 - File manipulation, std::map, time parsing](./CPP09/ex00/)
+- [ex01 - Reverse Polish Notation, std::stack, input parsing](./CPP09/ex01/)
+- [ex02 - Merge sort algorithm, std::vector, std::deque, input parsing](./CPP09/ex02/)
+
+### Resources
+- **Substring in C++** [geeksforgeeks](https://www.geeksforgeeks.org/substring-in-cpp/)
+- **C++ parse date/time with microseconds** [stackoverflow](https://stackoverflow.com/questions/44398598/c-parse-date-time-with-microseconds)
+- **std::ifstream::ifstream** [cplusplus](https://cplusplus.com/reference/fstream/ifstream/ifstream/)
+- **std::map one key, two values** [stackoverflow](https://stackoverflow.com/questions/5560573/stdmap-one-key-two-values)
+- **static template functions in a class** [stackoverflow](https://stackoverflow.com/questions/9346076/static-template-functions-in-a-class)
+- **Reverse Polish Notation and The Stack ** [Computerphile](https://www.youtube.com/watch?v=7ha78yWRDlE&ab_channel=Computerphile)
+- **What is Reverse Polish Notation (AKA Postfix Notation)? Why is it Important?** [Gary Explains](https://www.youtube.com/watch?v=QM_RsQ9Yeio&t=425s&ab_channel=GaryExplains)
+- **calculating execution time in c++** [stackoverflow](https://stackoverflow.com/questions/876901/calculating-execution-time-in-c)
+</details>
+
 
 ## Getting Started
 
