@@ -55,7 +55,6 @@ void BitcoinExchange::parseInputFile(const char *file) {
   int i = 0;
 
   while (std::getline(fileStream, str)) {
-    try {
       if (i == 0) {
         if (str != "date | value") {
           std::cout << "Line " << i + 1 << ": " << str << std::endl;
@@ -98,9 +97,6 @@ void BitcoinExchange::parseInputFile(const char *file) {
       float value = findValue(date);
       std::cout << datePartTmp << "=> " << amountPartStr << " = "
                 << value * amount << std::endl;
-    } catch (std::exception &e) {
-      std::cout << e.what() << std::endl;
-    }
 
     i++;
   }
