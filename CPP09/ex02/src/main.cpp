@@ -27,8 +27,8 @@ int main(int argc, char **argv) {
   }
 
   try {
-
     PmergeMe obj(list);
+    obj.sort();
   } catch (const std::exception &e) {
     std::cout << e.what() << std::endl;
   }

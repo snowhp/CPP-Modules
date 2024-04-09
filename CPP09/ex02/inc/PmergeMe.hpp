@@ -8,6 +8,7 @@
 #include <deque>
 #include <vector>
 #include <exception>
+#include <ctime>
 
 class PmergeMe {
 private:
@@ -15,11 +16,27 @@ private:
    * @brief Default constructor.
    */
   PmergeMe();
+  /**
+   *
+   * @brief Merge containers.
+   * @tparam Container Type of the container.
+   * @param cont Container to be sorted.
+   */
+  template<typename Container> void mergeContainer(Container & cont);
+  /**
+   *
+   * @tparam Container Type of the container.
+   * @param cont Container to be sorted.
+   * @param left Left branch of the container.
+   * @param right  Right branch of the container.
+   */
+  template<typename Container> void sortContainer(Container & cont, Container & left, Container & right);
 
   std::vector<int> vector_;
   std::deque<int> deque_;
 
 public:
+  void sort();
   /**
    * @brief Constructor with the stack.
    * @param list The stack to be sorted.
