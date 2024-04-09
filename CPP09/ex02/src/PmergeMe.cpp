@@ -3,6 +3,21 @@
 
 PmergeMe::PmergeMe() {}
 
+template <typename Container> bool PmergeMe::isSorted(Container &cont) {
+  typename Container::const_iterator it = cont.begin();
+
+  int prev = *it;
+
+  while (it != cont.end()) {
+    it++;
+    if (it == cont.end())
+      break;
+    if (*it < prev)
+      return false;
+  }
+  return true;
+}
+
 template <typename Container> void PmergeMe::mergeContainer(Container &cont) {
   if (cont.size() == 1)
     return;
@@ -33,13 +48,14 @@ void PmergeMe::sortContainer(Container &cont, Container &left,
 void PmergeMe::sort() {
   clock_t tStart = clock();
   mergeContainer(vector_);
-  std::cout << "Time to process a range of 5 elements with std::[vector] : "
-            << (double)(clock() - tStart) / CLOCKS_PER_SEC * 1000000 << " us"
-            << std::endl;
-
+  if (isSorted(vector_))
+    std::cout << "Time to process a range of 5 elements with std::[vector] : "
+              << (double)(clock() - tStart) / CLOCKS_PER_SEC * 1000000 << " us"
+              << std::endl;
 
   tStart = clock();
   mergeContainer(deque_);
+  if (isSorted(deque_))
   std::cout << "Time to process a range of 5 elements with std::[deque] : "
             << (double)(clock() - tStart) / CLOCKS_PER_SEC * 1000000 << " us"
             << std::endl;
@@ -49,7 +65,6 @@ PmergeMe::PmergeMe(std::vector<int> list)
     : vector_(list), deque_(list.begin(), list.end()) {
   for (std::vector<int>::iterator it = vector_.begin(); it != vector_.end();
        it++) {
-    std::cout << *it << std::endl;
     std::vector<int>::iterator it_tmp = it;
     while (it_tmp != vector_.end()) {
       it_tmp++;

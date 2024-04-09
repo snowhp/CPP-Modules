@@ -16,6 +16,7 @@ private:
    * @brief Default constructor.
    */
   PmergeMe();
+  template<typename Container> static bool isSorted(Container & cont);
   /**
    *
    * @brief Merge containers.
