@@ -4,7 +4,6 @@
 PmergeMe::PmergeMe() {}
 
 template <typename Container> void PmergeMe::mergeContainer(Container &cont) {
-  std::cout << "Started" << std::endl;
   if (cont.size() == 1)
     return;
   int middle = cont.size() / 2;
@@ -25,9 +24,9 @@ void PmergeMe::sortContainer(Container &cont, Container &left,
     else
       cont[i++] = right[r++];
   }
-  while (left.size() > 0)
+  while (l < left.size())
     cont[i++] = left[l++];
-  while (right.size() > 0)
+  while (r < right.size())
     cont[i++] = right[r++];
 }
 
@@ -41,7 +40,7 @@ void PmergeMe::sort() {
 
   tStart = clock();
   mergeContainer(deque_);
-  std::cout << "Time to process a range of 5 elements with std::[vector] : "
+  std::cout << "Time to process a range of 5 elements with std::[deque] : "
             << (double)(clock() - tStart) / CLOCKS_PER_SEC * 1000000 << " us"
             << std::endl;
 }
@@ -53,11 +52,13 @@ PmergeMe::PmergeMe(std::vector<int> list)
     std::cout << *it << std::endl;
     std::vector<int>::iterator it_tmp = it;
     while (it_tmp != vector_.end()) {
-      if (*it_tmp == *it && it_tmp != vector_.end()) {
+      it_tmp++;
+      if (it_tmp == vector_.end())
+        break;
+      if (it_tmp != vector_.end() && *it_tmp == *it) {
         std::cout << "Error: Duplicated number detected: " << *it << std::endl;
         throw duplicatedNumbers();
       }
-      it_tmp++;
     }
   }
 }
