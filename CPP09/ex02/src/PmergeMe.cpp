@@ -50,15 +50,13 @@ void PmergeMe::sort() {
   mergeContainer(vector_);
   if (isSorted(vector_))
     std::cout << "Time to process a range of 5 elements with std::[vector] : "
-              << (double)(clock() - tStart) / CLOCKS_PER_SEC * 1000000 << " us"
-              << std::endl;
+              << float(clock() - tStart) / CLOCKS_PER_SEC << " us" << std::endl;
 
   tStart = clock();
   mergeContainer(deque_);
   if (isSorted(deque_))
-  std::cout << "Time to process a range of 5 elements with std::[deque] : "
-            << (double)(clock() - tStart) / CLOCKS_PER_SEC * 1000000 << " us"
-            << std::endl;
+    std::cout << "Time to process a range of 5 elements with std::[deque] : "
+              << float(clock() - tStart) / CLOCKS_PER_SEC << " us" << std::endl;
 }
 
 PmergeMe::PmergeMe(std::vector<int> list)
