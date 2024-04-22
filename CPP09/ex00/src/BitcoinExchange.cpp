@@ -7,18 +7,17 @@ template <typename T> std::string BitcoinExchange::NumberToString(T Number) {
   return ss.str();
 }
 
-float BitcoinExchange::findValue(float date) {
+float BitcoinExchange::findValue(std::string date) {
   std::string bestMatch;
 
   for (std::map<std::string, float>::iterator it = this->list_.begin();
        it != this->list_.end(); it++) {
-    if (date <= it->second) {
-      if (date < it->second) {
+    if (date <= it->first) {
+      if (date < it->first) {
         if (it != list_.begin())
           it--;
       }
-      bestMatch = it->first;
-      return (std::strtof(&bestMatch[0], NULL));
+      return it->second;
     }
   }
   return -1;
@@ -39,12 +38,8 @@ void BitcoinExchange::parseDatabase() {
     std::string datePart = str.substr(0, str.find(','));
     std::string amountPartStr = str.substr(str.find(',') + 1);
 
-    datePart.erase(std::remove(datePart.begin(), datePart.end(), '-'),
-                   datePart.end());
-
-    float date = std::strtof(datePart.c_str(), NULL);
-
-    this->list_.insert(std::pair<std::string, float>(amountPartStr, date));
+    this->list_.insert(std::make_pair<std::string, float>(
+        datePart, std::atof(amountPartStr.c_str())));
     i++;
   }
   if (i == 0)
@@ -91,13 +86,10 @@ void BitcoinExchange::parseInputFile(const char *file) {
       }
 
       std::string datePartTmp = datePart;
-      datePart.erase(std::remove(datePart.begin(), datePart.end(), '-'),
-                     datePart.end());
 
-      float date = std::strtof(datePart.c_str(), NULL);
-      float amount = std::strtof(amountPartStr.c_str(), NULL);
+      float amount = std::atof(amountPartStr.c_str());
 
-      float value = findValue(date);
+      float value = findValue(datePart);
       std::cout << datePartTmp << "=> " << amountPartStr << " = "
                 << value * amount << std::endl;
     } catch (std::exception &e) {

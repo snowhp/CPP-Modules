@@ -18,7 +18,7 @@ private:
   template <typename T>
   static std::string NumberToString(T Number);
 
-  float findValue(float date);
+  float findValue(std::string date);
   /**
    * @brief Default constructor.
    */
