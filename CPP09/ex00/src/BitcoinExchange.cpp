@@ -8,10 +8,9 @@ template <typename T> std::string BitcoinExchange::NumberToString(T Number) {
 }
 
 float BitcoinExchange::findValue(std::string date) {
-  std::string bestMatch;
 
-  for (std::map<std::string, float>::iterator it = this->list_.begin();
-       it != this->list_.end(); it++) {
+  std::map<std::string, float>::iterator it = this->list_.begin();
+  while (it != this->list_.end()) {
     if (date <= it->first) {
       if (date < it->first) {
         if (it != list_.begin())
@@ -19,8 +18,11 @@ float BitcoinExchange::findValue(std::string date) {
       }
       return it->second;
     }
+    it++;
   }
-  return -1;
+  if (it == this->list_.end() && this->list_.size() > 1)
+    it--;
+  return it->second;
 }
 
 void BitcoinExchange::parseDatabase() {
