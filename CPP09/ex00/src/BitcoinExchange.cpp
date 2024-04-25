@@ -70,6 +70,9 @@ void BitcoinExchange::parseInputFile(const char *file) {
       std::string datePart = str.substr(0, str.find(" | "));
       std::string amountPartStr = str.substr(str.find(" | ") + 3);
 
+      if (datePart.empty() || amountPartStr.empty())
+        throw invalidFormat();
+
       struct tm tm = {};
       if (!strptime(datePart.c_str(), "%Y-%m-%d", &tm) || !isValidData(tm)) {
         std::cout << "Line " << i + 1 << ": " << str << std::endl;
